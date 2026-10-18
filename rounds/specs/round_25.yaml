@@ -1,0 +1,57 @@
+# Round 25 — Auditoria de comparabilidade: reversão condicional do tratamento de outlier do
+# Round 08 nas 3 combinações cujo campeão vem de era de dados anterior. Família `full`.
+round: 25
+hypothesis: >
+  Auditando os 12 combos contra a corrida completa mais recente sob a configuração vigente
+  (results/202608161754_v23.json — 12 combos × 5 modos de pré-processamento × família `full`),
+  9 campeões do painel são reproduzidos exatamente e 3 não são: TAEE4×resultado_bruto (campeão
+  ARIMA `diff`, FIT 44.0, U₂ 0.931, vindo de v3 — anterior ao Round 08), ALUP4×resultado_bruto
+  (ARIMAX, FIT 44.9, U₂ 0.868, de v2 — anterior a qualquer tratamento) e
+  ALUP4×despesas_operacionais (Wiener-W2, FIT 2.4, U₂ 0.750, de v5 — era R04). Nos três casos a
+  divergência coincide exatamente com uma entrada que o Round 08 acrescentou a `SPIKE_KNOWN`:
+  TC 2023-12-31 (TAEE4×res_bruto), AO 2019-03-31 (ALUP4×res_bruto) e AO 2022-06-30
+  (ALUP4×desp_oper). O caso severo é TAEE4×resultado_bruto: sob a configuração vigente nenhum
+  modelo de nenhuma família bate o Random Walk (SS 1.041, DampedTrend 1.027, Hammerstein-H1
+  1.391, Wiener-W1 1.271, verificado em v8–v23), de modo que o painel credita a essa combinação
+  um U₂<1 obtido sobre série tratada de outra forma. O Round 08 já havia observado o mesmo
+  padrão na ALUP4 (lucro_consolidado 27.2%→9.7%, resultado_bruto 44.9%→43.8%) e a reação foi
+  manter o campeão pré-tratamento em prosa, sem tocar em `config.py` — que segue aplicando o
+  tratamento rejeitado. Hipótese testável: as datas em disputa não são artefato contábil aditivo
+  e sim dinâmica genuína da série; retirá-las do tratamento (mantendo intactas a detecção
+  automática z>5 e as dummies LS) restaura o poder preditivo perdido — em particular devolve
+  U₂<1 a TAEE4×resultado_bruto. Fundamento: Ledolter (1989) mostra que a correção de outlier
+  aditivo degrada a previsão quando a observação carrega informação sobre o processo, e Tsay
+  (1988) documenta o mesmo mecanismo por má-classificação (LS/inovação tratados como AO); como a
+  classificação por resíduos (protocolo metodológico §11.2/11.3) é ela própria estimada, a performance
+  out-of-sample é o teste falsificável dessa classificação. Anti-data-snooping: as datas são
+  pré-especificadas (exatamente as adições do Round 08 nessas 3 combinações, uma por combinação),
+  a decisão é binária por combinação (tratar/não tratar, sem grid) e o braço de controle já
+  existe e não é reotimizado (v23 para `full`). Condição de falsificação: se a reversão não
+  restaurar U₂<1 em TAEE4×resultado_bruto, a combinação passa a falha declarada de gate U₂ e o
+  painel adota v23 para os 3 combos, registrando v2/v3/v5 como artefato de era de tratamento.
+justification: "protocolo metodológico §27 (novo); Ledolter, J. (1989), IJF 5(2), 231-240; Tsay, R.S. (1988), Journal of Forecasting 7(1), 1-20; Chen, C. & Liu, L.M. (1993), JASA 88(421), 284-297 (tipologia AO/LS/TC)"
+baseline_json: results/202608161754_v23.json
+combos: [[20257, resultado_bruto], [21490, resultado_bruto], [21490, despesas_operacionais]]
+models: full
+preproc: search
+exog: {source: results/exog_selection_v11.json}
+spike_revert:
+  - {empresa: 20257, indicador: resultado_bruto,       dates: ["2023-12-31"]}
+  - {empresa: 21490, indicador: resultado_bruto,       dates: ["2019-03-31"]}
+  - {empresa: 21490, indicador: despesas_operacionais, dates: ["2022-06-30"]}
+version: 25
+success_criteria:
+  fit_gain_pp: 0.0
+  dm_pvalue_max: 0.10
+  note: >
+    Critério de promoção por combinação (protocolo metodológico §27, "Condição de promoção"): braço
+    revertido adotado só se (i) U₂<1, (ii) FIT% maior que o braço tratado (v23 para `full`) e
+    (iii) o evento tiver leitura econômica de dinâmica genuína. `fit_gain_pp: 0.0` porque o
+    ganho relevante aqui é o gate U₂ e a reprodutibilidade sob configuração única, não um salto
+    de FIT — mas nenhuma reversão é adotada se o FIT piorar. `dm_pvalue_max` registra
+    significância quando houver, sem ser condição necessária (mesmo padrão dos Rounds 17/21).
+next_round: >
+  Round 26 (`models: [WIENER]`, mesmo `spike_revert`, mesmos 3 combos) — necessário porque o
+  campeão registrado de ALUP4×despesas_operacionais é Wiener-W2-Piecewise e a família não entra
+  em `models: full`. Depois Round 27 (`models: [HAMMERSTEIN]`) para fechar o espaço de famílias
+  não-lineares sob o braço revertido.

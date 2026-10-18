@@ -1,0 +1,21 @@
+# Round 09 reconstructed as a spec — acceptance test for the spec-driven runner.
+# Original: hand-written `run_round09()` in main.py (kept as-is for historical reproducibility).
+# Executing this spec must reproduce results/202608091106_v9.json numerically
+# (percentual_fit, theil_u2, rmse, etc. — descricao_parametros text may differ cosmetically,
+# checked by the round runner in main.py).
+round: 9
+hypothesis: >
+  Round 09 — ISAE4×resultado_bruto: Hammerstein-H1-Sigmoid (f=sigmoid, diff) + IPA-M como
+  exógena. Replicação exata de R06a com adição de IPA-M. Hipótese: IPA-M captura pressão
+  inflacionária nos insumos regulados da ISAE4, melhorando FIT% além dos 52.2% (R06a sem exog).
+justification: "protocolo metodológico §14.2 (Hammerstein); Narendra & Gallman (1966)"
+baseline_json: results/202608081559_v8.json
+combos: [[18376, resultado_bruto]]
+models: [HAMMERSTEIN]
+nl_configs: [H1-Sigmoid]
+preproc: diff
+exog: {source: results/exog_selection_v9.json}
+version: 9
+next_round: >
+  Round 10 — se IPA-M não trouxer ganho significativo, avaliar IPCA ou declarar
+  ISAE4×res_bruto como teto alcançado com H6a (52.2%, DM-p=0.012*).

@@ -1,0 +1,4 @@
+variante,indicador,indicator_label,P,K,coincidencias,taxa,taxa_pct
+categorical,resultado_bruto,Net Revenue,4,63,1,0.015873015873015872,1.587
+categorical,lucro_consolidado,Net Income,4,63,13,0.20634920634920634,20.635
+categorical,despesas_operacionais,Operational Expenses,4,63,1,0.015873015873015872,1.587

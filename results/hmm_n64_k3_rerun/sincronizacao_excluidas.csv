@@ -1,0 +1,5 @@
+variante,na_tabela,escopo,ajuste,series_sem_ajuste,quais
+arhmm,False,"fora: sincronização restrita ao HMM categórico, como no congresso",ajustou nas 12 séries,0,
+categorical,True,na tabela,ajustou nas 12 séries,0,
+gaussian,False,"fora: sincronização restrita ao HMM categórico, como no congresso",ajustou nas 12 séries,0,
+gmm,False,"fora: sincronização restrita ao HMM categórico, como no congresso",ajustou nas 12 séries,0,

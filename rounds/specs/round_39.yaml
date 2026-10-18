@@ -1,0 +1,47 @@
+# Round 39 — campeões congelados sob tratamento de outliers por regra pré-fixada.
+# Exploratório, só para o manuscrito; protocolo metodológico §30.
+# Reabre a frente de tratamento de outliers, que estava fechada, por um motivo novo:
+# a revisão do manuscrito (2026-10-12) aponta que declarar as
+# três propriedades do tratamento vigente não as corrige — reversões decididas pela métrica,
+# imputação com y(k+1) e imputação do corte real de receita da MP 579. Decisões do autor
+# (2026-10-12): só no manuscrito; campeões congelados, sem busca nova; as quatro células da MP 579
+# no valor registrado; a lista de datas mantida e declarada.
+round: 39
+hypothesis: >
+  O tratamento vigente de outliers tem três propriedades que favorecem a acurácia medida: três
+  reversões escolhidas porque melhoravam FIT% ou U₂ da própria combinação, imputação por
+  interpolação linear que usa o trimestre seguinte (15 origens e 15 alvos da janela de avaliação)
+  e imputação de quatro células que registram o evento real da MP 579. Sob uma regra fixada antes
+  da execução — toda célula marcada imputada, imputação causal y(k−1), células da MP 579 brutas —
+  reexecuta-se o campeão de cada uma das 12 combinações com família, ordem, modo, λ, d e conjunto
+  exógeno congelados. Previsões pré-registradas: (a) TAEE4×resultado_bruto perde o gate U₂ < 1, como
+  no Round 25 sob interpolação; (b) o FIT% médio cai e o U₂ médio sobe, porque um alvo imputado por
+  y(k−1) é previsto sem erro pelo passeio aleatório; (c) a perda se concentra nas combinações com
+  alvos imputados na janela de avaliação, e as que só têm células alteradas dentro de MIN_TRAIN
+  mudam menos de 3 p.p.; (d) o excesso médio sobre o AR(1) cai. Falsificação da hipótese de
+  que o tratamento infla a acurácia: |ΔFIT| < 2 p.p. em todas as 12, nenhuma perda do gate U₂ e
+  excesso médio sobre o AR(1) inalterado (±1 p.p.). Nesse caso o painel é robusto ao tratamento e o
+  manuscrito reporta o round como robustez em 3.2. Como os modelos foram eleitos sob o tratamento
+  antigo, o resultado é um piso do que uma busca refeita atingiria.
+justification: >
+  protocolo metodológico §30; Tashman, L.J. (2000), Out-of-sample tests of forecasting accuracy, IJF 16(4),
+  437-450; Kaufman, S. et al. (2012), Leakage in data mining, ACM TKDD 6(4); Chen, C. & Liu, L.M.
+  (1993), JASA 88(421), 284-297; Ledolter, J. (1989), IJF 5(2), 231-240.
+combos: all
+models: FIXED_RULE_TREATMENT
+preproc: search
+exog: none
+version: 39
+success_criteria:
+  fit_change_pp: 2.0
+  excess_change_pp: 1.0
+  dm_pvalue_max: 0.10
+  multiplicity: holm_non_arima
+  note: >
+    Relatar as 12, inclusive as que não mudam: FIT%, U₂, ρ₁ e excesso sobre o AR(1) nas duas
+    séries, as células alteradas e quantas são alvos, DM fixa×ARIMA com Holm. Confirmar que o lote
+    sobre a série vigente reproduz o FIT% armazenado do campeão (|diferença| ≤ 0,05 p.p.).
+next_round: >
+  Decisão do autor sobre como o manuscrito usa o round — números principais (com cascata em
+  Tabela 3, Fig. 2, significância e resumo) ou robustez em 3.2/4.4 — e se a metade HMM é refeita
+  sobre a mesma série, para manter o tratamento único nas duas metades.

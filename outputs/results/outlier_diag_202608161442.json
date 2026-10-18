@@ -1,0 +1,310 @@
+{
+  "meta": {
+    "run_date": "2026-08-16 14:42",
+    "protocol": "residual_based_outlier_detection",
+    "parameters": {
+      "z_thresh_series": 5.0,
+      "z_thresh_residuals": 3.0,
+      "level_shift_window": 8,
+      "tc_decay_window": 3,
+      "ls_threshold_factor": 0.5
+    }
+  },
+  "combinations": {
+    "2437_resultado_bruto": {
+      "empresa": "ELET6",
+      "indicador": "resultado_bruto",
+      "preproc": "raw",
+      "arima_order": [
+        0,
+        0,
+        1
+      ],
+      "already_imputed": [
+        "2016-06-30"
+      ],
+      "n_flagged_step1": 1,
+      "step2_classified": [
+        {
+          "timestamp": "2018-12-31",
+          "z_residual": -5.596,
+          "type": "LS",
+          "already_imputed": false
+        }
+      ],
+      "new_outliers": [
+        "2018-12-31(LS)"
+      ],
+      "action_recommended": "add_ls_dummy"
+    },
+    "2437_lucro_consolidado": {
+      "empresa": "ELET6",
+      "indicador": "lucro_consolidado",
+      "preproc": "raw",
+      "arima_order": [
+        2,
+        0,
+        2
+      ],
+      "already_imputed": [
+        "2012-12-31",
+        "2016-06-30",
+        "2018-12-31"
+      ],
+      "n_flagged_step1": 2,
+      "step2_classified": [
+        {
+          "timestamp": "2015-12-31",
+          "z_residual": -3.289,
+          "type": "LS",
+          "already_imputed": false
+        },
+        {
+          "timestamp": "2025-12-31",
+          "z_residual": 3.728,
+          "type": "AO",
+          "already_imputed": false
+        }
+      ],
+      "new_outliers": [
+        "2015-12-31(LS)",
+        "2025-12-31(AO)"
+      ],
+      "action_recommended": "add_ls_dummy"
+    },
+    "2437_despesas_operacionais": {
+      "empresa": "ELET6",
+      "indicador": "despesas_operacionais",
+      "preproc": "raw",
+      "arima_order": [
+        1,
+        0,
+        1
+      ],
+      "already_imputed": [
+        "2012-12-31",
+        "2015-12-31",
+        "2018-12-31"
+      ],
+      "n_flagged_step1": 2,
+      "step2_classified": [
+        {
+          "timestamp": "2014-12-31",
+          "z_residual": 3.027,
+          "type": "AO",
+          "already_imputed": false
+        },
+        {
+          "timestamp": "2024-09-30",
+          "z_residual": 3.181,
+          "type": "LS",
+          "already_imputed": false
+        }
+      ],
+      "new_outliers": [
+        "2014-12-31(AO)",
+        "2024-09-30(LS)"
+      ],
+      "action_recommended": "add_ls_dummy"
+    },
+    "18376_resultado_bruto": {
+      "empresa": "ISAE4",
+      "indicador": "resultado_bruto",
+      "preproc": "log+diff",
+      "arima_order": [
+        2,
+        0,
+        0
+      ],
+      "already_imputed": [
+        "2013-03-31",
+        "2016-09-30"
+      ],
+      "n_flagged_step1": 2,
+      "step2_classified": [
+        {
+          "timestamp": "2013-06-30",
+          "z_residual": -3.134,
+          "type": "AO",
+          "already_imputed": false
+        },
+        {
+          "timestamp": "2020-12-31",
+          "z_residual": -3.546,
+          "type": "AO",
+          "already_imputed": false
+        }
+      ],
+      "new_outliers": [
+        "2013-06-30(AO)",
+        "2020-12-31(AO)"
+      ],
+      "action_recommended": "impute_ao"
+    },
+    "18376_lucro_consolidado": {
+      "empresa": "ISAE4",
+      "indicador": "lucro_consolidado",
+      "preproc": "raw",
+      "arima_order": null,
+      "already_imputed": [
+        "2016-09-30",
+        "2020-12-31"
+      ],
+      "n_flagged_step1": 0,
+      "step2_classified": [],
+      "new_outliers": [],
+      "action_recommended": "none"
+    },
+    "18376_despesas_operacionais": {
+      "empresa": "ISAE4",
+      "indicador": "despesas_operacionais",
+      "preproc": "raw",
+      "arima_order": null,
+      "already_imputed": [
+        "2013-09-30",
+        "2020-12-31",
+        "2024-09-30"
+      ],
+      "n_flagged_step1": 0,
+      "step2_classified": [],
+      "new_outliers": [],
+      "action_recommended": "none"
+    },
+    "20257_resultado_bruto": {
+      "empresa": "TAEE4",
+      "indicador": "resultado_bruto",
+      "preproc": "diff",
+      "arima_order": null,
+      "already_imputed": [
+        "2023-12-31"
+      ],
+      "n_flagged_step1": 0,
+      "step2_classified": [],
+      "new_outliers": [],
+      "action_recommended": "none"
+    },
+    "20257_lucro_consolidado": {
+      "empresa": "TAEE4",
+      "indicador": "lucro_consolidado",
+      "preproc": "diff",
+      "arima_order": null,
+      "already_imputed": [
+        "2022-12-31"
+      ],
+      "n_flagged_step1": 0,
+      "step2_classified": [],
+      "new_outliers": [],
+      "action_recommended": "none"
+    },
+    "20257_despesas_operacionais": {
+      "empresa": "TAEE4",
+      "indicador": "despesas_operacionais",
+      "preproc": "raw",
+      "arima_order": [
+        1,
+        0,
+        1
+      ],
+      "already_imputed": [
+        "2022-12-31"
+      ],
+      "n_flagged_step1": 1,
+      "step2_classified": [
+        {
+          "timestamp": "2020-12-31",
+          "z_residual": 3.701,
+          "type": "AO",
+          "already_imputed": false
+        }
+      ],
+      "new_outliers": [
+        "2020-12-31(AO)"
+      ],
+      "action_recommended": "impute_ao"
+    },
+    "21490_resultado_bruto": {
+      "empresa": "ALUP4",
+      "indicador": "resultado_bruto",
+      "preproc": "raw",
+      "arima_order": [
+        2,
+        1,
+        3
+      ],
+      "already_imputed": [
+        "2019-03-31"
+      ],
+      "n_flagged_step1": 1,
+      "step2_classified": [
+        {
+          "timestamp": "2020-12-31",
+          "z_residual": 3.532,
+          "type": "LS",
+          "already_imputed": false
+        }
+      ],
+      "new_outliers": [
+        "2020-12-31(LS)"
+      ],
+      "action_recommended": "add_ls_dummy"
+    },
+    "21490_lucro_consolidado": {
+      "empresa": "ALUP4",
+      "indicador": "lucro_consolidado",
+      "preproc": "raw",
+      "arima_order": [
+        0,
+        1,
+        1
+      ],
+      "already_imputed": [],
+      "n_flagged_step1": 2,
+      "step2_classified": [
+        {
+          "timestamp": "2019-03-31",
+          "z_residual": 3.22,
+          "type": "LS",
+          "already_imputed": false
+        },
+        {
+          "timestamp": "2020-12-31",
+          "z_residual": 4.685,
+          "type": "LS",
+          "already_imputed": false
+        }
+      ],
+      "new_outliers": [
+        "2019-03-31(LS)",
+        "2020-12-31(LS)"
+      ],
+      "action_recommended": "add_ls_dummy"
+    },
+    "21490_despesas_operacionais": {
+      "empresa": "ALUP4",
+      "indicador": "despesas_operacionais",
+      "preproc": "raw",
+      "arima_order": [
+        1,
+        0,
+        0
+      ],
+      "already_imputed": [
+        "2022-06-30",
+        "2025-09-30"
+      ],
+      "n_flagged_step1": 1,
+      "step2_classified": [
+        {
+          "timestamp": "2025-06-30",
+          "z_residual": -5.07,
+          "type": "LS",
+          "already_imputed": false
+        }
+      ],
+      "new_outliers": [
+        "2025-06-30(LS)"
+      ],
+      "action_recommended": "add_ls_dummy"
+    }
+  }
+}

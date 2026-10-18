@@ -1,0 +1,37 @@
+empresa,indicador,variante,trocas_total,particao_regime,trocas_2012Q3_2013Q4,series
+ELET6,despesas_operacionais,arhmm,3,True,,vigente (MP 579 imputada)
+ELET6,despesas_operacionais,categorical,62,False,2012-09-30;2012-12-31;2013-03-31;2013-06-30;2013-09-30;2013-12-31,vigente (MP 579 imputada)
+ELET6,despesas_operacionais,gaussian,3,True,,vigente (MP 579 imputada)
+ELET6,despesas_operacionais,gmm,43,False,2012-12-31;2013-03-31,vigente (MP 579 imputada)
+ELET6,lucro_consolidado,arhmm,3,True,2013-12-31,vigente (MP 579 imputada)
+ELET6,lucro_consolidado,categorical,7,True,2013-09-30,vigente (MP 579 imputada)
+ELET6,lucro_consolidado,gaussian,3,True,2013-12-31,vigente (MP 579 imputada)
+ELET6,lucro_consolidado,gmm,3,True,2013-12-31,vigente (MP 579 imputada)
+ISAE4,resultado_bruto,arhmm,29,False,2013-03-31;2013-06-30,vigente (MP 579 imputada)
+ISAE4,resultado_bruto,categorical,61,False,2012-09-30;2012-12-31;2013-03-31;2013-06-30;2013-09-30;2013-12-31,vigente (MP 579 imputada)
+ISAE4,resultado_bruto,gaussian,1,True,,vigente (MP 579 imputada)
+ISAE4,resultado_bruto,gmm,60,False,2012-09-30;2012-12-31;2013-03-31;2013-06-30;2013-09-30;2013-12-31,vigente (MP 579 imputada)
+ELET6,despesas_operacionais,arhmm,49,False,2012-12-31;2013-06-30;2013-09-30,"MP 579 bruta, demais por previous"
+ELET6,despesas_operacionais,categorical,62,False,2012-09-30;2012-12-31;2013-03-31;2013-06-30;2013-09-30;2013-12-31,"MP 579 bruta, demais por previous"
+ELET6,despesas_operacionais,gaussian,5,True,2012-12-31;2013-06-30,"MP 579 bruta, demais por previous"
+ELET6,despesas_operacionais,gmm,62,False,2012-09-30;2012-12-31;2013-03-31;2013-06-30;2013-09-30;2013-12-31,"MP 579 bruta, demais por previous"
+ELET6,lucro_consolidado,arhmm,3,True,2012-12-31,"MP 579 bruta, demais por previous"
+ELET6,lucro_consolidado,categorical,47,False,2012-09-30;2012-12-31;2013-03-31;2013-06-30,"MP 579 bruta, demais por previous"
+ELET6,lucro_consolidado,gaussian,3,True,2012-12-31,"MP 579 bruta, demais por previous"
+ELET6,lucro_consolidado,gmm,3,True,2012-12-31,"MP 579 bruta, demais por previous"
+ISAE4,resultado_bruto,arhmm,36,False,2012-09-30;2012-12-31;2013-03-31;2013-06-30;2013-09-30;2013-12-31,"MP 579 bruta, demais por previous"
+ISAE4,resultado_bruto,categorical,33,False,2012-09-30;2012-12-31,"MP 579 bruta, demais por previous"
+ISAE4,resultado_bruto,gaussian,25,False,2013-03-31;2013-06-30,"MP 579 bruta, demais por previous"
+ISAE4,resultado_bruto,gmm,60,False,2012-09-30;2012-12-31;2013-03-31;2013-06-30;2013-09-30;2013-12-31,"MP 579 bruta, demais por previous"
+ELET6,despesas_operacionais,arhmm,13,False,2012-12-31;2013-06-30;2013-12-31,"MP 579 bruta, demais por linear_interp"
+ELET6,despesas_operacionais,categorical,62,False,2012-09-30;2012-12-31;2013-03-31;2013-06-30;2013-09-30;2013-12-31,"MP 579 bruta, demais por linear_interp"
+ELET6,despesas_operacionais,gaussian,5,True,2012-12-31;2013-06-30,"MP 579 bruta, demais por linear_interp"
+ELET6,despesas_operacionais,gmm,62,False,2012-09-30;2012-12-31;2013-03-31;2013-06-30;2013-09-30;2013-12-31,"MP 579 bruta, demais por linear_interp"
+ELET6,lucro_consolidado,arhmm,3,True,2012-12-31,"MP 579 bruta, demais por linear_interp"
+ELET6,lucro_consolidado,categorical,4,True,2013-09-30,"MP 579 bruta, demais por linear_interp"
+ELET6,lucro_consolidado,gaussian,3,True,2012-12-31,"MP 579 bruta, demais por linear_interp"
+ELET6,lucro_consolidado,gmm,3,True,2013-12-31,"MP 579 bruta, demais por linear_interp"
+ISAE4,resultado_bruto,arhmm,27,False,2013-03-31;2013-06-30,"MP 579 bruta, demais por linear_interp"
+ISAE4,resultado_bruto,categorical,53,False,2012-09-30;2012-12-31;2013-03-31;2013-06-30;2013-09-30;2013-12-31,"MP 579 bruta, demais por linear_interp"
+ISAE4,resultado_bruto,gaussian,19,False,2013-03-31;2013-06-30,"MP 579 bruta, demais por linear_interp"
+ISAE4,resultado_bruto,gmm,58,False,2012-09-30;2012-12-31;2013-09-30;2013-12-31,"MP 579 bruta, demais por linear_interp"

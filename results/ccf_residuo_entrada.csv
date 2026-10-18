@@ -1,0 +1,131 @@
+empresa,indicador,modelo,regressor,forma,defasagem,r,banda95,fora_da_banda
+ISAE4,lucro_consolidado,ARIMAX,TAEE4.SA,nivel,0,-0.14943130710670177,0.3024345659257001,False
+ISAE4,lucro_consolidado,ARIMAX,TAEE4.SA,nivel,1,-0.1858447674316561,0.3024345659257001,False
+ISAE4,lucro_consolidado,ARIMAX,TAEE4.SA,nivel,2,-0.13931564929792467,0.3024345659257001,False
+ISAE4,lucro_consolidado,ARIMAX,TAEE4.SA,nivel,3,-0.1109009998357941,0.3024345659257001,False
+ISAE4,lucro_consolidado,ARIMAX,TAEE4.SA,nivel,4,-0.09358526047710264,0.3024345659257001,False
+ISAE4,lucro_consolidado,ARIMAX,TAEE4.SA,diferenca,0,0.20025990778647174,0.3024345659257001,False
+ISAE4,lucro_consolidado,ARIMAX,TAEE4.SA,diferenca,1,-0.22775952649834225,0.3024345659257001,False
+ISAE4,lucro_consolidado,ARIMAX,TAEE4.SA,diferenca,2,-0.14223159947276393,0.3024345659257001,False
+ISAE4,lucro_consolidado,ARIMAX,TAEE4.SA,diferenca,3,-0.09202183569964925,0.3024345659257001,False
+ISAE4,lucro_consolidado,ARIMAX,TAEE4.SA,diferenca,4,-0.010665143219923486,0.3024345659257001,False
+TAEE4,lucro_consolidado,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,0,-0.02969215363998614,0.29889719785190516,False
+TAEE4,lucro_consolidado,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,1,0.5069498210445241,0.29889719785190516,True
+TAEE4,lucro_consolidado,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,2,0.3294138884309567,0.29889719785190516,True
+TAEE4,lucro_consolidado,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,3,0.22517244098902925,0.29889719785190516,False
+TAEE4,lucro_consolidado,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,4,0.45473509237952203,0.29889719785190516,True
+TAEE4,lucro_consolidado,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,0,-0.5390941293915059,0.29889719785190516,True
+TAEE4,lucro_consolidado,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,1,0.173080379553632,0.29889719785190516,False
+TAEE4,lucro_consolidado,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,2,0.11596139767874988,0.29889719785190516,False
+TAEE4,lucro_consolidado,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,3,-0.24093551153384862,0.29889719785190516,False
+TAEE4,lucro_consolidado,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,4,0.46011561857818084,0.29889719785190516,True
+TAEE4,lucro_consolidado,BAYESARIMA,Selic_meta_pct_aa,nivel,0,-0.19673121495251153,0.29889719785190516,False
+TAEE4,lucro_consolidado,BAYESARIMA,Selic_meta_pct_aa,nivel,1,-0.28744580003755077,0.29889719785190516,False
+TAEE4,lucro_consolidado,BAYESARIMA,Selic_meta_pct_aa,nivel,2,-0.35089241640191876,0.29889719785190516,True
+TAEE4,lucro_consolidado,BAYESARIMA,Selic_meta_pct_aa,nivel,3,-0.37077996784541994,0.29889719785190516,True
+TAEE4,lucro_consolidado,BAYESARIMA,Selic_meta_pct_aa,nivel,4,-0.35494950777948886,0.29889719785190516,True
+TAEE4,lucro_consolidado,BAYESARIMA,Selic_meta_pct_aa,diferenca,0,0.32121054553242956,0.29889719785190516,True
+TAEE4,lucro_consolidado,BAYESARIMA,Selic_meta_pct_aa,diferenca,1,0.22032012219860447,0.29889719785190516,False
+TAEE4,lucro_consolidado,BAYESARIMA,Selic_meta_pct_aa,diferenca,2,0.06043325318635368,0.29889719785190516,False
+TAEE4,lucro_consolidado,BAYESARIMA,Selic_meta_pct_aa,diferenca,3,-0.07892661942013016,0.29889719785190516,False
+TAEE4,lucro_consolidado,BAYESARIMA,Selic_meta_pct_aa,diferenca,4,-0.27453189509167103,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,0,0.45441552581983174,0.29889719785190516,True
+TAEE4,despesas_operacionais,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,1,0.5472662575439607,0.29889719785190516,True
+TAEE4,despesas_operacionais,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,2,0.024387522346104168,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,3,0.03465957310199498,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,4,0.1368552908483316,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,0,-0.091238573865788,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,1,0.526334683423821,0.29889719785190516,True
+TAEE4,despesas_operacionais,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,2,-0.0094457238453187,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,3,-0.10599280848444977,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,4,0.2503919236570725,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,TAEE4.SA,nivel,0,-0.23843024358200401,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,TAEE4.SA,nivel,1,-0.21721141188440077,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,TAEE4.SA,nivel,2,-0.23048415326726934,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,TAEE4.SA,nivel,3,-0.27492542212893956,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,TAEE4.SA,nivel,4,-0.2542415011230783,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,TAEE4.SA,diferenca,0,-0.10654007560103712,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,TAEE4.SA,diferenca,1,0.0773173508797187,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,TAEE4.SA,diferenca,2,0.22825428026122474,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,TAEE4.SA,diferenca,3,-0.09608678823631361,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,TAEE4.SA,diferenca,4,0.29597289879361016,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,INCC-M - Fechamento mensal (%)(1000370),nivel,0,0.23374284088100794,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,INCC-M - Fechamento mensal (%)(1000370),nivel,1,-0.07932865991089827,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,INCC-M - Fechamento mensal (%)(1000370),nivel,2,-0.04520793252232777,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,INCC-M - Fechamento mensal (%)(1000370),nivel,3,0.0574255121463521,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,INCC-M - Fechamento mensal (%)(1000370),nivel,4,-0.18124530624787666,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,INCC-M - Fechamento mensal (%)(1000370),diferenca,0,0.3115163429801485,0.29889719785190516,True
+TAEE4,despesas_operacionais,BAYESARIMA,INCC-M - Fechamento mensal (%)(1000370),diferenca,1,-0.04585625175991726,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,INCC-M - Fechamento mensal (%)(1000370),diferenca,2,-0.10570431916666677,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,INCC-M - Fechamento mensal (%)(1000370),diferenca,3,0.22880122333049863,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,INCC-M - Fechamento mensal (%)(1000370),diferenca,4,0.0736778020035889,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,Selic_meta_pct_aa,nivel,0,-0.48725168838014093,0.29889719785190516,True
+TAEE4,despesas_operacionais,BAYESARIMA,Selic_meta_pct_aa,nivel,1,-0.45825083519148324,0.29889719785190516,True
+TAEE4,despesas_operacionais,BAYESARIMA,Selic_meta_pct_aa,nivel,2,-0.37591082620734734,0.29889719785190516,True
+TAEE4,despesas_operacionais,BAYESARIMA,Selic_meta_pct_aa,nivel,3,-0.308732719381053,0.29889719785190516,True
+TAEE4,despesas_operacionais,BAYESARIMA,Selic_meta_pct_aa,nivel,4,-0.25537147493826673,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,Selic_meta_pct_aa,diferenca,0,-0.14158221873232082,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,Selic_meta_pct_aa,diferenca,1,-0.32765467372526047,0.29889719785190516,True
+TAEE4,despesas_operacionais,BAYESARIMA,Selic_meta_pct_aa,diferenca,2,-0.27231164573539174,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,Selic_meta_pct_aa,diferenca,3,-0.22173610074603903,0.29889719785190516,False
+TAEE4,despesas_operacionais,BAYESARIMA,Selic_meta_pct_aa,diferenca,4,-0.1923473506934975,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,IPCA Brasil (% ao mês)(156038),nivel,0,0.041280828427002134,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,IPCA Brasil (% ao mês)(156038),nivel,1,-0.30585510341259414,0.29889719785190516,True
+ALUP4,resultado_bruto,SS,IPCA Brasil (% ao mês)(156038),nivel,2,-0.4222657843650079,0.29889719785190516,True
+ALUP4,resultado_bruto,SS,IPCA Brasil (% ao mês)(156038),nivel,3,0.017519054496691517,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,IPCA Brasil (% ao mês)(156038),nivel,4,0.09081275501210695,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,IPCA Brasil (% ao mês)(156038),diferenca,0,0.30430146737899055,0.29889719785190516,True
+ALUP4,resultado_bruto,SS,IPCA Brasil (% ao mês)(156038),diferenca,1,0.10129397882622782,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,IPCA Brasil (% ao mês)(156038),diferenca,2,-0.38206861006062504,0.29889719785190516,True
+ALUP4,resultado_bruto,SS,IPCA Brasil (% ao mês)(156038),diferenca,3,-0.06408344747688259,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,IPCA Brasil (% ao mês)(156038),diferenca,4,0.2062076238243378,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,TAEE4.SA,nivel,0,-0.035049689921952024,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,TAEE4.SA,nivel,1,-0.054858105643157434,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,TAEE4.SA,nivel,2,-0.03067878887069457,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,TAEE4.SA,nivel,3,-0.01066700881462863,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,TAEE4.SA,nivel,4,0.0367746549272882,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,TAEE4.SA,diferenca,0,0.10402004856329529,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,TAEE4.SA,diferenca,1,-0.12449378224603053,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,TAEE4.SA,diferenca,2,-0.10342364372751493,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,TAEE4.SA,diferenca,3,-0.24770324923785897,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,TAEE4.SA,diferenca,4,0.3248884261941848,0.29889719785190516,True
+ALUP4,resultado_bruto,SS,INCC-M - Fechamento mensal (%)(1000370),nivel,0,-0.1412382565165438,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,INCC-M - Fechamento mensal (%)(1000370),nivel,1,-0.39329352455682104,0.29889719785190516,True
+ALUP4,resultado_bruto,SS,INCC-M - Fechamento mensal (%)(1000370),nivel,2,-0.3496066264787649,0.29889719785190516,True
+ALUP4,resultado_bruto,SS,INCC-M - Fechamento mensal (%)(1000370),nivel,3,-0.11016888035364798,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,INCC-M - Fechamento mensal (%)(1000370),nivel,4,-0.14452148396241074,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,INCC-M - Fechamento mensal (%)(1000370),diferenca,0,0.24796684422819404,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,INCC-M - Fechamento mensal (%)(1000370),diferenca,1,-0.040934935766996,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,INCC-M - Fechamento mensal (%)(1000370),diferenca,2,-0.22787363967560004,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,INCC-M - Fechamento mensal (%)(1000370),diferenca,3,0.032047483583516785,0.29889719785190516,False
+ALUP4,resultado_bruto,SS,INCC-M - Fechamento mensal (%)(1000370),diferenca,4,-0.11515472804429953,0.29889719785190516,False
+ALUP4,lucro_consolidado,ARIMAX,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,0,0.18545813796117683,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,1,0.18251204660785486,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,2,-0.07402974464003609,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,3,0.0003237192282266014,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPA-M - Fechamento mensal (% mês)  (1478707),nivel,4,-0.15383740809110497,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,0,0.003909448637873085,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,1,0.2583886016429056,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,2,-0.07566323773469566,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,3,0.15437494269058416,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPA-M - Fechamento mensal (% mês)  (1478707),diferenca,4,0.18290119364001492,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPCA Brasil (% ao mês)(156038),nivel,0,-0.01432658858257458,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPCA Brasil (% ao mês)(156038),nivel,1,-0.24587010429929188,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPCA Brasil (% ao mês)(156038),nivel,2,-0.347753968490003,0.2954811176862083,True
+ALUP4,lucro_consolidado,ARIMAX,IPCA Brasil (% ao mês)(156038),nivel,3,-0.2365367761110364,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPCA Brasil (% ao mês)(156038),nivel,4,-0.11404145044590895,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPCA Brasil (% ao mês)(156038),diferenca,0,0.20254826698955397,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPCA Brasil (% ao mês)(156038),diferenca,1,0.08762102290929275,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPCA Brasil (% ao mês)(156038),diferenca,2,-0.0965397090486943,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPCA Brasil (% ao mês)(156038),diferenca,3,-0.1060321529286962,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,IPCA Brasil (% ao mês)(156038),diferenca,4,-0.01157207165934828,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,TAEE4.SA,nivel,0,-0.1296948241859133,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,TAEE4.SA,nivel,1,-0.13049588730644987,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,TAEE4.SA,nivel,2,-0.15663778805835066,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,TAEE4.SA,nivel,3,-0.14537816136557266,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,TAEE4.SA,nivel,4,-0.10920702679804684,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,TAEE4.SA,diferenca,0,0.011284210954043347,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,TAEE4.SA,diferenca,1,0.14057802646248332,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,TAEE4.SA,diferenca,2,-0.055886412898989934,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,TAEE4.SA,diferenca,3,-0.18861245288278464,0.2954811176862083,False
+ALUP4,lucro_consolidado,ARIMAX,TAEE4.SA,diferenca,4,0.023902505395494468,0.2954811176862083,False

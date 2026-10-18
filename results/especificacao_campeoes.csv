@@ -1,0 +1,13 @@
+empresa,indicador,modelo,descricao,preprocessamento,boxcox_lambda,d,grade,exogenas,n_exogenas,ordem,n_param_linear,n_param_nl,n_param_total,nl_detalhe,als_iteracoes,als_convergiu,params_str
+ELET6,resultado_bruto,HAMMER-H3-BSpline3,"HAMMERSTEIN(H3-BSpline3,raw)",raw,,0,estendida,,0,"(0, 0, 1)",6,7.0,13,BSplineBlock,2.0,True,"Hammerstein(p=0,d=0,q=1,f=bspline)"
+ELET6,lucro_consolidado,HAMMER-H1-Sigmoid,"HAMMERSTEIN(H1-Sigmoid,raw)",raw,,0,estendida,,0,"(1, 0, 0)",6,2.0,8,SigmoidBlock,2.0,True,"Hammerstein(p=1,d=0,q=0,f=sigmoid)"
+ELET6,despesas_operacionais,HAMMER-H1-Sigmoid,"HAMMERSTEIN(H1-Sigmoid,raw)",raw,,1,estendida,,0,"(1, 1, 0)",6,2.0,8,SigmoidBlock,2.0,True,"Hammerstein(p=1,d=1,q=0,f=sigmoid)"
+ISAE4,resultado_bruto,HAMMER-H2-Piecewise,"HAMMERSTEIN(H2-Piecewise,log+diff)",log+diff,,0,estendida,,0,"(1, 0, 0)",6,3.0,9,PiecewiseLinearBlock,2.0,True,"Hammerstein(p=1,d=0,q=0,f=piecewise)"
+ISAE4,lucro_consolidado,ARIMAX,"ARIMAX(0,1,1)",raw,,1,padrao,TAEE4.SA,1,"(0, 1, 1)",3,,3,,,,"ARIMAX(0,1,1)"
+ISAE4,despesas_operacionais,THETA,Theta,raw,,1,padrao,,0,,2,,2,,,,Theta
+TAEE4,resultado_bruto,SS,SS(local level + slope fixo),boxcox,0.7781076526400525,1,padrao,,0,,1,,1,1,,,SS(local level + slope fixo)
+TAEE4,lucro_consolidado,BAYESARIMA,"BAYESARIMA(0,1,2) lambda0=1",log,,1,padrao,IPA-M - Fechamento mensal (% mês)  (1478707); Selic_meta_pct_aa,2,"(0, 1, 2)",5,,5,,,,"BAYESARIMA(0,1,2) lambda0=1"
+TAEE4,despesas_operacionais,BAYESARIMA,"BAYESARIMA(1,0,0) lambda0=1",raw,,0,padrao,IPA-M - Fechamento mensal (% mês)  (1478707); TAEE4.SA; INCC-M - Fechamento mensal (%)(1000370); Selic_meta_pct_aa,4,"(1, 0, 0)",6,,6,,,,"BAYESARIMA(1,0,0) lambda0=1"
+ALUP4,resultado_bruto,SS,SS(local level),boxcox,-0.34282737905910177,1,padrao,IPCA Brasil (% ao mês)(156038); TAEE4.SA; INCC-M - Fechamento mensal (%)(1000370),3,,4,,4,0,,,SS(local level)
+ALUP4,lucro_consolidado,ARIMAX,"ARIMAX(0,1,1)",log,,1,padrao,IPA-M - Fechamento mensal (% mês)  (1478707); IPCA Brasil (% ao mês)(156038); TAEE4.SA,3,"(0, 1, 1)",5,,5,,,,"ARIMAX(0,1,1)"
+ALUP4,despesas_operacionais,WIENER-W2-Piecewise,"WIENER(W2-Piecewise,raw)",raw,,0,estendida,,0,"(1, 0, 1)",3,3.0,6,PiecewiseLinearBlock,20.0,False,"Wiener(p=1,d=0,q=1,g=piecewise)"

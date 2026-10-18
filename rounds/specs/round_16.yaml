@@ -1,0 +1,46 @@
+# Round 16 — forecast combination (Bates & Granger 1969; Petropoulos et al. 2022 §2.6)
+# across all 12 combos, pool fixo, três esquemas por combo (MEAN/MEDIAN/INVMSE).
+round: 16
+hypothesis: >
+  O Round 15 fechou a linha de investigação "modelo de tendência" (MSOE e SSOE, §20): nenhum
+  dos 11 combos testados melhorou com DAMPEDTREND, confirmando que a busca univariada
+  parcimoniosa (linear, não-linear de bloco, suavização exponencial, Theta, tendência
+  amortecida) está esgotada para o painel desde o Round 12. O "Próximo" do Round 15 aponta
+  explicitamente para a frente seguinte: combinação simples de previsões (Petropoulos et al.,
+  2022, §2.6) para os combos com FIT% marginal ou modelos discordantes entre si. Este round
+  introduz `CombinationWrapper` (`src/models/combination_wrapper.py`, novo, procedure new-model,
+  `protocolo metodológico` §21): combina um pool fixo e idêntico nos 12 combos — ARIMA, ETS, THETA, SS,
+  DAMPEDTREND, a mesma família parcimoniosa já validada nos Rounds 02/12/14 — sob três esquemas
+  fixos (MEAN, MEDIAN, INVMSE com pesos congelados na janela `MIN_TRAIN=20`, mesmo padrão
+  anti-leakage de `fixed_order`). O pool é deliberadamente fixo e não curado por combo (evita
+  mineração de dados na escolha de quais modelos entram na combinação, ver protocolo metodológico §21).
+  Como `COMBINATION` já está registrado em `cfg.MODELOS`, um sweep `models: full` já o inclui
+  como candidato em todos os combos — este round roda esse sweep completo nos 12 combos de uma
+  vez (não há necessidade de round dedicado por combo, já que o pool não muda). Hipótese
+  testável: em pelo menos um dos combos com FIT% marginal (ELET6×lucro_consolidado 0.5%,
+  ELET6×despesas_operacionais 4.0%, ISAE4×despesas_operacionais 6.5%, ALUP4×despesas_operacionais
+  2.4%) ou com modelos discordantes entre si, algum esquema de combinação bate o campeão atual em
+  FIT% mantendo U₂<1, com significância DM vs. ARIMA (p<0.10). Condição de falsificação: se
+  nenhum dos 12 combos melhorar, a combinação simples de forecasts também está esgotada para o
+  painel — a linha de investigação "modelo estatístico adicional" se encerra por completo, e a
+  próxima frente deixa de ser busca de modelo e passa a ser declaração formal de
+  não-preditibilidade para os combos persistentemente fracos (ELET6×resultado_bruto,
+  ELET6×despesas_operacionais) e aceitação documentada dos campeões atuais como estado final do
+  painel univariado/estrutural.
+justification: "protocolo metodológico §21 (Combinação de Previsões); §17-20 (pool: SS/ETS/THETA/DAMPEDTREND); Bates, J.M. & Granger, C.W.J. (1969), Operational Research Quarterly, 20(4), 451-468; Petropoulos, F. et al. (2022), IJF, 38(3), 705-871, §2.6"
+baseline_json: results/202608151629_v15.json
+combos: all
+models: full
+preproc: search
+exog: {source: results/exog_selection_v11.json}
+version: 16
+success_criteria: {fit_gain_pp: 1.0, dm_pvalue_max: 0.10}
+next_round: >
+  Se algum combo melhorar com COMBINATION (U₂<1, DM p<0.10), promovê-lo e registrar qual esquema
+  (MEAN/MEDIAN/INVMSE) venceu — se INVMSE dominar sistematicamente, considerar generalizar pesos
+  aprendidos para outros pools; se MEAN dominar, documentar como confirmação direta do
+  "combination puzzle" (Petropoulos et al., 2022, §2.6) neste painel. Se nenhum combo melhorar, a
+  combinação simples de forecasts está esgotada — encerrar a linha "modelo estatístico adicional"
+  e abrir declaração formal de não-preditibilidade para ELET6×resultado_bruto e
+  ELET6×despesas_operacionais (protocolo metodológico, critério de não-preditibilidade), aceitando os
+  campeões atuais como estado final do painel univariado/estrutural para os demais combos.

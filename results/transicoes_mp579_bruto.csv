@@ -1,0 +1,16 @@
+janela,particoes_total,particoes_regime,max_transicoes,transicoes,dentro,esperado_uniforme,fracao_janelas_ge,series
+2012Q3-2013Q1,47,25,12,98,4,4.7,0.65,vigente (MP 579 imputada)
+2012Q3-2013Q4,47,25,12,98,10,9.5,0.509,vigente (MP 579 imputada)
+RBSE 2017Q3-2018Q4,47,25,12,98,15,9.5,0.158,vigente (MP 579 imputada)
+IFRS15 2018Q1-2019Q2,47,25,12,98,15,9.5,0.158,vigente (MP 579 imputada)
+Capitalizacao 2022Q2-2023Q3,47,25,12,98,5,9.5,0.93,vigente (MP 579 imputada)
+2012Q3-2013Q1,47,22,12,81,9,3.9,0.117,"MP 579 bruta, demais por previous"
+2012Q3-2013Q4,47,22,12,81,12,7.8,0.246,"MP 579 bruta, demais por previous"
+RBSE 2017Q3-2018Q4,47,22,12,81,12,7.8,0.246,"MP 579 bruta, demais por previous"
+IFRS15 2018Q1-2019Q2,47,22,12,81,15,7.8,0.088,"MP 579 bruta, demais por previous"
+Capitalizacao 2022Q2-2023Q3,47,22,12,81,1,7.8,1.0,"MP 579 bruta, demais por previous"
+2012Q3-2013Q1,47,23,12,93,7,4.5,0.283,"MP 579 bruta, demais por linear_interp"
+2012Q3-2013Q4,47,23,12,93,12,9.0,0.298,"MP 579 bruta, demais por linear_interp"
+RBSE 2017Q3-2018Q4,47,23,12,93,13,9.0,0.228,"MP 579 bruta, demais por linear_interp"
+IFRS15 2018Q1-2019Q2,47,23,12,93,14,9.0,0.193,"MP 579 bruta, demais por linear_interp"
+Capitalizacao 2022Q2-2023Q3,47,23,12,93,4,9.0,0.947,"MP 579 bruta, demais por linear_interp"

@@ -1,0 +1,38 @@
+# Round 36 — diagnóstico do Round 35: recursivo com λ = 1 e lote com τ congelado.
+# Exploratório; protocolo metodológico §28 ("Decomposição da diferença lote × recursivo").
+round: 36
+hypothesis: >
+  Round diagnóstico, sem hipótese de ganho. O Round 35 mostrou o estimador recursivo (RPEM,
+  λ = 0,98) dentro de ±2 p.p. do lote em metade das combinações, com perdas grandes nas duas
+  famílias block-oriented piecewise (ISAE4×resultado_bruto Hammerstein −12,5 p.p.;
+  ALUP4×despesas_operacionais Wiener −17,6 p.p.). Este round separa a diferença em três parcelas
+  (§28): aproximação recursiva (λ = 1 contra o lote), esquecimento (λ = 0,98 contra λ = 1) e
+  estrutura discreta (lote com τ congelado contra o lote). Previsões pré-registradas: (a) nas
+  famílias lineares e de espaço de estados, |FIT(rec, λ = 1) − FIT(lote)| ≤ 2 p.p. em pelo menos
+  8 das 10 combinações, porque o RPEM com λ = 1 aproxima o mesmo critério do lote; (b) nas duas
+  combinações piecewise, o lote com τ congelado fica a no máximo 3 p.p. do recursivo do Round 35,
+  isto é, a perda vem de τ e não da recursão. Condição de falsificação: (a) falha se 3 ou mais das
+  10 ficam fora de ±2 p.p. — o algoritmo de um passo por observação é que perde, e não o
+  esquecimento; (b) falha se o lote com τ congelado ficar mais de 3 p.p. acima do recursivo — a
+  perda é da recursão sobre os parâmetros contínuos. O resultado orienta o Round 37 (λ = 0,95 e
+  reinicialização da covariância em eventos regulatórios), que é pré-registrado depois deste.
+justification: >
+  protocolo metodológico §28; Ljung, L. & Söderström, T. (1983), Theory and Practice of Recursive
+  Identification, MIT Press; Ljung, L. (1999), System Identification, 2nd ed., §11.2-11.7.
+combos: all
+models: RECURSIVE
+preproc: search
+exog: none
+recursive:
+  forgetting: 1.0
+  frozen_tau_batch: true
+version: 36
+success_criteria:
+  note: >
+    Diagnóstico: aceitação = as decomposições (a) e (b) calculadas para as 12 combinações e
+    confrontadas com as previsões acima, inclusive quando falsificadas. A 1ª previsão fora da
+    amostra do recursivo deve ser idêntica à do lote nas 12 (checagem de implementação, como no
+    Round 35).
+next_round: >
+  Round 37 — λ = 0,95 (memória de 20 trimestres, ciclo quinquenal da revisão tarifária) e
+  reinicialização da covariância em eventos regulatórios, pré-registrado à luz deste diagnóstico.

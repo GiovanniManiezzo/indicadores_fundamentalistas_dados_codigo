@@ -1,0 +1,48 @@
+# Round 12 — parsimonious model additions: SS spec-selection fix (+damped-trend via ETS)
+# and ETS/Theta univariate benchmarks for the weakest combos in the panel.
+round: 12
+hypothesis: >
+  Round 12 combina duas frentes de modelo novo, ambas motivadas por literature synthesis
+  (síntese de Petropoulos et al., 2022, "Forecasting: Theory and Practice") e pelo
+  "Próximo" do Round 11: (a) TAEE4×resultado_bruto tem o maior FIT% do painel (44-52%
+  conforme candidato) mas seu candidato de maior FIT (SS) falha ou fica no limite do gate
+  U₂<1 (0.931-1.041 conforme rodada); auditoria de todos os results/*.json até o Round 11
+  mostrou que `SSWrapper` sempre selecionava o spec "local level" — o loop de seleção
+  retornava no primeiro spec que não lançasse exceção em vez de comparar AIC entre os
+  três candidatos (nível local / nível+inclinação fixa / tendência linear local), deixando
+  os specs de tendência inalcançáveis desde o Round 08. Corrigido nesta rodada (ver
+  protocolo metodológico §17) — o candidato SS agora recebe uma chance real de capturar tendência
+  quando ela existir. (b) Adicionamos ETS (Hyndman, Koehler, Snyder & Grose, 2002,
+  incluindo ETS(A,Ad,N) — tendência amortecida, Gardner & McKenzie, 1985) e o método Theta
+  (Assimakopoulos & Nikolopoulos, 2000) como novos benchmarks univariados parcimoniosos,
+  aplicados às três combinações ELET6 — as mais fracas do painel (FIT% de -1.3%, -0.4% e
+  0.5%) e candidatas a declaração formal de não-preditibilidade após a busca exaustiva de
+  exógenas se esgotar nos Rounds 10-11 (nenhuma candidata sobrevive ao AIC-stepwise para
+  res_bruto/desp_oper). ETS e Theta são citados por Petropoulos et al. (2022, §2.3.1 e
+  §2.3.3) como as famílias mais robustas para n≈64 — não testamos essa classe de modelo
+  ainda nestes combos. Hipótese testável: (i) para TAEE4×resultado_bruto, o SS corrigido
+  produz U₂ durável e consistentemente <1 sem sacrificar FIT% significativo frente ao
+  ARIMA (diff, FIT=44.0%, U₂=0.931) atualmente campeão sob o gate estrito; (ii) para as
+  três combinações ELET6, ETS/Theta batem o ARIMA/Wiener/Hammerstein atuais — um resultado
+  negativo reforça a declaração de não-preditibilidade para res_bruto/desp_oper (falta
+  apenas essa classe de modelo para esgotar as alternativas univariadas parcimoniosas
+  antes da declaração formal); um resultado positivo a contesta.
+justification: "protocolo metodológico §17 (correção SS), §18 (ETS), §19 (Theta); Harvey (1989); Hyndman, Koehler, Snyder & Grose (2002); Gardner & McKenzie (1985); Assimakopoulos & Nikolopoulos (2000); Petropoulos et al. (2022)"
+baseline_json: results/202608151323_v11.json
+combos: [[2437, resultado_bruto], [2437, lucro_consolidado], [2437, despesas_operacionais], [20257, resultado_bruto]]
+models: full
+preproc: search
+exog: {source: results/exog_selection_v11.json}
+version: 12
+success_criteria: {fit_gain_pp: 2.0, dm_pvalue_max: 0.10}
+next_round: >
+  Se TAEE4×resultado_bruto obtiver U₂<1 de forma consistente via SS ou ETS(A,Ad,N)
+  (damped trend), promovê-lo a campeão e encerrar a prioridade U₂ aberta desde o Round 08.
+  Se ELET6×resultado_bruto e ELET6×despesas_operacionais não melhorarem com ETS/Theta,
+  declarar formalmente as duas como não-preditíveis com o conjunto de features atual
+  (protocolo metodológico, critério de não-preditibilidade) — todas as classes de modelo
+  parcimonioso (linear, não-linear de bloco, suavização exponencial, Theta) terão sido
+  tentadas sem exógenas adicionais disponíveis. Avaliar combinação simples de forecasts
+  (média dos 3-5 melhores candidatos por combo, Petropoulos et al. 2022 §2.6) como
+  próxima frente para os combos com FIT% marginal e modelos discordantes entre si
+  (ex.: ALUP4×despesas_operacionais, ELET6×despesas_operacionais).

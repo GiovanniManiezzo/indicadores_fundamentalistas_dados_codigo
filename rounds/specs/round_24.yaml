@@ -1,0 +1,40 @@
+# Round 24 — Learning curve de MIN_TRAIN com avaliação OOS fixa (tamanho de janela de treino).
+round: 24
+hypothesis: >
+  MIN_TRAIN=20 (≈31% de N=64) foi fixado nos Rounds 01-09 como escolha conservadora, nunca
+  formalmente otimizada (protocolo metodológico §2, §23). Uma janela de treino maior reduz a variância da
+  estimativa dos parâmetros (mais observações por fold), mas arrisca diluir sinal recente com
+  dinâmica de um regime diferente caso a série tenha instabilidade estrutural dentro do período
+  coberto — o trade-off clássico de seleção de janela de estimação sob possível quebra estrutural
+  (Pesaran & Timmermann, 2007). Não há garantia a priori de que MIN_TRAIN maior melhora a previsão;
+  o efeito é uma questão empírica por combinação, coerente com o princípio do painel de que cada
+  combo é modelado de forma independente (escopo do painel). Este round testa MIN_TRAIN em
+  {20, 25, 30, 35} para os 12 combos, reexecutando a busca completa de modelo
+  (_run_all_models_for_combo) sob cada janela, mas medindo FIT%/U₂/DM-p só no intervalo OOS comum
+  t=40..63 (eval_start=40) — isola o efeito do tamanho de treino do efeito de "quantos folds
+  entraram na média", armadilha já documentada para o caso de uma única janela alternativa isolada
+  (Round 22, protocolo metodológico §24). Diagnóstico apenas: não fixa o mesmo modelo campeão entre
+  janelas (uma janela maior pode legitimamente selecionar um modelo diferente) e não promove
+  campeão do painel diretamente — ver protocolo metodológico §26, "Condição de promoção".
+justification: "protocolo metodológico §26 (novo); Pesaran, M.H. & Timmermann, A. (2007), Journal of Econometrics, 137(1), 134-161; Timmermann & Granger (2004) para a lógica anti-data-snooping sobre o próprio hiperparâmetro de janela"
+combos: all
+models: WINDOW_SWEEP
+window_sweep: {values: [20, 25, 30, 35], eval_start: 40, comparable: false}
+preproc: search
+exog: {source: results/exog_selection_v11.json}
+version: 24
+success_criteria:
+  dm_pvalue_max: 0.10
+  note: >
+    Sinal considerado presente para um combo só se dm_p_eval<0.10 favorecer algum MIN_TRAIN>20 com
+    theil_u2_eval<1.0 de forma consistente ao longo da curva (não um único ponto isolado) — critério
+    qualitativo, lido por round-analyze a partir da tabela combo×janela no science_log, não um
+    valor único enforçado pelo runner.
+next_round: >
+  Se algum combo mostrar sinal consistente (dm_p_eval<0.10 e theil_u2_eval<1.0 em MIN_TRAIN>20 ao
+  longo da curva), pré-registrar um round de promoção dedicado sob experimental_window com esse
+  valor fixo, não-exploratório, e reavaliar sob o gate U₂<1/DM-p<0.10 real do painel (não a
+  eval_start diagnóstica deste round). Se nenhum combo mostrar sinal, encerrar a frente de "janela
+  de treino" e retomar a declaração de não-preditibilidade para ELET6×resultado_bruto (e
+  ELET6×despesas_operacionais, se aplicável) como próximo passo antes de consolidar o painel de 12
+  combos.

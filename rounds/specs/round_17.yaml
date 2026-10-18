@@ -1,0 +1,57 @@
+# Round 17 — Bayesian ARIMA (MAP via prior Minnesota) nos 12 combos.
+round: 17
+hypothesis: >
+  literature synthesis (síntese de Petropoulos et al., 2022, para N=64) recomenda modelos
+  bayesianos como "adequados (controla overfitting via priors)" e lista Bayesian ARIMA/BVAR
+  entre os 4 modelos principais para esta dissertação — ainda não testado nas Rounds 00-16, que
+  cobriram a família linear MLE (ARIMA/ARMAX/ARIMAX/OE/BJ/SS), suavização estrutural
+  (ETS/Theta/DampedTrend, §§17-20), não-linear (Wiener/Hammerstein/HW, §14) e combinação de
+  previsões (§21, Round 16 — esgotada, nenhum dos 12 combos melhorou). Este round introduz
+  `BayesArimaWrapper` (`src/models/bayesarima_wrapper.py`, novo, procedure new-model,
+  protocolo metodológico §22): MAP via aproximação de Laplace ao posterior (sem MCMC — pymc/arviz não
+  instalados), com prior Minnesota (Litterman 1986; Doan, Litterman & Sims 1984) sobre os
+  coeficientes AR/MA — shrinkage λ_l=λ0·l² crescente com o lag, aplicado apenas ao bloco AR/MA
+  (trend/exógenas/σ² não penalizados, decisão numérica documentada em protocolo metodológico §22 para
+  evitar o mau condicionamento da covariância conjunta em escala bruta). Ordem (p,q) selecionada
+  por AIC não penalizado (comparável a ARIMA/ARIMAX); λ0 selecionado por holdout interno na
+  janela `MIN_TRAIN=20` (mesmo espírito do INVMSE do Round 16), ambos congelados por fold —
+  mesmo padrão anti-leakage de `fixed_order` (regras de d por consenso e de anti-leakage). BVAR multivariado
+  conjunto (múltiplos indicadores simultâneos) foi deliberadamente descartado por violar o
+  invariante de "12 combos modelados de forma completamente independente" (escopo do painel) —
+  ver justificativa completa em protocolo metodológico §22. Como BAYESARIMA já está registrado em
+  `cfg.MODELOS`, o sweep `models: full` já o inclui como candidato em todos os 12 combos, com e
+  sem exógenas (`u` opcional no wrapper, efetivamente Bayesian ARIMAX quando disponível).
+  Hipótese testável: em pelo menos um dos 12 combos, o shrinkage Minnesota sobre os coeficientes
+  AR/MA reduz a variância do estimador o suficiente para bater o campeão atual em FIT% mantendo
+  U₂<1, com significância DM vs. ARIMA (p<0.10) — plausível sobretudo nos combos com ordem
+  ARIMA/ARIMAX mais alta (maior risco de sobreajuste em MIN_TRAIN=20) ou com FIT% atual marginal
+  (ELET6×lucro_consolidado, ELET6×despesas_operacionais, ISAE4×despesas_operacionais,
+  ALUP4×despesas_operacionais). Condição de falsificação: se nenhum dos 12 combos melhorar, a
+  regularização bayesiana pontual (MAP) tampouco supera os campeões atuais — resultado a
+  registrar junto com a observação de que Rounds 12-17 já esgotaram univariado, estrutural,
+  não-linear, combinação e agora shrinkage bayesiano pontual como frentes de "modelo estatístico
+  adicional" para este painel.
+justification: >
+  protocolo metodológico §22 (Bayesian ARIMA — MAP via Prior Minnesota); literature synthesis (síntese de
+  Petropoulos, F. et al., 2022, IJF, 38(3), 705-871, recomendação final, item 3); Litterman, R.B.
+  (1986), Journal of Business & Economic Statistics, 4(1), 25-38; Doan, T., Litterman, R., &
+  Sims, C. (1984), Econometric Reviews, 3(1), 1-100.
+baseline_json: results/202608160834_v16.json
+combos: all
+models: full
+preproc: search
+exog: {source: results/exog_selection_v11.json}
+version: 17
+success_criteria: {fit_gain_pp: 1.0, dm_pvalue_max: 0.10}
+next_round: >
+  Se algum combo melhorar com BAYESARIMA (U₂<1, DM p<0.10), promovê-lo e registrar o λ0
+  vencedor e a ordem (p,q) — investigar se o padrão de shrinkage (λ0 pequeno = pouco encolhimento
+  vs. λ0 grande = encolhimento forte) se correlaciona com o grau de sobreajuste que o ARIMA MLE
+  já mostrava naquele combo (ordem alta, MIN_TRAIN=20 apertado). Se nenhum combo melhorar, a
+  regularização bayesiana pontual (MAP) está esgotada como frente de "modelo estatístico
+  adicional" para este painel — junto com o veredito nulo do Round 16 (combinação), isso fecha
+  a busca de modelo univariado/estrutural/não-linear/bayesiano-pontual sobre os campeões atuais;
+  a próxima frente deixa de ser busca de modelo e passa a ser declaração formal de
+  não-preditibilidade para os combos persistentemente fracos (ELET6×resultado_bruto,
+  ELET6×despesas_operacionais) e aceitação documentada dos campeões atuais como estado final do
+  painel para os demais combos.

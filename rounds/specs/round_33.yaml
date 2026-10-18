@@ -1,0 +1,40 @@
+# Round 33 — Era 31, reprodução de WIENER (Rounds 19, 26 e 29) nas 6 combinações.
+# Terceiro de quatro (31-34); protocolo metodológico §27, "Era 31".
+round: 33
+hypothesis: >
+  Reinstaura na era 31 a família WIENER, que não entra em `models: full` e que a era anterior
+  cobriu nos Rounds 19, 26 e 29. A família roda sem exógena (`exog: none`), de modo que a correção do
+  funil não a alcança: o round existe porque a subida de TREATMENT_ERA para 31 tornou inelegíveis
+  também os resultados sem exógena das seis combinações, e porque a eleição de campeão só é
+  simétrica entre eras se o espaço explorado for o mesmo (protocolo metodológico §27). Para três das seis
+  (ELET6×lucro_consolidado, ELET6×despesas_operacionais, ISAE4×resultado_bruto, em era 21 desde o
+  Round 21) a família nunca rodou na era vigente — os Rounds 18/19 são anteriores à era 21 e os
+  Rounds 26-30 cobriram só TAEE4/ALUP4 —, então o round também fecha essa lacuna de cobertura,
+  sem previsão numérica para elas. Previsão pré-registrada para as outras três, cuja série não
+  mudou desde a última execução da família: reprodução exata de ALUP4×resultado_bruto WIENER-W1-Sigmoid 26.6/1.156 e ALUP4×despesas_operacionais WIENER-W2-Piecewise 2.3/0.751 (Round 29, era 28); TAEE4×despesas_operacionais WIENER-W1-Sigmoid -7.4/1.221 (Round 19, era 8). Condição de falsificação:
+  divergência em qualquer dessas três indica mudança além da era — o round é investigado antes de
+  seguir. Um resultado WIENER só vira campeão se passar U₂ < 1 e superar o melhor da era 31.
+justification: >
+  protocolo metodológico §14-16 (modelos block-oriented e ALS) e §27 (Era 31); Wiener, N. (1958), Nonlinear Problems in Random Theory, MIT Press; Billings, S.A. (1980), International Journal of Control 31(6), 1013-1037; Ljung, L. (1999), System Identification, 2nd ed.
+baseline_json: outputs/results/202609282216_v32.json
+combos:
+  - [2437, lucro_consolidado]
+  - [2437, despesas_operacionais]
+  - [18376, resultado_bruto]
+  - [20257, despesas_operacionais]
+  - [21490, resultado_bruto]
+  - [21490, despesas_operacionais]
+models: [WIENER]
+nl_configs: [W1-Sigmoid, W2-Piecewise, W3-BSpline3]
+preproc: search
+exog: none
+hyperparams: {nl_p_max: 4, nl_q_max: 4, als_max_iter: 20, als_tol: 1.0e-5}
+version: 33
+success_criteria:
+  fit_gain_pp: 0.0
+  dm_pvalue_max: 0.10
+  note: >
+    Round de reinstauração. Aceitação: previsão de reprodução confirmada nas três combinações com
+    precedente na era vigente; resultado nulo nas demais é desfecho esperado e é registrado.
+next_round: >
+  Round 34 (HAMMERSTEIN H1-H3, exog none, mesmas seis combinações) — reproduz 18/27/30.

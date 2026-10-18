@@ -1,0 +1,59 @@
+# Round 31 — Funil de exógenas sobre a série tratada, nas 6 combinações cuja seleção muda.
+# Primeiro de quatro (31-34) que reinstauram na era 31 o espaço de busca da era anterior
+# (protocolo metodológico §27, "Era 31"). Checkpoint com o autor depois deste round.
+round: 31
+hypothesis: >
+  Correção de pipeline, não nova frente de busca (a busca continua fechada
+  §2). Dos Rounds 11 a 30 o funil VIF→Granger→AIC-stepwise leu a série bruta de load_all(),
+  enquanto a bateria de raiz unitária, a busca de modelos e a metade HMM leem
+  a série tratada — nenhuma das 27 imputações de SPIKE_KNOWN/detecção automática chegava ao funil,
+  inclusive os dois trimestres de dado faltante da ALUP4 corrigidos no Round 28. Com
+  EXOG_SELECTION_ON_TREATED = True o funil passa a ler a série tratada, sem outra mudança de
+  limiar, e a seleção muda em exatamente seis combinações (exog_selection_v31.json contra v11):
+  ELET6×lucro_consolidado perde TAEE4.SA e IPCA; ELET6×despesas_operacionais e ISAE4×resultado_bruto
+  ganham TAEE4.SA; TAEE4×despesas_operacionais ganha INCC-M e Selic; ALUP4×resultado_bruto ganha
+  INCC-M e TAEE4.SA; ALUP4×despesas_operacionais ganha Selic e TAEE4.SA. TREATMENT_ERA sobe para 31
+  nessas seis, tornando inelegível todo resultado anterior delas; este round roda `models: full`
+  (15 famílias × 5 modos) com o conjunto novo. Hipótese testável: a mudança de entrada do funil
+  altera apenas os resultados dependentes de exógena. Previsões pré-registradas: (a) nas três
+  combinações cujo campeão vigente é univariado (ELET6×lucro_consolidado COMBINATION-INVMSE 4.7,
+  ELET6×despesas_operacionais THETA 5.0, ISAE4×resultado_bruto DAMPEDTREND 53.6) o mesmo modelo
+  reaparece com o mesmo FIT% e U₂, a menos que um modelo com o conjunto novo o supere; (b) em
+  TAEE4×despesas_operacionais e ALUP4×resultado_bruto, cujos campeões vigentes são ARMAX com o
+  conjunto antigo (25.4/0.848 e 52.1/0.755), o campeão da era 31 pode mudar de conjunto, ordem ou
+  família. ALUP4×despesas_operacionais (campeão WIENER, fora de `full`) só é resolvida no Round 33.
+  Condição de falsificação de (a): um modelo univariado que reaparecer com FIT% diferente do
+  registrado indica que algo além do funil mudou entre eras — o round para e a causa é
+  investigada antes dos Rounds 32-34. Qualquer combinação que perca o gate U₂ < 1 é reportada
+  como regressão (Invariante 7); a correção permanece, por ser questão de consistência de pipeline
+  e não de otimização.
+justification: >
+  protocolo metodológico §10 (série de entrada do funil, Round 31) e §27 (Era 31); Granger, C.W.J. (1969),
+  Econometrica 37(3), 424-438; Akaike, H. (1974), IEEE Trans. Autom. Control 19(6), 716-723;
+  Chen, C. & Liu, L.M. (1993), JASA 88(421), 284-297 (o tratamento de outlier que agora chega ao
+  funil); Little, R.J.A. & Rubin, D.B. (2019), Statistical Analysis with Missing Data, 3rd ed.
+baseline_json: results/202608300945_v30.json
+combos:
+  - [2437, lucro_consolidado]
+  - [2437, despesas_operacionais]
+  - [18376, resultado_bruto]
+  - [20257, despesas_operacionais]
+  - [21490, resultado_bruto]
+  - [21490, despesas_operacionais]
+models: full
+preproc: search
+exog: {source: outputs/results/exog_selection_v31.json}
+version: 31
+success_criteria:
+  fit_gain_pp: 0.0
+  dm_pvalue_max: 0.10
+  note: >
+    Round de correção de pipeline. Nenhum ganho de FIT% é exigido nem prometido. Aceitação: (i) as
+    seis combinações passam o gate U₂ < 1 com o funil corrigido, ou a falha é declarada; (ii)
+    previsão (a) confirmada — campeões univariados reproduzem exatamente. Se (ii) falhar, os
+    Rounds 32-34 não são especificados antes de a divergência ser explicada.
+next_round: >
+  Checkpoint com o autor. Depois: Round 32 (`full`, sarimax_family_p_max=4/q_max=4, reproduz o
+  Round 20), Round 33 (WIENER W1-W3, reproduz 19/26/29), Round 34 (HAMMERSTEIN H1-H3, reproduz
+  18/27/30), todos nas mesmas seis combinações; então plot_best_results.py, round_status.py,
+  panel_report.py e as tabelas derivadas.

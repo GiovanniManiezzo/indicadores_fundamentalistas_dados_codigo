@@ -1,0 +1,358 @@
+{
+  "2437": {
+    "resultado_bruto": {
+      "modelo_utilizado": "HAMMER-H3-BSpline3",
+      "descricao_parametros": "HAMMERSTEIN(H3-BSpline3,raw)",
+      "preprocessing": "raw",
+      "exogenas_utilizadas": [],
+      "percentual_fit": -4.448495409476072,
+      "variancia": 7.663549768254427e+18,
+      "mse": 7.701274630910142e+18,
+      "rmse": 2775117048.145923,
+      "mae": 1635663622.179039,
+      "mape": 22.768652909457423,
+      "theil_u2": 0.8434385505752623,
+      "unit_root_d": 0,
+      "residual_diagnostics": {
+        "ljung_box_q4_stat": 3.788841579005692,
+        "ljung_box_q4_pvalue": 0.43533659251562773,
+        "arch_lm_stat": -2.3064573921224873,
+        "arch_lm_pvalue": 1.0,
+        "jarque_bera_stat": 394.363218688715,
+        "jarque_bera_pvalue": 2.318009059255161e-86,
+        "shapiro_wilk_stat": 0.7239149459629057,
+        "shapiro_wilk_pvalue": 9.218558520299637e-08
+      },
+      "dm_vs_arima": {
+        "stat": 0.7557446670624299,
+        "pvalue": 0.45392256179930623
+      },
+      "in_model_confidence_set": true
+    },
+    "lucro_consolidado": {
+      "modelo_utilizado": "HAMMER-H2-Piecewise",
+      "descricao_parametros": "HAMMERSTEIN(H2-Piecewise,raw)",
+      "preprocessing": "raw",
+      "exogenas_utilizadas": [],
+      "percentual_fit": -6.6853121904571156,
+      "variancia": 1.451657107424386e+19,
+      "mse": 1.4813194977160974e+19,
+      "rmse": 3848791365.761591,
+      "mae": 2523464348.396162,
+      "mape": 15185.525680493194,
+      "theil_u2": 0.872441956172362,
+      "unit_root_d": 0,
+      "residual_diagnostics": {
+        "ljung_box_q4_stat": 3.973383958505473,
+        "ljung_box_q4_pvalue": 0.4096199232168203,
+        "arch_lm_stat": 2.528350525100631,
+        "arch_lm_pvalue": 0.6395664894222002,
+        "jarque_bera_stat": 42.37296299882846,
+        "jarque_bera_pvalue": 6.292569107753774e-10,
+        "shapiro_wilk_stat": 0.8878256670068309,
+        "shapiro_wilk_pvalue": 0.0004694943865162598
+      },
+      "dm_vs_arima": {
+        "stat": -0.9354905663603226,
+        "pvalue": 0.3547597952537975
+      },
+      "in_model_confidence_set": true
+    },
+    "despesas_operacionais": {
+      "modelo_utilizado": "HAMMER-H1-Sigmoid",
+      "descricao_parametros": "HAMMERSTEIN(H1-Sigmoid,raw)",
+      "preprocessing": "raw",
+      "exogenas_utilizadas": [],
+      "percentual_fit": -15.973096897631356,
+      "variancia": 9.447665697527771e+18,
+      "mse": 1.073183281153468e+19,
+      "rmse": 3275947620.389355,
+      "mae": 2711419131.427966,
+      "mape": 162.96836103373923,
+      "theil_u2": 0.9195752894152216,
+      "unit_root_d": 0,
+      "residual_diagnostics": {
+        "ljung_box_q4_stat": 2.09704735023956,
+        "ljung_box_q4_pvalue": 0.7179148574628094,
+        "arch_lm_stat": -0.7396800926276015,
+        "arch_lm_pvalue": 1.0,
+        "jarque_bera_stat": 5.614017077053426,
+        "jarque_bera_pvalue": 0.06038536295890626,
+        "shapiro_wilk_stat": 0.9290190069964367,
+        "shapiro_wilk_pvalue": 0.009652404265683716
+      },
+      "dm_vs_arima": {
+        "stat": 0.2974934147506607,
+        "pvalue": 0.7675223948611061
+      },
+      "in_model_confidence_set": true
+    }
+  },
+  "18376": {
+    "resultado_bruto": {
+      "modelo_utilizado": "HAMMER-H2-Piecewise",
+      "descricao_parametros": "HAMMERSTEIN(H2-Piecewise,diff)",
+      "preprocessing": "diff",
+      "exogenas_utilizadas": [],
+      "percentual_fit": 50.56412721702759,
+      "variancia": 1.0916654252372413e+17,
+      "mse": 1.1185362534019528e+17,
+      "rmse": 334445250.1384872,
+      "mae": 245756703.61550644,
+      "mape": 28.04034363895967,
+      "theil_u2": 0.873406323595617,
+      "unit_root_d": 0,
+      "residual_diagnostics": {
+        "ljung_box_q4_stat": 6.192737817713002,
+        "ljung_box_q4_pvalue": 0.1852094449285473,
+        "arch_lm_stat": 1.2983632448698401,
+        "arch_lm_pvalue": 0.8616531702635609,
+        "jarque_bera_stat": 2.2314788027455292,
+        "jarque_bera_pvalue": 0.3276729075081319,
+        "shapiro_wilk_stat": 0.9645973914514403,
+        "shapiro_wilk_pvalue": 0.1928913440734033
+      },
+      "dm_vs_arima": {
+        "stat": -1.921516346869452,
+        "pvalue": 0.06131065599994465
+      },
+      "in_model_confidence_set": true
+    },
+    "lucro_consolidado": {
+      "modelo_utilizado": "HAMMER-H2-Piecewise",
+      "descricao_parametros": "HAMMERSTEIN(H2-Piecewise,diff)",
+      "preprocessing": "diff",
+      "exogenas_utilizadas": [],
+      "percentual_fit": 20.480948671813128,
+      "variancia": 5.17818546399468e+16,
+      "mse": 5.1834502858702104e+16,
+      "rmse": 227671919.34602323,
+      "mae": 173179649.75703046,
+      "mape": 40.13211720015318,
+      "theil_u2": 0.8785805662619474,
+      "unit_root_d": 0,
+      "residual_diagnostics": {
+        "ljung_box_q4_stat": 3.058114956558742,
+        "ljung_box_q4_pvalue": 0.5481475463120777,
+        "arch_lm_stat": 1.7875300634066527,
+        "arch_lm_pvalue": 0.774762999165235,
+        "jarque_bera_stat": 0.02558126452319083,
+        "jarque_bera_pvalue": 0.9872908202291042,
+        "shapiro_wilk_stat": 0.971102328707956,
+        "shapiro_wilk_pvalue": 0.33084275065785207
+      },
+      "dm_vs_arima": {
+        "stat": -1.6547868240273875,
+        "pvalue": 0.105249893309228
+      },
+      "in_model_confidence_set": true
+    },
+    "despesas_operacionais": {
+      "modelo_utilizado": "HAMMER-H2-Piecewise",
+      "descricao_parametros": "HAMMERSTEIN(H2-Piecewise,diff)",
+      "preprocessing": "diff",
+      "exogenas_utilizadas": [],
+      "percentual_fit": -4.091803363486979,
+      "variancia": 4472610427336204.5,
+      "mse": 4594678676014602.0,
+      "rmse": 67784059.15858537,
+      "mae": 47897852.271602206,
+      "mape": 177.5720884622594,
+      "theil_u2": 0.8338873053757618,
+      "unit_root_d": 0,
+      "residual_diagnostics": {
+        "ljung_box_q4_stat": 1.7914950032258967,
+        "ljung_box_q4_pvalue": 0.774038023288446,
+        "arch_lm_stat": -7.395662756133197,
+        "arch_lm_pvalue": 1.0,
+        "jarque_bera_stat": 3.2543433960286086,
+        "jarque_bera_pvalue": 0.1964845065187397,
+        "shapiro_wilk_stat": 0.9503839235766685,
+        "shapiro_wilk_pvalue": 0.05686183917296482
+      },
+      "dm_vs_arima": {
+        "stat": -1.2911212855937695,
+        "pvalue": 0.20355980712089378
+      },
+      "in_model_confidence_set": true
+    }
+  },
+  "20257": {
+    "resultado_bruto": {
+      "modelo_utilizado": "HAMMER-H1-Sigmoid",
+      "descricao_parametros": "HAMMERSTEIN(H1-Sigmoid,raw)",
+      "preprocessing": "raw",
+      "exogenas_utilizadas": [],
+      "percentual_fit": 34.94551751534658,
+      "variancia": 3.725143575193168e+16,
+      "mse": 3.742149693584767e+16,
+      "rmse": 193446367.0784429,
+      "mae": 155022240.12010133,
+      "mape": 28.7815855050206,
+      "theil_u2": 1.3913583709176995,
+      "unit_root_d": 1,
+      "residual_diagnostics": {
+        "ljung_box_q4_stat": 8.624315555618074,
+        "ljung_box_q4_pvalue": 0.07120731949668575,
+        "arch_lm_stat": 6.6968792382078,
+        "arch_lm_pvalue": 0.15280043634290977,
+        "jarque_bera_stat": 1.5183383902667433,
+        "jarque_bera_pvalue": 0.46805512799840643,
+        "shapiro_wilk_stat": 0.9772409482316079,
+        "shapiro_wilk_pvalue": 0.5270400915911859
+      },
+      "dm_vs_arima": {
+        "stat": 3.331968542299663,
+        "pvalue": 0.0017797183407574685
+      },
+      "in_model_confidence_set": true
+    },
+    "lucro_consolidado": {
+      "modelo_utilizado": "HAMMER-H1-Sigmoid",
+      "descricao_parametros": "HAMMERSTEIN(H1-Sigmoid,raw)",
+      "preprocessing": "raw",
+      "exogenas_utilizadas": [],
+      "percentual_fit": -12.21235734546613,
+      "variancia": 3.226444728330761e+16,
+      "mse": 3.2269167399841444e+16,
+      "rmse": 179636208.487714,
+      "mae": 135925326.74983934,
+      "mape": 49.263774837442156,
+      "theil_u2": 1.4375207897962756,
+      "unit_root_d": 1,
+      "residual_diagnostics": {
+        "ljung_box_q4_stat": 4.407877011553475,
+        "ljung_box_q4_pvalue": 0.3536110602542009,
+        "arch_lm_stat": 4.196338050765496,
+        "arch_lm_pvalue": 0.38008600407380094,
+        "jarque_bera_stat": 3.438872789742677,
+        "jarque_bera_pvalue": 0.17916709895641683,
+        "shapiro_wilk_stat": 0.9806188830310495,
+        "shapiro_wilk_pvalue": 0.6583183485430446
+      },
+      "dm_vs_arima": {
+        "stat": 2.4569421714007618,
+        "pvalue": 0.018123569245857507
+      },
+      "in_model_confidence_set": true
+    },
+    "despesas_operacionais": {
+      "modelo_utilizado": "HAMMER-H1-Sigmoid",
+      "descricao_parametros": "HAMMERSTEIN(H1-Sigmoid,raw)",
+      "preprocessing": "raw",
+      "exogenas_utilizadas": [],
+      "percentual_fit": -13.036040052914766,
+      "variancia": 5907266915916737.0,
+      "mse": 6012987414585361.0,
+      "rmse": 77543455.00804926,
+      "mae": 59157693.19776354,
+      "mape": 370.1510939596028,
+      "theil_u2": 1.2844499130326918,
+      "unit_root_d": 0,
+      "residual_diagnostics": {
+        "ljung_box_q4_stat": 4.108120274270058,
+        "ljung_box_q4_pvalue": 0.39157107320917967,
+        "arch_lm_stat": 4.273750272000494,
+        "arch_lm_pvalue": 0.37022364454978374,
+        "jarque_bera_stat": 1.7622803278000065,
+        "jarque_bera_pvalue": 0.41431026068035104,
+        "shapiro_wilk_stat": 0.9687043311676415,
+        "shapiro_wilk_pvalue": 0.27215354293704064
+      },
+      "dm_vs_arima": {
+        "stat": 2.0905996620913636,
+        "pvalue": 0.042510757875235984
+      },
+      "in_model_confidence_set": true
+    }
+  },
+  "21490": {
+    "resultado_bruto": {
+      "modelo_utilizado": "HAMMER-H1-Sigmoid",
+      "descricao_parametros": "HAMMERSTEIN(H1-Sigmoid,diff)",
+      "preprocessing": "diff",
+      "exogenas_utilizadas": [],
+      "percentual_fit": 42.872201520621225,
+      "variancia": 6.3036376945009224e+16,
+      "mse": 6.322417039858163e+16,
+      "rmse": 251444169.54580918,
+      "mae": 169370769.00112,
+      "mape": 18.505747156546406,
+      "theil_u2": 0.984392619028822,
+      "unit_root_d": 0,
+      "residual_diagnostics": {
+        "ljung_box_q4_stat": 6.540543588002367,
+        "ljung_box_q4_pvalue": 0.1622536679627147,
+        "arch_lm_stat": 3.5870125187803614,
+        "arch_lm_pvalue": 0.46477180825618525,
+        "jarque_bera_stat": 9.490404770765121,
+        "jarque_bera_pvalue": 0.008693302430407203,
+        "shapiro_wilk_stat": 0.9268230016988089,
+        "shapiro_wilk_pvalue": 0.008106609550247225
+      },
+      "dm_vs_arima": {
+        "stat": -0.6994193342722976,
+        "pvalue": 0.4880564627298719
+      },
+      "in_model_confidence_set": true
+    },
+    "lucro_consolidado": {
+      "modelo_utilizado": "HAMMER-H2-Piecewise",
+      "descricao_parametros": "HAMMERSTEIN(H2-Piecewise,diff)",
+      "preprocessing": "diff",
+      "exogenas_utilizadas": [],
+      "percentual_fit": -0.8064779618581985,
+      "variancia": 4.022084883490137e+16,
+      "mse": 4.0299796013952504e+16,
+      "rmse": 200748090.93476456,
+      "mae": 142714371.46481448,
+      "mape": 47.230937762578144,
+      "theil_u2": 0.9700283897932306,
+      "unit_root_d": 0,
+      "residual_diagnostics": {
+        "ljung_box_q4_stat": 2.8105817844700947,
+        "ljung_box_q4_pvalue": 0.5900074925774019,
+        "arch_lm_stat": -0.6371946018265007,
+        "arch_lm_pvalue": 1.0,
+        "jarque_bera_stat": 17.59526527503876,
+        "jarque_bera_pvalue": 0.00015109033764016452,
+        "shapiro_wilk_stat": 0.9292839742191533,
+        "shapiro_wilk_pvalue": 0.00985885601592235
+      },
+      "dm_vs_arima": {
+        "stat": 0.5894336431749564,
+        "pvalue": 0.5586548449746654
+      },
+      "in_model_confidence_set": true
+    },
+    "despesas_operacionais": {
+      "modelo_utilizado": "HAMMER-H1-Sigmoid",
+      "descricao_parametros": "HAMMERSTEIN(H1-Sigmoid,raw)",
+      "preprocessing": "raw",
+      "exogenas_utilizadas": [],
+      "percentual_fit": -5.234314738774115,
+      "variancia": 1288130597835032.8,
+      "mse": 1325108214095237.0,
+      "rmse": 36402035.85096906,
+      "mae": 23932103.106875274,
+      "mape": 112.67581652345828,
+      "theil_u2": 0.8354032587498993,
+      "unit_root_d": 0,
+      "residual_diagnostics": {
+        "ljung_box_q4_stat": 2.4853735890574344,
+        "ljung_box_q4_pvalue": 0.6472567798189026,
+        "arch_lm_stat": 1.430173324170143,
+        "arch_lm_pvalue": 0.8389341592052212,
+        "jarque_bera_stat": 50.966184106097984,
+        "jarque_bera_pvalue": 8.56709809183474e-12,
+        "shapiro_wilk_stat": 0.8893311528100781,
+        "shapiro_wilk_pvalue": 0.0005197742951767652
+      },
+      "dm_vs_arima": {
+        "stat": -1.1452471620760232,
+        "pvalue": 0.2584410923604048
+      },
+      "in_model_confidence_set": true
+    }
+  }
+}

@@ -1,0 +1,56 @@
+# Round 21 — 2ª passada do diagnóstico de outliers (masking), painel inteiro, sobre a série já tratada.
+round: 21
+hypothesis: >
+  Rounds 18-20 esgotaram a frente "ajuste de hiperparâmetros por família" (protocolo metodológico §23):
+  nenhum dos 12 combos melhorou seu campeão vigente com grids mais largos para Hammerstein,
+  Wiener ou SARIMAX-com-exógenas. Rounds 12-17 já haviam esgotado a frente "modelo/família nova".
+  Este round muda de frente para ajuste dos DADOS antes da modelagem: uma 2ª passada do
+  diagnóstico expandido de outliers (check_outliers.py, protocolo metodológico §11.2/11.3) rodada sobre
+  a série JÁ tratada pelos Rounds 04/08 — o mesmo protocolo que no Round 10 revelou um Level
+  Shift em ELET6×lucro_consolidado (2015-12-31) e um Additive Outlier em ELET6×despesas_operacionais
+  (2015-12-31) mascarados pelo primeiro tratamento, mas que só foi aplicado a essas duas
+  combinações. Rodando o diagnóstico nas 12 combinações agora (2026-08-16), a maioria dos
+  "novos" outliers reportados são falsos positivos do script (ele não incorpora as dummies LS já
+  aplicadas via LEVEL_SHIFT_DUMMIES, então re-flagga eventos já tratados por dummy — ex.:
+  ELET6×resultado_bruto 2018-12-31, ALUP4×resultado_bruto 2020-12-31, ALUP4×lucro_consolidado
+  2019-03-31/2020-12-31, ALUP4×despesas_operacionais 2025-06-30 — todos já em
+  LEVEL_SHIFT_DUMMIES, portanto fora do escopo deste round). Depois de excluir esses falsos
+  positivos, sobram 5 eventos genuinamente novos (ausentes de SPIKE_KNOWN/LEVEL_SHIFT_DUMMIES)
+  em 3 combinações: ELET6×lucro_consolidado (AO em 2025-12-31, o trimestre mais recente da
+  amostra), ELET6×despesas_operacionais (AO em 2014-12-31 e LS em 2024-09-30 — esta combinação
+  nunca teve uma dummy LS, apenas imputações AO/TC) e, notavelmente, ISAE4×resultado_bruto — a
+  própria combinação citada pelo usuário como precedente de que tratamento de outlier já gerou o
+  campeão do painel (HAMMER-H1-Sigmoid, FIT=52.2%, único ganho DM-significativo, Round 06/08) —
+  com dois AO novos (2013-06-30, um trimestre após o AO já tratado de 2013-03-31; e 2020-12-31,
+  o mesmo trimestre COVID tratado como LS/AO em várias outras combinações do painel). Um sexto
+  evento (TAEE4×despesas_operacionais, reclassificação de 2020-12-31 de LS para AO) foi
+  identificado mas deliberadamente NÃO tratado neste round: é o mesmo evento/data já coberto por
+  uma dummy LS aplicada com sucesso (campeão ARMAX, FIT=25.4%, Round 13) — reverter um tratamento
+  já validado exigiria justificativa própria, não cabe nesta rodada de "eventos novos". Hipótese
+  testável: tratar os 5 eventos genuinos (imputação linear AO / dummy binária LS conforme
+  tipologia Chen & Liu 1993) nas 3 combinações afetadas melhora FIT% mantendo o gate U₂<1,
+  incluindo potencialmente empurrar ELET6×despesas_operacionais para positivo de forma mais
+  robusta e ISAE4×resultado_bruto para além dos 52.2% atuais. Condição de falsificação: se
+  nenhuma das 3 combinações melhorar (ou se ISAE4×resultado_bruto regredir, replicando o padrão
+  observado no Round 08 quando tratamento de spike adicional piorou ALUP4×resultado_bruto/
+  lucro_consolidado), a frente de "2ª passada de outlier" fecha
+  para este painel, e junto com Rounds 11 (exógenas) e 18-20 (hiperparâmetros) esgotados, resta
+  apenas a declaração formal de não-preditibilidade para ELET6×resultado_bruto (não afetado por
+  este round — nenhum evento novo encontrado) e a aceitação dos campeões atuais para os demais
+  combos como estado final do painel.
+justification: "protocolo metodológico §11.2/11.3 (protocolo de 2ª passada, mesmo do Round 10); Chen, C. & Liu, L.M. (1993), JASA 88(421), 284-297 (tipologia AO/LS/TC e efeito de mascaramento)"
+baseline_json: results/202608161427_v20.json
+combos: [[2437, lucro_consolidado], [2437, despesas_operacionais], [18376, resultado_bruto]]
+models: full
+preproc: search
+exog: {source: results/exog_selection_v11.json}
+version: 21
+success_criteria: {fit_gain_pp: 2.0, dm_pvalue_max: 0.10}
+next_round: >
+  Round 22 — se alguma das 3 combinações melhorar, promover o novo campeão e registrar os
+  eventos tratados em protocolo metodológico §11 (tabela de spikes). Se ISAE4×resultado_bruto regredir
+  (padrão do Round 08 com ALUP4), reverter o tratamento apenas para essa combinação e documentar
+  como tratamento nulo/negativo. Se nenhuma combinação melhorar, fechar formalmente a frente de
+  ajuste de dados via outlier para o painel e passar à declaração de não-preditibilidade para
+  ELET6×resultado_bruto (e ELET6×despesas_operacionais, se também não melhorar aqui) como
+  próximo e último passo antes de consolidar o painel de 12 combos como estado final da tese.

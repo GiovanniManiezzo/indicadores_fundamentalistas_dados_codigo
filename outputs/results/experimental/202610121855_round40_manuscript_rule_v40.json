@@ -1,0 +1,734 @@
+{
+  "round": 40,
+  "impute_method": "previous",
+  "raw_cells": {
+    "2437:lucro_consolidado": [
+      "2012-12-31"
+    ],
+    "2437:despesas_operacionais": [
+      "2012-12-31"
+    ],
+    "18376:resultado_bruto": [
+      "2013-03-31",
+      "2013-06-30"
+    ]
+  },
+  "q4_rebase": {
+    "2437:resultado_bruto": {
+      "2011-12-31": 9136990000.0,
+      "2018-12-31": 6337450000.0,
+      "2020-12-31": 9513703000.0
+    },
+    "18376:resultado_bruto": {
+      "2020-12-31": 1281537000.0
+    }
+  },
+  "min_train": 20,
+  "summary": {
+    "n_combos": 12,
+    "mean_fit_current": 23.915184124608203,
+    "mean_fit_manuscript": 23.467929954370266,
+    "mean_fit_recorded": 12.188535941008737,
+    "mean_excess_ar1_wf": 13.864597467954894,
+    "mean_excess_ar1_wf_exog": 20.3212140982989,
+    "mean_excess_ar1_wf_univ": 9.252728446280605,
+    "n_gate_lost_manuscript": 1,
+    "n_gate_lost_recorded": 1,
+    "n_ar1_passes_gate": 7,
+    "n_targets_excluded": 17,
+    "n_holm_rejections": 1,
+    "n_sig_tested": 11
+  },
+  "combos": {
+    "2437": {
+      "resultado_bruto": {
+        "modelo_utilizado": "ARIMA",
+        "descricao_parametros": "ARIMA(1, 0, 1)",
+        "preprocessing": "raw",
+        "exogenas_utilizadas": [],
+        "source_json": "202608081559_v8.json",
+        "fit_stored": -1.3014651380632847,
+        "cells_changed": [
+          "2011-12-31",
+          "2016-06-30",
+          "2018-12-31",
+          "2020-12-31"
+        ],
+        "cells_imputed": [
+          "2016-06-30"
+        ],
+        "targets_excluded": 1,
+        "targets_excluded_dates": [
+          "2016-06-30"
+        ],
+        "current": {
+          "fit": -1.3014651380632847,
+          "u2": 0.8180257704262429
+        },
+        "manuscript": {
+          "fit": -3.419292365865978,
+          "u2": 0.8944918050175303
+        },
+        "recorded": {
+          "fit": -7.134444033923648,
+          "u2": 0.9618876291839913
+        },
+        "imputed_scored": {
+          "fit": -1.2305462670457068,
+          "u2": 0.8962909751628373
+        },
+        "delta_fit_pp": -2.1178272278026933,
+        "rho1_current": 0.23828600608687978,
+        "rho1_manuscript": 0.3933594357036486,
+        "ar1_wf": {
+          "fit": -0.7517112895776945,
+          "u2": 0.8714194230917449,
+          "excess": -2.6675810762882834,
+          "dm_p_champion_vs_ar1": 0.20017413217430027,
+          "exog": false
+        }
+      },
+      "lucro_consolidado": {
+        "modelo_utilizado": "COMBINATION-INVMSE",
+        "descricao_parametros": "COMBINATION-INVMSE[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+        "preprocessing": "raw",
+        "exogenas_utilizadas": [],
+        "source_json": "202609281913_v31.json",
+        "fit_stored": 4.667107206581955,
+        "cells_changed": [
+          "2012-12-31",
+          "2016-06-30",
+          "2018-12-31"
+        ],
+        "cells_imputed": [
+          "2016-06-30",
+          "2018-12-31",
+          "2025-12-31"
+        ],
+        "targets_excluded": 3,
+        "targets_excluded_dates": [
+          "2016-06-30",
+          "2018-12-31",
+          "2025-12-31"
+        ],
+        "current": {
+          "fit": 4.667107206581955,
+          "u2": 0.8880997682883829
+        },
+        "manuscript": {
+          "fit": 3.2793888496707058,
+          "u2": 0.8506710732566495
+        },
+        "recorded": {
+          "fit": -11.521058488454639,
+          "u2": 0.8825698966271466
+        },
+        "imputed_scored": {
+          "fit": 6.9899440126865215,
+          "u2": 0.8683069120600381
+        },
+        "delta_fit_pp": -1.387718356911249,
+        "rho1_current": 0.380954347733262,
+        "rho1_manuscript": 0.2929524564403418,
+        "ar1_wf": {
+          "fit": -0.6820629871809647,
+          "u2": 0.8855125868247495,
+          "excess": 3.9614518368516705,
+          "dm_p_champion_vs_ar1": 0.42831259211122596,
+          "exog": false
+        },
+        "significance": {
+          "test": "Diebold-Mariano",
+          "pvalue": 0.42831259211122596,
+          "holm_p": 0.8566251842224519,
+          "holm_rejects": false,
+          "nested": false,
+          "dm_p_all": 0.42831259211122596,
+          "mcs": "RW,ARIMA,Campeao"
+        }
+      },
+      "despesas_operacionais": {
+        "modelo_utilizado": "THETA",
+        "descricao_parametros": "Theta",
+        "preprocessing": "raw",
+        "exogenas_utilizadas": [],
+        "source_json": "202609281913_v31.json",
+        "fit_stored": 4.976905169757229,
+        "cells_changed": [
+          "2012-12-31",
+          "2014-12-31",
+          "2015-12-31",
+          "2018-12-31"
+        ],
+        "cells_imputed": [
+          "2014-12-31",
+          "2015-12-31",
+          "2018-12-31"
+        ],
+        "targets_excluded": 2,
+        "targets_excluded_dates": [
+          "2015-12-31",
+          "2018-12-31"
+        ],
+        "current": {
+          "fit": 4.976905169757229,
+          "u2": 0.7710258024399823
+        },
+        "manuscript": {
+          "fit": 2.9149326442849843,
+          "u2": 0.7694390150486571
+        },
+        "recorded": {
+          "fit": 0.26621647894431444,
+          "u2": 0.8657771997433339
+        },
+        "imputed_scored": {
+          "fit": 5.663773448975595,
+          "u2": 0.7707216013853713
+        },
+        "delta_fit_pp": -2.0619725254722447,
+        "rho1_current": 0.40479361699550803,
+        "rho1_manuscript": 0.33402603813240267,
+        "ar1_wf": {
+          "fit": -17.791918933573967,
+          "u2": 0.9335493145703129,
+          "excess": 20.706851577858952,
+          "dm_p_champion_vs_ar1": 0.02749474944874506,
+          "exog": false
+        },
+        "significance": {
+          "test": "Diebold-Mariano",
+          "pvalue": 0.6685949963327196,
+          "holm_p": 0.8566251842224519,
+          "holm_rejects": false,
+          "nested": false,
+          "dm_p_all": 0.6685949963327196,
+          "mcs": "ARIMA,Campeao"
+        }
+      }
+    },
+    "18376": {
+      "resultado_bruto": {
+        "modelo_utilizado": "HAMMER-H2-Piecewise",
+        "descricao_parametros": "HAMMERSTEIN(H2-Piecewise,log+diff)",
+        "preprocessing": "log+diff",
+        "exogenas_utilizadas": [],
+        "source_json": "202609282236_v34.json",
+        "fit_stored": 58.21418979985169,
+        "cells_changed": [
+          "2013-03-31",
+          "2013-06-30",
+          "2016-09-30",
+          "2020-12-31"
+        ],
+        "cells_imputed": [
+          "2016-09-30"
+        ],
+        "targets_excluded": 1,
+        "targets_excluded_dates": [
+          "2016-09-30"
+        ],
+        "current": {
+          "fit": 58.21418979985169,
+          "u2": 0.8045346760396346
+        },
+        "manuscript": {
+          "fit": 58.067539230708235,
+          "u2": 0.787047057995246
+        },
+        "recorded": {
+          "fit": 4.281660050942526,
+          "u2": 0.9778515736070087
+        },
+        "imputed_scored": {
+          "fit": 58.91156113843289,
+          "u2": 0.7870474040983568
+        },
+        "delta_fit_pp": -0.14665056914345342,
+        "rho1_current": 0.8886356593143372,
+        "rho1_manuscript": 0.8861233446218236,
+        "ar1_wf": {
+          "fit": 44.463564765667805,
+          "u2": 1.0423854732306692,
+          "excess": 13.60397446504043,
+          "dm_p_champion_vs_ar1": 0.06471616461562445,
+          "exog": false
+        },
+        "significance": {
+          "test": "Diebold-Mariano",
+          "pvalue": 0.0998097602534159,
+          "holm_p": 0.4547500070279053,
+          "holm_rejects": false,
+          "nested": false,
+          "dm_p_all": 0.0998097602534159,
+          "mcs": "Campeao"
+        }
+      },
+      "lucro_consolidado": {
+        "modelo_utilizado": "ARIMAX",
+        "descricao_parametros": "ARIMAX(0,1,1)",
+        "preprocessing": "raw",
+        "exogenas_utilizadas": [
+          "TAEE4.SA"
+        ],
+        "source_json": "202608081559_v8.json",
+        "fit_stored": 26.348665066046806,
+        "cells_changed": [
+          "2016-09-30",
+          "2020-12-31"
+        ],
+        "cells_imputed": [
+          "2016-09-30",
+          "2020-12-31"
+        ],
+        "targets_excluded": 2,
+        "targets_excluded_dates": [
+          "2016-09-30",
+          "2020-12-31"
+        ],
+        "current": {
+          "fit": 26.348665066046806,
+          "u2": 0.8137500444410339
+        },
+        "manuscript": {
+          "fit": 26.136154616247453,
+          "u2": 0.7996969463483579
+        },
+        "recorded": {
+          "fit": -4.972819496621272,
+          "u2": 0.9653614100596619
+        },
+        "imputed_scored": {
+          "fit": 26.596008942454784,
+          "u2": 0.8140564260331518
+        },
+        "delta_fit_pp": -0.2125104497993533,
+        "rho1_current": 0.708602504583905,
+        "rho1_manuscript": 0.7086535949566657,
+        "ar1_wf": {
+          "fit": 10.052086782073744,
+          "u2": 0.9738332895758636,
+          "excess": 16.08406783417371,
+          "dm_p_champion_vs_ar1": 0.11293961889448796,
+          "exog": true
+        },
+        "significance": {
+          "test": "Clark-West",
+          "pvalue": 0.004802795098614098,
+          "holm_p": 0.052830746084755076,
+          "holm_rejects": true,
+          "nested": true,
+          "dm_p_all": 0.23043784064802142,
+          "mcs": "ARIMA,Campeao"
+        }
+      },
+      "despesas_operacionais": {
+        "modelo_utilizado": "THETA",
+        "descricao_parametros": "Theta",
+        "preprocessing": "raw",
+        "exogenas_utilizadas": [],
+        "source_json": "202608151534_v13.json",
+        "fit_stored": 6.527485076008322,
+        "cells_changed": [
+          "2013-09-30",
+          "2020-12-31",
+          "2024-09-30"
+        ],
+        "cells_imputed": [
+          "2013-09-30",
+          "2020-12-31",
+          "2024-09-30"
+        ],
+        "targets_excluded": 2,
+        "targets_excluded_dates": [
+          "2020-12-31",
+          "2024-09-30"
+        ],
+        "current": {
+          "fit": 6.527485076008322,
+          "u2": 0.7488153829411377
+        },
+        "manuscript": {
+          "fit": 4.790756277693397,
+          "u2": 0.7503419540901083
+        },
+        "recorded": {
+          "fit": -2.5500962385110792,
+          "u2": 0.9725938784028502
+        },
+        "imputed_scored": {
+          "fit": 6.034086302456543,
+          "u2": 0.7554765427445042
+        },
+        "delta_fit_pp": -1.7367287983149247,
+        "rho1_current": 0.39461771974871457,
+        "rho1_manuscript": 0.3905859580045364,
+        "ar1_wf": {
+          "fit": -9.85880162863728,
+          "u2": 0.8657947974931379,
+          "excess": 14.649557906330678,
+          "dm_p_champion_vs_ar1": 0.05672505641211252,
+          "exog": false
+        },
+        "significance": {
+          "test": "Diebold-Mariano",
+          "pvalue": 0.06496428671827219,
+          "holm_p": 0.4547500070279053,
+          "holm_rejects": false,
+          "nested": false,
+          "dm_p_all": 0.06496428671827219,
+          "mcs": "Campeao"
+        }
+      }
+    },
+    "20257": {
+      "resultado_bruto": {
+        "modelo_utilizado": "DAMPEDTREND",
+        "descricao_parametros": "DampedTrend",
+        "preprocessing": "raw",
+        "exogenas_utilizadas": [],
+        "source_json": "202608231538_v25.json",
+        "fit_stored": 45.596152191512395,
+        "cells_changed": [
+          "2023-12-31"
+        ],
+        "cells_imputed": [
+          "2023-12-31"
+        ],
+        "targets_excluded": 1,
+        "targets_excluded_dates": [
+          "2023-12-31"
+        ],
+        "current": {
+          "fit": 45.596152191512395,
+          "u2": 0.9052955998780462
+        },
+        "manuscript": {
+          "fit": 51.8525847214397,
+          "u2": 1.0285227395458212
+        },
+        "recorded": {
+          "fit": 44.67693829005812,
+          "u2": 1.0352175259032395
+        },
+        "imputed_scored": {
+          "fit": 51.84055081322283,
+          "u2": 1.0290673066052267
+        },
+        "delta_fit_pp": 6.256432529927302,
+        "rho1_current": 0.8081226653703495,
+        "rho1_manuscript": 0.8517948593385153,
+        "ar1_wf": {
+          "fit": 39.52162344889882,
+          "u2": 1.2919361335128834,
+          "excess": 12.330961272540875,
+          "dm_p_champion_vs_ar1": 0.0268555352302243,
+          "exog": false
+        },
+        "significance": {
+          "test": "Diebold-Mariano",
+          "pvalue": 0.010851052942617092,
+          "holm_p": 0.10851052942617093,
+          "holm_rejects": false,
+          "nested": false,
+          "dm_p_all": 0.010851052942617092,
+          "mcs": "RW,Campeao"
+        }
+      },
+      "lucro_consolidado": {
+        "modelo_utilizado": "BAYESARIMA",
+        "descricao_parametros": "BAYESARIMA(0,1,2) lambda0=1",
+        "preprocessing": "log",
+        "exogenas_utilizadas": [
+          "IPA-M - Fechamento mensal (% mês)  (1478707)",
+          "Selic_meta_pct_aa"
+        ],
+        "source_json": "202608160949_v17.json",
+        "fit_stored": 36.49711663021002,
+        "cells_changed": [
+          "2022-12-31"
+        ],
+        "cells_imputed": [
+          "2022-12-31"
+        ],
+        "targets_excluded": 1,
+        "targets_excluded_dates": [
+          "2022-12-31"
+        ],
+        "current": {
+          "fit": 36.49711663021002,
+          "u2": 0.8135174878738045
+        },
+        "manuscript": {
+          "fit": 36.571364641801985,
+          "u2": 0.810463297942981
+        },
+        "recorded": {
+          "fit": 32.496703820206164,
+          "u2": 0.8545088124598605
+        },
+        "imputed_scored": {
+          "fit": 36.4678729800509,
+          "u2": 0.8125712704963027
+        },
+        "delta_fit_pp": 0.07424801159196193,
+        "rho1_current": 0.6321082018128011,
+        "rho1_manuscript": 0.6306574952068408,
+        "ar1_wf": {
+          "fit": 7.7106413485679814,
+          "u2": 1.1792329687574588,
+          "excess": 28.860723293234003,
+          "dm_p_champion_vs_ar1": 0.08106941460510969,
+          "exog": true
+        },
+        "significance": {
+          "test": "Diebold-Mariano",
+          "pvalue": 0.07801473967029689,
+          "holm_p": 0.4547500070279053,
+          "holm_rejects": false,
+          "nested": false,
+          "dm_p_all": 0.07801473967029689,
+          "mcs": "RW,Campeao"
+        }
+      },
+      "despesas_operacionais": {
+        "modelo_utilizado": "BAYESARIMA",
+        "descricao_parametros": "BAYESARIMA(1,0,0) lambda0=1",
+        "preprocessing": "raw",
+        "exogenas_utilizadas": [
+          "IPA-M - Fechamento mensal (% mês)  (1478707)",
+          "TAEE4.SA",
+          "INCC-M - Fechamento mensal (%)(1000370)",
+          "Selic_meta_pct_aa"
+        ],
+        "source_json": "202609281913_v31.json",
+        "fit_stored": 22.42698427936479,
+        "cells_changed": [
+          "2022-12-31"
+        ],
+        "cells_imputed": [
+          "2022-12-31"
+        ],
+        "targets_excluded": 1,
+        "targets_excluded_dates": [
+          "2022-12-31"
+        ],
+        "current": {
+          "fit": 22.42698427936479,
+          "u2": 0.8814768568450417
+        },
+        "manuscript": {
+          "fit": 23.33739763887571,
+          "u2": 0.8617296751263457
+        },
+        "recorded": {
+          "fit": 20.77065051613085,
+          "u2": 0.8780870415772732
+        },
+        "imputed_scored": {
+          "fit": 23.333832688333487,
+          "u2": 0.8617775798506485
+        },
+        "delta_fit_pp": 0.910413359510919,
+        "rho1_current": 0.5937145235245198,
+        "rho1_manuscript": 0.586055876575874,
+        "ar1_wf": {
+          "fit": 6.9242009686721335,
+          "u2": 1.0462230030174904,
+          "excess": 16.413196670203575,
+          "dm_p_champion_vs_ar1": 0.08971691797065323,
+          "exog": true
+        },
+        "significance": {
+          "test": "Diebold-Mariano",
+          "pvalue": 0.03898558619938356,
+          "holm_p": 0.3118846895950685,
+          "holm_rejects": false,
+          "nested": false,
+          "dm_p_all": 0.03898558619938356,
+          "mcs": "RW,Campeao"
+        }
+      }
+    },
+    "21490": {
+      "resultado_bruto": {
+        "modelo_utilizado": "SS",
+        "descricao_parametros": "SS(local level)",
+        "preprocessing": "boxcox",
+        "exogenas_utilizadas": [
+          "IPCA Brasil (% ao mês)(156038)",
+          "INCC-M - Fechamento mensal (%)(1000370)",
+          "TAEE4.SA"
+        ],
+        "source_json": "202609281913_v31.json",
+        "fit_stored": 53.592594110877954,
+        "cells_changed": [
+          "2010-06-30",
+          "2011-06-30",
+          "2019-03-31"
+        ],
+        "cells_imputed": [
+          "2010-06-30",
+          "2011-06-30",
+          "2019-03-31"
+        ],
+        "targets_excluded": 1,
+        "targets_excluded_dates": [
+          "2019-03-31"
+        ],
+        "current": {
+          "fit": 53.592594110877954,
+          "u2": 0.7310662637917433
+        },
+        "manuscript": {
+          "fit": 50.79545065728799,
+          "u2": 0.8325347833724506
+        },
+        "recorded": {
+          "fit": 45.166171312516454,
+          "u2": 0.855834693134571
+        },
+        "imputed_scored": {
+          "fit": 51.364022747096925,
+          "u2": 0.832627356276192
+        },
+        "delta_fit_pp": -2.7971434535899675,
+        "rho1_current": 0.8516290407842673,
+        "rho1_manuscript": 0.8702736225250154,
+        "ar1_wf": {
+          "fit": 37.39503719921908,
+          "u2": 1.059268092882318,
+          "excess": 13.400413458068904,
+          "dm_p_champion_vs_ar1": 0.056453443622515316,
+          "exog": true
+        },
+        "significance": {
+          "test": "Diebold-Mariano",
+          "pvalue": 0.029440336784371014,
+          "holm_p": 0.2649630310593391,
+          "holm_rejects": false,
+          "nested": false,
+          "dm_p_all": 0.029440336784371014,
+          "mcs": "Campeao"
+        }
+      },
+      "lucro_consolidado": {
+        "modelo_utilizado": "ARIMAX",
+        "descricao_parametros": "ARIMAX(0,1,1)",
+        "preprocessing": "log",
+        "exogenas_utilizadas": [
+          "IPA-M - Fechamento mensal (% mês)  (1478707)",
+          "IPCA Brasil (% ao mês)(156038)",
+          "TAEE4.SA"
+        ],
+        "source_json": "202608300933_v28.json",
+        "fit_stored": 27.115281185574037,
+        "cells_changed": [
+          "2010-06-30",
+          "2011-06-30"
+        ],
+        "cells_imputed": [
+          "2010-06-30",
+          "2011-06-30"
+        ],
+        "targets_excluded": 0,
+        "targets_excluded_dates": [],
+        "current": {
+          "fit": 27.115281185574037,
+          "u2": 0.7013462612873016
+        },
+        "manuscript": {
+          "fit": 26.91371718594697,
+          "u2": 0.7032858469761548
+        },
+        "recorded": {
+          "fit": 26.91371718594697,
+          "u2": 0.7032858469761548
+        },
+        "imputed_scored": {
+          "fit": 26.91371718594697,
+          "u2": 0.7032858469761548
+        },
+        "delta_fit_pp": -0.20156399962706573,
+        "rho1_current": 0.5710097173589543,
+        "rho1_manuscript": 0.5708337974061142,
+        "ar1_wf": {
+          "fit": 0.06604795013266385,
+          "u2": 0.9616323529256237,
+          "excess": 26.84766923581431,
+          "dm_p_champion_vs_ar1": 0.07257822758004177,
+          "exog": true
+        },
+        "significance": {
+          "test": "Diebold-Mariano",
+          "pvalue": 0.07118784943863338,
+          "holm_p": 0.4547500070279053,
+          "holm_rejects": false,
+          "nested": false,
+          "dm_p_all": 0.07118784943863338,
+          "mcs": "Campeao"
+        }
+      },
+      "despesas_operacionais": {
+        "modelo_utilizado": "WIENER-W2-Piecewise",
+        "descricao_parametros": "WIENER(W2-Piecewise,raw)",
+        "preprocessing": "raw",
+        "exogenas_utilizadas": [],
+        "source_json": "202609282226_v33.json",
+        "fit_stored": 2.321193917576514,
+        "cells_changed": [
+          "2010-06-30",
+          "2011-06-30",
+          "2022-06-30",
+          "2025-09-30"
+        ],
+        "cells_imputed": [
+          "2010-06-30",
+          "2011-06-30",
+          "2022-06-30",
+          "2025-09-30"
+        ],
+        "targets_excluded": 2,
+        "targets_excluded_dates": [
+          "2022-06-30",
+          "2025-09-30"
+        ],
+        "current": {
+          "fit": 2.321193917576514,
+          "u2": 0.7505499050287538
+        },
+        "manuscript": {
+          "fit": 0.37516535435206944,
+          "u2": 0.7052384217824826
+        },
+        "recorded": {
+          "fit": -2.1312081051299003,
+          "u2": 0.7216556344310413
+        },
+        "imputed_scored": {
+          "fit": 2.2371834545621416,
+          "u2": 0.8339308290081906
+        },
+        "delta_fit_pp": -1.9460285632244445,
+        "rho1_current": 0.15912683604496833,
+        "rho1_manuscript": 0.3074036321150027,
+        "ar1_wf": {
+          "fit": -1.808717787277847,
+          "u2": 0.7206980037796682,
+          "excess": 2.1838831416299165,
+          "dm_p_champion_vs_ar1": 0.27306186919019254,
+          "exog": false
+        },
+        "significance": {
+          "test": "Diebold-Mariano",
+          "pvalue": 0.27306186919019254,
+          "holm_p": 0.8191856075705777,
+          "holm_rejects": false,
+          "nested": false,
+          "dm_p_all": 0.27306186919019254,
+          "mcs": "ARIMA,Campeao"
+        }
+      }
+    }
+  }
+}

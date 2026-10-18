@@ -1,0 +1,29 @@
+# Round 10 — outlier treatment for the two persistent FIT%<0 champions (ELET6).
+round: 10
+hypothesis: >
+  Round 10 — ELET6×lucro_consolidado e ELET6×despesas_operacionais são as combinações com
+  FIT% mais fraco entre os campeões atuais (0.5% e -0.4%, tabela de campeões), e são as únicas onde o
+  tratamento de outliers não foi revisitado desde o Round 08. O diagnóstico expandido
+  (check_outliers.py, mesmo procedimento formal do Round 05-diag, protocolo metodológico §11.2/11.3)
+  identificou dois eventos ainda não tratados: Level Shift em ELET6×lucro_consolidado
+  (2015-12-31) e Additive Outlier em ELET6×despesas_operacionais (2015-12-31) — nenhum dos
+  dois presente em SPIKE_KNOWN/LEVEL_SHIFT_DUMMIES antes deste round. Hipótese: tratar esses
+  dois eventos (dummy LS binária e imputação AO por interpolação linear, respectivamente,
+  conforme tipologia Chen & Liu 1993) melhora o FIT% dessas duas combinações, replicando o
+  ganho observado em outras combinações após tratamento de outlier equivalente (ex.:
+  TAEE4×despesas_operacionais +55 p.p. no Round 08). Nenhum evento novo foi encontrado para
+  ELET6×resultado_bruto (a terceira combinação com FIT%<0) — permanece fora do escopo deste
+  round.
+justification: "protocolo metodológico §11.3; Chen, C. & Liu, L.M. (1993), JASA 88(421), 284-297"
+baseline_json: results/202608091106_v9.json
+combos: [[2437, lucro_consolidado], [2437, despesas_operacionais]]
+models: full
+preproc: search
+exog: {source: results/exog_selection_v9.json}
+version: 10
+success_criteria: {fit_gain_pp: 2.0, dm_pvalue_max: 0.10}
+next_round: >
+  Round 11 — se o tratamento de outlier não trouxer ganho para ELET6×lucro_consolidado /
+  ELET6×despesas_operacionais, avaliar expansão do conjunto de exógenas para as três
+  combinações ELET6 (nenhuma tem mais de 1 exógena hoje), já que outlier treatment está
+  esgotado ou já aplicado para as três.

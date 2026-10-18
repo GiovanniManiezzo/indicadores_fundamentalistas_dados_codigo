@@ -1,0 +1,13 @@
+variante_dado,codigo_cvm,empresa_config,K,coincidencias,taxa_pct,publicado_casa_com
+bruta,2437,ELET6,58,16,27.586,Taesa|Axia Energy
+bruta,18376,ISAE4,58,24,41.379,ISA Energy
+bruta,20257,TAEE4,58,16,27.586,Taesa|Axia Energy
+bruta,21490,ALUP4,56,23,41.071,nenhuma
+bruta_alup4_interp,2437,ELET6,58,16,27.586,Taesa|Axia Energy
+bruta_alup4_interp,18376,ISAE4,58,24,41.379,ISA Energy
+bruta_alup4_interp,20257,TAEE4,58,16,27.586,Taesa|Axia Energy
+bruta_alup4_interp,21490,ALUP4,58,13,22.414,Alupar
+tratada,2437,ELET6,58,57,98.276,nenhuma
+tratada,18376,ISAE4,58,18,31.034,nenhuma
+tratada,20257,TAEE4,58,15,25.862,nenhuma
+tratada,21490,ALUP4,58,24,41.379,ISA Energy

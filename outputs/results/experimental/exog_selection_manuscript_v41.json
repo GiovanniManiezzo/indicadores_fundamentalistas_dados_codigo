@@ -1,0 +1,47 @@
+{
+  "2437": {
+    "resultado_bruto": [],
+    "lucro_consolidado": [],
+    "despesas_operacionais": []
+  },
+  "18376": {
+    "resultado_bruto": [
+      "TAEE4.SA"
+    ],
+    "lucro_consolidado": [
+      "TAEE4.SA"
+    ],
+    "despesas_operacionais": [
+      "TAEE4.SA"
+    ]
+  },
+  "20257": {
+    "resultado_bruto": [],
+    "lucro_consolidado": [
+      "IPA-M - Fechamento mensal (% mês)  (1478707)",
+      "Selic_meta_pct_aa"
+    ],
+    "despesas_operacionais": [
+      "IPA-M - Fechamento mensal (% mês)  (1478707)",
+      "TAEE4.SA",
+      "INCC-M - Fechamento mensal (%)(1000370)",
+      "Selic_meta_pct_aa"
+    ]
+  },
+  "21490": {
+    "resultado_bruto": [
+      "IPCA Brasil (% ao mês)(156038)",
+      "TAEE4.SA",
+      "INCC-M - Fechamento mensal (%)(1000370)"
+    ],
+    "lucro_consolidado": [
+      "IPA-M - Fechamento mensal (% mês)  (1478707)",
+      "IPCA Brasil (% ao mês)(156038)",
+      "TAEE4.SA"
+    ],
+    "despesas_operacionais": [
+      "Selic_meta_pct_aa",
+      "TAEE4.SA"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+# Round 40 — campeões congelados sob o tratamento do manuscrito: dado corrigido e pontuação sem alvos imputados.
+# Exploratório, só para o manuscrito; protocolo metodológico §31 (escrita antes da execução).
+# Segue o Round 39, que mostrou que a imputação por y(k−1) torna o alvo imputado trivial para o passeio
+# aleatório. Decisões do autor (2026-10-12): imputação só pelo passado para estimar; alvos imputados
+# fora da pontuação, com a mesma máscara para todos os competidores (RW sobre a série imputada);
+# quartos trimestres de receita com a base do anual diferente da dos trimestres passam a ser dado
+# corrigido (critério objetivo, scripts/q4_rebase_scan.py), e não outlier; campeões congelados;
+# metade HMM apenas declarada, salvo nas séries corrigidas; variante só do manuscrito.
+round: 40
+hypothesis: >
+  O pior efeito do tratamento por regra pré-fixada (Round 39) vinha de pontuar o alvo imputado, não
+  de estimar com a série imputada. Sob a regra do §31 — toda célula da lista imputada por y(k−1),
+  células da MP 579 no valor registrado, quatro quartos trimestres de receita com base inconsistente
+  (ELET6 2011, 2018 e 2020; ISAE4 2020) corrigidos como dado, e os alvos imputados fora da
+  pontuação — reavalia-se o campeão de cada uma das 12 combinações com família, ordem, modo, λ, d e
+  exógenas congelados. Previsões pré-registradas: (a) as três combinações das reversões (TAEE4 e
+  ALUP4 em resultado_bruto, ALUP4 em despesas_operacionais) recuperam o U₂ do tratamento vigente a
+  menos de 0,03; (b) 12/12 passam o gate U₂ < 1; (c) ELET6×resultado_bruto, único campeão com FIT%
+  negativo, passa a FIT% > 0; (d) o excesso médio sobre o AR(1) em walk-forward, medido na mesma
+  máscara, fica a até 3 p.p. dos +13,9 do manuscrito; (e) as combinações sem célula alterada e sem
+  alvo mascarado mudam menos de 0,5 p.p. Falsificação de (a): qualquer uma das três com U₂ vigente
+  excedido em mais de 0,03 — o mecanismo do alvo trivial não explicaria a perda. Se (b) falhar, a
+  combinação perde o campeão sob esta regra e isso é reportado. Como os modelos foram eleitos sob o
+  tratamento antigo, o resultado é um piso do que uma busca refeita atingiria.
+justification: >
+  protocolo metodológico §31; Tashman, L.J. (2000), Out-of-sample tests of forecasting accuracy, IJF 16(4),
+  437-450; Kaufman, S. et al. (2012), Leakage in data mining, ACM TKDD 6(4); Clark, T.E. & West, K.D.
+  (2007), J. Econometrics 138(1), 291-311; IFRS 5 / CPC 31 (operações descontinuadas).
+combos: all
+models: MANUSCRIPT_TREATMENT
+preproc: search
+exog: none
+version: 40
+success_criteria:
+  fit_change_pp: 2.0
+  excess_change_pp: 3.0
+  dm_pvalue_max: 0.10
+  multiplicity: holm_non_arima
+  note: >
+    Relatar as 12, inclusive as que não mudam: FIT% e U₂ sob quatro leituras (vigente, manuscrito sem
+    os alvos imputados, contra o valor registrado, contra o gabarito imputado), alvos excluídos,
+    células alteradas, ρ₁, AR(1) em walk-forward e excesso, Clark-West/DM com Holm na mesma máscara.
+    Confirmar que o lote vigente reproduz o FIT% armazenado (|diferença| ≤ 0,05 p.p.).
+next_round: >
+  Regenerar os CSVs das tabelas (ar1_walkforward.py e dm_multiplicity_panel.py sem flag, persistence_vs_fit.py)
+  e propagar para Tabela 3, Fig. 2, resumo e conclusões; declarar a 3.2/4.4; refazer só os grupos HMM
+  que contêm as séries corrigidas (ELET6 e ISAE4 receita).

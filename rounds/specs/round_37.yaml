@@ -1,0 +1,45 @@
+# Round 37 — RPEM com λ = 0,95 e reinicialização da covariância em eventos regulatórios.
+# Exploratório; protocolo metodológico §28 ("Esquecimento regulatório e reinicialização da covariância").
+round: 37
+hypothesis: >
+  Testa diretamente a hipótese de deriva de parâmetros ligada ao ciclo regulatório. Os parâmetros
+  que ligam os indicadores das transmissoras à própria história mudam a cada revisão tarifária
+  periódica (ciclo quinquenal) e em três eventos de regime posteriores à janela inicial: o início
+  do recebimento da RBSE (2017-Q3; ELET6 e ISAE4), a adoção do CPC 47/ICPC 01 (2018-Q1; as quatro
+  empresas) e a capitalização da Eletrobras (2022-Q2; ELET6). Um RPEM com memória de 20 trimestres
+  (λ = 0,95) e com a covariância reinicializada nesses trimestres (R ← 0,2·R) acompanharia a
+  deriva melhor que o lote. Previsões pré-registradas, a partir da decomposição do Round 36: (a)
+  o efeito de λ = 0,95 sem reinicialização segue o sinal do esquecimento já medido com λ = 0,98 —
+  ganho em ISAE4×resultado_bruto, TAEE4×despesas_operacionais e ALUP4×resultado_bruto; perda maior
+  em ALUP4×despesas_operacionais (Wiener); |efeito| < 2 p.p. nas demais; (b) o erro de
+  aproximação do Round 36 (TAEE4×lucro_consolidado −5,0; ALUP4×lucro_consolidado −5,8;
+  ISAE4×resultado_bruto −21,5) não é corrigido por nenhum dos dois mecanismos; (c) as
+  reinicializações ajudam mais onde há mais eventos (ELET6 e ISAE4) do que onde só há o CPC 47.
+  Condição de falsificação da hipótese de deriva regulatória: nenhuma combinação com ΔFIT ≥ +2
+  p.p. contra o lote, U₂ < 1 e DM (recursivo × lote) significativo a 10% após a correção de Holm
+  sobre as 12. Nesse caso a frente recursiva fecha: o lote fica como protocolo, e os Rounds 35-37
+  entram no artigo como robustez ao estimador.
+justification: >
+  protocolo metodológico §28; Ljung, L. & Söderström, T. (1983), Theory and Practice of Recursive
+  Identification, MIT Press; Ljung, L. (1999), System Identification, 2nd ed., §11.2; Goodwin,
+  G.C. & Sin, K.S. (1984), Adaptive Filtering, Prediction and Control, Prentice-Hall;
+  registro de células imputadas (datas da RBSE).
+combos: all
+models: RECURSIVE
+preproc: search
+exog: none
+recursive:
+  forgetting: 0.95
+  resets: true
+version: 37
+success_criteria:
+  fit_gain_pp: 2.0
+  dm_pvalue_max: 0.10
+  multiplicity: holm_12
+  note: >
+    Por combinação, "ganho" = ΔFIT (recursivo λ+reset − lote) ≥ +2 p.p., U₂ < 1 e DM recursivo×lote
+    com p de Holm < 0,10 sobre as 12. Relatar as 12, inclusive regressões, e a separação λ ×
+    reinicialização. A 1ª previsão fora da amostra deve ser idêntica à do lote nas 12.
+next_round: >
+  Se falsificada: fechar a frente recursiva e redigir o parágrafo de robustez (Rounds 35-37). Se
+  houver ganho: decisão do autor sobre o papel do estimador recursivo.

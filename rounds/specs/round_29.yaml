@@ -1,0 +1,51 @@
+# Round 29 — Reeleição do campeão WIENER da ALUP4 sob a era de tratamento 28 (dado faltante
+# imputado). Continuação obrigatória do Round 28: a família não entra em `models: full`.
+round: 29
+hypothesis: >
+  O Round 28 corrigiu, nas três séries da ALUP4, dois trimestres de dado faltante que o pipeline
+  de extração havia codificado como 0.0 (2010-06-30 e 2011-06-30), elevando `TREATMENT_ERA` das
+  três combinações para 28. Pelo Invariante 10, campeão eleito em era anterior deixa de concorrer:
+  o campeão vigente de ALUP4×despesas_operacionais é WIENER(W3-BSpline3), FIT 3.84 e U₂ 0.739,
+  eleito na era R25/R26 sobre a série que ainda continha os zeros. Como a família WIENER não entra
+  em `models: full`, o Round 28 não pôde reelegê-la, e o melhor resultado que aquele round produziu
+  para a combinação foi BAYESARIMA(0,0,1), FIT -1.0 e U₂ 0.776 — pior em FIT que o campeão
+  histórico. A combinação está, portanto, temporariamente sem campeão legítimo na era vigente, e
+  este round existe para resolver isso e não para buscar ganho novo. Hipótese testável: a estrutura
+  de bloco Wiener que venceu na série com zeros permanece a melhor descrição da combinação depois
+  que os dois pontos passam a ser imputados por linear_interp — isto é, o desempenho do W3-BSpline3
+  não era artefato dos zeros. As duas datas caem nas posições 2 e 6 de 64, dentro de MIN_TRAIN = 20,
+  onde a não-linearidade estática e a ordem do bloco linear são identificadas por ALS; dois
+  colapsos espúrios a zero nessa janela distorcem justamente o mapeamento estático que o W3-BSpline3
+  estima, de modo que a expectativa é de recuperação e não de perda. Condição de falsificação: se
+  nenhuma configuração WIENER atingir U₂ < 1 nas três combinações, ou se em despesas_operacionais o
+  melhor WIENER ficar abaixo do BAYESARIMA do Round 28, a família perde a combinação e o painel
+  adota o campeão do Round 28, registrando o WIENER histórico como artefato de era de tratamento.
+  As três combinações da ALUP4 são varridas, e não apenas despesas_operacionais, porque as três
+  mudaram de era simultaneamente e o Invariante 7 exige reportar a combinação inteira.
+justification: >
+  protocolo metodológico §23 (Ajuste de Hiperparâmetros dos Modelos Campeões); protocolo metodológico §27 (era de
+  tratamento); protocolo metodológico §14.1 (Wiener, Round 05); Narendra, K.S. & Gallman, P.G. (1966),
+  IEEE Trans. Autom. Control, 11(3), 546-550; Billings, S.A. (1980), International Journal of
+  Control, 31(6), 1013-1037 (modelos de bloco Wiener/Hammerstein); Ljung, L. (1999), System
+  Identification: Theory for the User, 2nd ed.; grid herdado dos Rounds 18-19.
+baseline_json: results/202608300933_v28.json
+combos: [[21490, resultado_bruto], [21490, lucro_consolidado], [21490, despesas_operacionais]]
+models: [WIENER]
+nl_configs: [W1-Sigmoid, W2-Piecewise, W3-BSpline3]
+preproc: search
+exog: none
+hyperparams: {nl_p_max: 4, nl_q_max: 4, als_max_iter: 20, als_tol: 1.0e-5}
+version: 29
+success_criteria:
+  fit_gain_pp: 0.0
+  dm_pvalue_max: 0.10
+  note: >
+    Round de reeleição, não de busca. Adoção por combinação exige (i) U₂ < 1 e (ii) FIT% acima do
+    melhor resultado do Round 28 para a mesma combinação. `fit_gain_pp: 0.0` registra que nenhum
+    ganho sobre o campeão histórico é exigido — o que se testa é se a família sobrevive à correção
+    do dado, não se ela melhora.
+next_round: >
+  Round 30 (`models: [HAMMERSTEIN]`, mesmos 3 combos, mesmo grid) — fecha o espaço de famílias
+  não-lineares sob a era 28, na mesma sequência varrida pelos Rounds 25-27 na era anterior.
+  Depois: `python plot_best_results.py` (verificação de reprodução das 12) e
+  regeneração da tabela de campeões e commit único dos Rounds 28-30.

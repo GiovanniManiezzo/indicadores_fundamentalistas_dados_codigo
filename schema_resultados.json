@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Resultados de Identificação de Sistemas",
+  "type": "object",
+  "properties": {
+    "2437": { "$ref": "#/$defs/empresa" },
+    "18376": { "$ref": "#/$defs/empresa" },
+    "20257": { "$ref": "#/$defs/empresa" },
+    "21490": { "$ref": "#/$defs/empresa" }
+  },
+  "required": ["2437", "18376", "20257", "21490"],
+  "additionalProperties": false,
+  "$defs": {
+    "empresa": {
+      "type": "object",
+      "properties": {
+        "lucro_consolidado": { "$ref": "#/$defs/indicador" },
+        "resultado_bruto": { "$ref": "#/$defs/indicador" },
+        "despesas_operacionais": { "$ref": "#/$defs/indicador" }
+      },
+      "required": [
+        "lucro_consolidado",
+        "resultado_bruto",
+        "despesas_operacionais"
+      ],
+      "additionalProperties": false
+    },
+    "residual_diagnostics": {
+      "type": "object",
+      "properties": {
+        "ljung_box_q4_stat": { "type": "number" },
+        "ljung_box_q4_pvalue": { "type": "number" },
+        "arch_lm_stat": { "type": "number" },
+        "arch_lm_pvalue": { "type": "number" },
+        "jarque_bera_stat": { "type": "number" },
+        "jarque_bera_pvalue": { "type": "number" },
+        "shapiro_wilk_stat": { "type": "number" },
+        "shapiro_wilk_pvalue": { "type": "number" }
+      },
+      "required": [
+        "ljung_box_q4_stat", "ljung_box_q4_pvalue",
+        "arch_lm_stat", "arch_lm_pvalue",
+        "jarque_bera_stat", "jarque_bera_pvalue",
+        "shapiro_wilk_stat", "shapiro_wilk_pvalue"
+      ],
+      "additionalProperties": false
+    },
+    "dm_test": {
+      "type": "object",
+      "description": "Diebold-Mariano test vs ARIMA baseline (null: equivalent forecast accuracy)",
+      "properties": {
+        "stat": { "type": "number" },
+        "pvalue": { "type": "number" }
+      },
+      "required": ["stat", "pvalue"],
+      "additionalProperties": false
+    },
+    "indicador": {
+      "type": "object",
+      "properties": {
+        "modelo_utilizado": { "type": "string" },
+        "descricao_parametros": { "type": "string" },
+        "preprocessing": {
+          "type": "string",
+          "enum": ["raw", "log", "diff", "log+diff", "boxcox"]
+        },
+        "exogenas_utilizadas": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "percentual_fit": { "type": "number" },
+        "variancia": { "type": "number" },
+        "mse": { "type": "number" },
+        "rmse": { "type": "number" },
+        "mae": { "type": "number" },
+        "mape": { "type": "number" },
+        "theil_u2": {
+          "type": "number",
+          "description": "RMSE_model / RMSE_RandomWalk; values > 1 indicate worse than naive forecast"
+        },
+        "unit_root_d": {
+          "type": "integer",
+          "description": "Integration order d determined by ADF/KPSS/PP consensus"
+        },
+        "residual_diagnostics": { "$ref": "#/$defs/residual_diagnostics" },
+        "dm_vs_arima": { "$ref": "#/$defs/dm_test" },
+        "in_model_confidence_set": {
+          "type": "boolean",
+          "description": "Whether this model belongs to the MCS at alpha=0.10"
+        },
+        "nl_input": {
+          "type": "string",
+          "description": "Input nonlinear block name (Hammerstein/HW models)"
+        },
+        "nl_output": {
+          "type": "string",
+          "description": "Output nonlinear block name (Wiener/HW models)"
+        },
+        "hw_tentativa": {
+          "type": "string",
+          "description": "HW tentativa identifier (T1-GatilhoMercado, etc.)"
+        },
+        "als_converged": {
+          "type": "boolean",
+          "description": "Whether ALS converged within max_iter"
+        },
+        "als_iters": {
+          "type": "integer",
+          "description": "Number of ALS iterations performed"
+        },
+        "n_knots": {
+          "type": "integer",
+          "description": "Number of B-Spline interior knots (if applicable)"
+        },
+        "boxcox_lambda": {
+          "type": "number",
+          "description": "Box-Cox lambda selected via Guerrero's method, frozen for this combo (only present when preprocessing==\"boxcox\")"
+        }
+      },
+      "required": [
+        "modelo_utilizado",
+        "descricao_parametros",
+        "preprocessing",
+        "percentual_fit",
+        "variancia",
+        "mse",
+        "rmse",
+        "mae",
+        "theil_u2",
+        "unit_root_d",
+        "residual_diagnostics"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

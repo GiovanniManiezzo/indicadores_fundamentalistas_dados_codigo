@@ -1,0 +1,20 @@
+# Pinned to the environment used for Rounds 00-09 (reproducibility — protocolo metodológico §13).
+# LSTM (experimental, config.LSTM_EXPERIMENTAL) additionally needs tensorflow or torch;
+# not pinned here since it's optional and not used in --round full by default.
+numpy==1.26.4
+pandas==3.0.2
+scipy==1.15.3
+statsmodels==0.14.6
+scikit-learn==1.3.2
+matplotlib==3.7.3
+jsonschema==4.25.1
+pyyaml==6.0.2
+
+# Teste Phillips-Perron de `src.preprocess.unit_root_tests`. O import é opcional no código, mas o
+# consenso ADF/KPSS/PP muda sem ele (passa a exigir unanimidade dos dois restantes), e `d` decide
+# ordem de diferenciação no painel e transformação na metade HMM — logo, é dependência real.
+arch==8.0.0
+
+# Metade HMM (hmm_models/): usada pelos notebooks do artigo DATA 2026 e pelo run N=64.
+# Estava instalada mas ausente daqui, o que tornava o ambiente irreprodutível.
+hmmlearn==0.3.2

@@ -1,0 +1,53 @@
+# Round 19 — hiperparâmetros: mesmo alargamento do Round 18 (NL_P_MAX/NL_Q_MAX e ALS), agora
+# para a família Wiener, testando os dois campeões WIENER do painel.
+round: 19
+hypothesis: >
+  Round 18 alargou NL_P_MAX/NL_Q_MAX de 2 para 4 e dobrou a paciência de convergência ALS
+  (ALS_MAX_ITER=10→20, ALS_TOL=1e-4→1e-5) para a família Hammerstein nos 12 combos — resultado
+  nulo: nenhum combo melhorou seu campeão vigente (science_log.md, Round 18; ISAE4×resultado_bruto,
+  o combo-alvo, chegou a 50.6% com HAMMER-H2-Piecewise, abaixo do campeão de 52.2% com
+  HAMMER-H1-Sigmoid do Round 06). Este round repete o mesmo alargamento de grid para a família
+  Wiener (`src/models/wiener_wrapper.py`), que tem estrutura de parâmetros diferente do
+  Hammerstein (não-linearidade estática na saída, não na entrada — Narendra & Gallman, 1966;
+  Billings, 1980) e portanto pode responder de forma diferente ao grid mais largo do bloco linear.
+  Alvo: os dois campeões WIENER do painel — ALUP4×despesas_operacionais (WIENER-W2-Piecewise,
+  FIT=2.4%, U₂=0.750, DM p=0.102, Round 05, `results/202608061856_v5.json`) e
+  ELET6×lucro_consolidado (WIENER-W1-Sigmoid, FIT=0.5%, U₂=0.777, DM p=0.345, Round 05,
+  `results/202608062201_v5.json`). Ambos têm FIT% marginal (<3%), FIT% baixo é onde um bloco
+  linear mais flexível (p,q até 4 em vez de 2) tem mais chance de capturar dinâmica residual que
+  o grid antigo, fixado nos Rounds 05-08, deixava de fora. Roda os 3 configs Wiener
+  (W1-Sigmoid/W2-Piecewise/W3-BSpline3) nos 12 combos — não só nos dois combos-alvo — para
+  detectar qualquer efeito colateral do grid mais largo nos demais candidatos Wiener do painel.
+  Hipótese testável: se ALUP4×despesas_operacionais e/ou ELET6×lucro_consolidado tinham a ordem
+  do bloco linear numa borda do grid antigo (p=2 ou q=2), o grid mais largo encontra uma ordem
+  melhor por AIC e o FIT%/U₂ melhora mantendo o gate e a significância DM. Condição de
+  falsificação: se a ordem selecionada por AIC permanecer a mesma (nenhuma borda ativa) e nenhum
+  combo melhorar, o grid p_max=q_max=2 já era suficiente para Wiener também — junto com o
+  veredito nulo do Round 18 (Hammerstein), isso encerra a frente de "alargar grid não-linear" para
+  as duas famílias ALS neste painel, restando apenas a família SARIMAX (Round 20) na varredura de
+  hiperparâmetros por família.
+justification: >
+  protocolo metodológico §23 (Ajuste de Hiperparâmetros dos Modelos Campeões); protocolo metodológico §14.1
+  (Wiener, Round 05); Narendra, K.S. & Gallman, P.G. (1966), IEEE Trans. Autom. Control, 11(3),
+  546-550; Billings, S.A. (1980), International Journal of Control, 31(6), 1013-1037 (modelos de
+  bloco Wiener/Hammerstein); Ljung, L. (1999), System Identification: Theory for the User, 2nd ed.
+baseline_json: results/202608161106_v18.json
+combos: all
+models: [WIENER]
+nl_configs: [W1-Sigmoid, W2-Piecewise, W3-BSpline3]
+preproc: search
+exog: none
+hyperparams: {nl_p_max: 4, nl_q_max: 4, als_max_iter: 20, als_tol: 1.0e-5}
+version: 19
+success_criteria: {fit_gain_pp: 1.0, dm_pvalue_max: 0.10}
+next_round: >
+  Se ALUP4×despesas_operacionais e/ou ELET6×lucro_consolidado melhorar com o grid mais largo,
+  promovê-lo e registrar a nova ordem — comparar com a ordem antiga para confirmar que a borda do
+  grid antigo (p=2 ou q=2) era o fator limitante. Seguir com Round 20 (`models: full`,
+  `hyperparams: {sarimax_family_p_max: 4, sarimax_family_q_max: 4}`, alvo: ALUP4×resultado_bruto,
+  TAEE4×lucro_consolidado, ALUP4×lucro_consolidado, ISAE4×lucro_consolidado,
+  TAEE4×despesas_operacionais — os 5 campeões ARMAX/ARIMAX/BAYESARIMA do painel), fechando a
+  varredura de hiperparâmetros por família. Se nenhum combo melhorar neste round, registrar que
+  p_max=q_max=2 já era suficiente para Wiener também (junto com o veredito nulo do Round 18 para
+  Hammerstein) e seguir direto para o Round 20 (SARIMAX), fechando a frente ALS de alargamento de
+  grid como esgotada para este painel.

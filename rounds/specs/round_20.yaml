@@ -1,0 +1,58 @@
+# Round 20 — hiperparâmetros: alarga SARIMAX_FAMILY_P_MAX/Q_MAX (grid AIC de ARMAX/ARIMAX/
+# BAYESARIMA), fechando a varredura de hiperparâmetros por família iniciada nos Rounds 18-19.
+round: 20
+hypothesis: >
+  Rounds 18-19 alargaram o grid do bloco linear ALS (NL_P_MAX/NL_Q_MAX 2→4, ALS_MAX_ITER 10→20,
+  ALS_TOL 1e-4→1e-5) para Hammerstein e Wiener — resultado nulo em ambas: nenhum dos 12 combos
+  melhorou seu campeão vigente (science_log.md, Rounds 18-19), fechando a frente de alargamento de
+  grid não-linear para este painel. Este round aplica a mesma lógica à família SARIMAX-com-exógenas
+  (ARMAX/ARIMAX/BAYESARIMA), cujo grid AIC (p,q) está fixado em `SARIMAX_FAMILY_P_MAX=
+  SARIMAX_FAMILY_Q_MAX=2` desde a introdução do painel de exógenas (Round 08) — deliberadamente
+  abaixo do `p_max=q_max=4` do ARIMA puro (config.py, linhas 91-97), para compensar o custo de
+  graus de liberdade extra das exógenas em `MIN_TRAIN=20`. Alarga para `SARIMAX_FAMILY_P_MAX=
+  SARIMAX_FAMILY_Q_MAX=4` (mesmo teto do ARIMA sem exógenas — não mais largo que o próprio
+  baseline acadêmico, mesmo princípio dos Rounds 18-19) via `hyperparams:`. Alvo: os 5 campeões
+  ARMAX/ARIMAX/BAYESARIMA do painel — ALUP4×resultado_bruto (ARIMAX, FIT=44.9%, U₂=0.868,
+  DM p=0.116, Round 02), TAEE4×lucro_consolidado (BAYESARIMA, FIT=36.5%, U₂=0.814, DM p=0.169,
+  Round 17), ALUP4×lucro_consolidado (ARMAX, FIT=27.2%, U₂=0.700, DM p=0.270, Round 02),
+  ISAE4×lucro_consolidado (ARIMAX, FIT=26.3%, U₂=0.814, DM p=0.253, Round 08) e
+  TAEE4×despesas_operacionais (ARMAX, FIT=25.4%, U₂=0.848, DM p=0.161, Round 13). Roda
+  `models: full` nos 12 combos — não só nos 5 combos-alvo — para detectar qualquer efeito
+  colateral do grid mais largo nos demais campeões/candidatos SARIMAX-com-exógenas do painel
+  (inclui também as famílias sem exógenas — ARIMA, ETS, THETA, DAMPEDTREND, SS — que não são
+  afetadas pelo hiperparâmetro, servindo de controle negativo). Hipótese testável: se algum dos 5
+  combos-alvo tinha a ordem (p,q) numa borda do grid antigo (p=2 ou q=2), o grid mais largo
+  encontra uma ordem melhor por AIC e o FIT%/U₂ melhora mantendo o gate e a significância DM.
+  Condição de falsificação: se a ordem selecionada por AIC permanecer a mesma (nenhuma borda
+  ativa) em todos os 5 combos-alvo e nenhum combo melhorar, o grid p_max=q_max=2 já era
+  suficiente para a família SARIMAX-com-exógenas também — junto com os vereditos nulos dos
+  Rounds 18-19 (Hammerstein, Wiener), isso encerra a frente "ajuste de hiperparâmetros de
+  estimação" (protocolo metodológico §23) como esgotada para as três famílias campeãs deste painel,
+  restando apenas a declaração formal de não-preditibilidade (ELET6×resultado_bruto,
+  ELET6×despesas_operacionais) e a aceitação documentada dos campeões atuais como estado final
+  do painel para os demais combos.
+justification: >
+  protocolo metodológico §23 (Ajuste de Hiperparâmetros dos Modelos Campeões); protocolo metodológico §8
+  (ARMAX/ARIMAX, Round 02); config.py linhas 91-97 (justificativa original do grid reduzido);
+  Box, G.E.P. et al. (2015), Time Series Analysis: Forecasting and Control, 5th ed.; Hyndman, R.J.
+  & Athanasopoulos, G. (2021), Forecasting: Principles and Practice, 3rd ed. (seleção de ordem por
+  AIC vs. risco de sobreajuste em amostra pequena com regressores exógenos).
+baseline_json: results/202608161408_v19.json
+combos: all
+models: full
+preproc: search
+exog: {source: results/exog_selection_v11.json}
+hyperparams: {sarimax_family_p_max: 4, sarimax_family_q_max: 4}
+version: 20
+success_criteria: {fit_gain_pp: 1.0, dm_pvalue_max: 0.10}
+next_round: >
+  Se algum dos 5 combos-alvo melhorar com o grid mais largo, promovê-lo e registrar a nova ordem
+  (p,q) — comparar com a ordem antiga para confirmar que a borda do grid antigo era o fator
+  limitante. Se nenhum combo melhorar, registrar que p_max=q_max=2 já era suficiente para
+  ARMAX/ARIMAX/BAYESARIMA também, fechando a frente "ajuste de hiperparâmetros por família"
+  (Rounds 18-20, protocolo metodológico §23) como esgotada para este painel. A próxima frente deixa de
+  ser busca de modelo ou ajuste de hiperparâmetro e passa a ser declaração formal de
+  não-preditibilidade para os combos persistentemente fracos (ELET6×resultado_bruto,
+  ELET6×despesas_operacionais, ambos com 0 candidatos exógenos sobreviventes ao Round 11 e FIT%
+  marginal/negativo em toda a busca de modelo Rounds 01-20) e aceitação documentada dos campeões
+  atuais como estado final do painel para os demais 10 combos.

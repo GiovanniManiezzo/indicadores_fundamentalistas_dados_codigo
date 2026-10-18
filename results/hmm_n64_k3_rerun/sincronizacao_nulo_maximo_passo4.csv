@@ -1,0 +1,8 @@
+grupo,rotulo,P,K,n_sementes,max_observado_pct,media_observada_pct,nulo_max_media_pct,nulo_max_p95_pct,p_valor_max,n_permutacoes
+cross,resultado_bruto,4,63,7,17.46,6.803,7.121,11.111,0.0014,5000
+cross,lucro_consolidado,4,63,5,7.937,3.81,6.662,11.111,0.3881,5000
+cross,despesas_operacionais,4,63,5,11.111,6.667,8.503,14.286,0.2641,5000
+intra,ALUP4,3,63,4,30.159,17.46,14.762,22.222,0.005,5000
+intra,ELET6,3,63,6,15.873,10.847,15.37,20.635,0.5201,5000
+intra,ISAE4,3,63,7,28.571,21.769,19.567,26.984,0.0392,5000
+intra,TAEE4,3,63,6,46.032,40.212,17.966,30.159,0.0048,5000

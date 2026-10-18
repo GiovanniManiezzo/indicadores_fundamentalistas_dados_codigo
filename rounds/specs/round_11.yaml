@@ -1,0 +1,32 @@
+# Round 11 — exogenous-set expansion for the three ELET6 combos.
+round: 11
+hypothesis: >
+  Round 11 — as três combinações ELET6 usam no máximo 1 exógena (luc_consolidado: TAEE4.SA;
+  res_bruto e desp_oper: nenhuma), e são as combinações mais fracas do painel (FIT%<1 nas três).
+  Verificação exaustiva: rodando VIF→Granger→AIC-stepwise sobre o universo completo de 26
+  candidatas (todas as macro + as 4 séries de preço de pares) com α de Granger relaxado de 0.20
+  (Round 03) para 0.30 especificamente para ELET6 (GRANGER_ALPHA_OVERRIDE), res_bruto e
+  desp_oper continuam com 0 candidatas — mesmo resultado em α=0.10/0.20/0.30, confirmando que
+  o gargalo é o critério AIC-stepwise (nenhuma candidata reduz AIC ao ser incluída), não a
+  amplitude do universo nem o limiar de Granger. luc_consolidado, por outro lado, ganha uma
+  segunda candidata (IPCA Brasil) que sobrevive ao stepwise junto com TAEE4.SA em α=0.30.
+  Hipótese testável: (a) adicionar IPCA como segunda exógena melhora o FIT% de
+  ELET6×lucro_consolidado além dos 0.5% atuais; (b) para res_bruto e desp_oper, a ausência de
+  qualquer candidata sob busca exaustiva é evidência suficiente para declarar essas duas
+  combinações não-preditíveis com o conjunto de features atual (protocolo metodológico, critério de
+  não-preditibilidade), encerrando a linha de investigação "expandir exógenas" para elas.
+justification: "protocolo metodológico §10 (VIF→Granger→AIC stepwise); critério de não-preditibilidade (protocolo metodológico, tipologia de outliers §11.3, nota final)"
+baseline_json: results/202608151030_v10.json
+combos: [[2437, resultado_bruto], [2437, lucro_consolidado], [2437, despesas_operacionais]]
+models: full
+preproc: search
+exog: {source: results/exog_selection_v11.json}
+version: 11
+success_criteria: {fit_gain_pp: 2.0, dm_pvalue_max: 0.10}
+next_round: >
+  Round 12 — se ELET6×lucro_consolidado melhorar com IPCA, avaliar robustez (sensibilidade ao
+  α de Granger). Declarar formalmente ELET6×resultado_bruto e ELET6×despesas_operacionais como
+  não-preditíveis com o conjunto de features atual (busca exaustiva de exógenas esgotada nos
+  Rounds 10-11; outlier treatment esgotado no Round 10). Retomar TAEE4×resultado_bruto (U₂=1.041)
+  via wrapper de state-space com damped trend (Gardner & McKenzie 1985) — requer novo modelo,
+  não um round sobre modelos existentes.

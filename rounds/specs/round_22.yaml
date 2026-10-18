@@ -1,0 +1,32 @@
+# Round 22 — SETAR (regime-switching self-exciting AR), primeira família estrutural nova desde
+# os vereditos nulos das Rounds 05-09 (Wiener/Hammerstein/HW) e 18-20 (alargamento de grid).
+# Testado sob min_train=40 como experimento ISOLADO e NÃO-COMPARÁVEL ao painel vigente — ver
+# protocolo metodológico §24 e rounds/specs/ (`experimental_window:`).
+round: 22
+hypothesis: >
+  A série alterna entre dois regimes com dinâmica AR própria (não uma transformação estática em
+  torno de um único núcleo linear, como Wiener/Hammerstein/HW), separados por um valor de corte
+  no próprio lag da série (self-exciting, delay a determinar) — mecanismo de quebra estrutural
+  endógena recorrente, distinto de saturação suave ou de choque exógeno pontual (outliers, §11).
+  É o único mecanismo estrutural do painel ainda não testado. Testado nas 12 combinações sob
+  min_train=40 (em vez do MIN_TRAIN=20 do painel): cada regime herda uma fração do treino, e em
+  MIN_TRAIN=20 essa fração é pequena demais para estimar 2-3 coeficientes AR por regime de forma
+  estável — min_train=40 dá a este mecanismo uma chance justa de mostrar sinal antes de ser
+  descartado. Falsificação: se nenhuma das 12 combinações produzir SETAR com U₂<1 e DM-p<0.10
+  vs. ARIMA recalculado na mesma janela, o mecanismo fica sem evidência mesmo na condição mais
+  favorável (janela mais larga) — encerra a frente de "nova família estrutural" para o painel.
+justification: "protocolo metodológico §24; Tong, H. (1990), Non-linear Time Series; Hansen, B.E. (2000), Econometrica 68(3), 575-603"
+combos: all
+models: [SETAR]
+preproc: search
+experimental_window:
+  min_train: 40
+  comparable: false
+version: 22
+next_round: >
+  Round 23 — se alguma combinação passar no gate U₂<1 com DM-p<0.10 sob min_train=40, re-executar
+  esse(s) combo(s) especificamente sob cfg.MIN_TRAIN=20 (janela real do painel) para checar se o
+  sinal sobrevive à condição padrão antes de qualquer promoção de campeão. Se nenhuma combinação
+  passar, encerrar formalmente a frente "nova família estrutural" (Rounds 05-22) e voltar à
+  declaração de não-preditibilidade para ELET6×resultado_bruto (e ELET6×despesas_operacionais, se
+  também não melhorar) como próximo passo antes de consolidar o painel de 12 combos.

@@ -1,0 +1,39 @@
+# Round 13 — extend ETS/Theta univariate benchmarks to the remaining 8 combos.
+round: 13
+hypothesis: >
+  O Round 12 introduziu ETS (Hyndman, Koehler, Snyder & Grose, 2002, incluindo variante
+  damped-trend ETS(A,Ad,N), Gardner & McKenzie, 1985) e Theta (Assimakopoulos & Nikolopoulos,
+  2000) como benchmarks univariados parcimoniosos, mas aplicou-os apenas às três combinações
+  ELET6 e a TAEE4×resultado_bruto (motivado pela correção do spec-selection do SS). Para
+  TAEE4×resultado_bruto especificamente, ETS já foi testado no Round 12 e não superou o SS em
+  FIT% nem resolveu o gate U₂<1 (SS: FIT=51.3%/U₂=1.041; ARIMA-diff segue campeão sob gate
+  estrito com FIT=44.0%/U₂=0.931) — não repetimos esse combo aqui. Os outros 8 combos do painel
+  (ISAE4×resultado_bruto, ISAE4×lucro_consolidado, ISAE4×despesas_operacionais,
+  TAEE4×lucro_consolidado, TAEE4×despesas_operacionais, ALUP4×resultado_bruto,
+  ALUP4×lucro_consolidado, ALUP4×despesas_operacionais) nunca tiveram ETS/Theta testados.
+  Petropoulos et al. (2022, §2.3.1 e §2.3.3) descrevem ETS e Theta como as famílias mais
+  robustas para séries curtas (n≈64) mesmo fora de contextos claramente não-preditíveis —
+  não há razão a priori para restringir o teste apenas aos combos mais fracos do painel.
+  Hipótese testável: em pelo menos um dos 8 combos, ETS ou Theta bate o campeão atual em FIT%
+  mantendo U₂<1, com significância DM vs ARIMA (p<0.10); um resultado nulo em todos os 8
+  reforça que os campeões lineares/NL atuais já capturam a estrutura preditiva disponível para
+  esses combos e fecha a varredura univariada parcimoniosa iniciada no Round 12 para o painel
+  inteiro.
+justification: "protocolo metodológico §18 (ETS), §19 (Theta); Hyndman, Koehler, Snyder & Grose (2002); Gardner & McKenzie (1985); Assimakopoulos & Nikolopoulos (2000); Petropoulos et al. (2022)"
+baseline_json: results/202608151512_v12.json
+combos: [[18376, resultado_bruto], [18376, lucro_consolidado], [18376, despesas_operacionais], [20257, lucro_consolidado], [20257, despesas_operacionais], [21490, resultado_bruto], [21490, lucro_consolidado], [21490, despesas_operacionais]]
+models: full
+preproc: search
+exog: {source: results/exog_selection_v11.json}
+version: 13
+success_criteria: {fit_gain_pp: 2.0, dm_pvalue_max: 0.10}
+next_round: >
+  Se nenhum dos 8 combos melhorar com ETS/Theta, a varredura univariada parcimoniosa
+  (linear, não-linear de bloco, suavização exponencial, Theta) está esgotada para todo o
+  painel. Próxima frente: (a) declarar formalmente ELET6×resultado_bruto e
+  ELET6×despesas_operacionais como não-preditíveis (protocolo metodológico, critério de
+  não-preditibilidade); (b) avaliar combinação simples de forecasts (média dos 3-5 melhores
+  candidatos por combo, Petropoulos et al. 2022 §2.6) para os combos com FIT% marginal ou
+  modelos discordantes entre si; (c) TAEE4×resultado_bruto permanece em aberto no gate U₂ —
+  via wrapper de state-space com damped trend dedicado (Gardner & McKenzie 1985), que exige
+  novo modelo (procedure new-model), não mais um round sobre modelos existentes.

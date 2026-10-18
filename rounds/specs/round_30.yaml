@@ -1,0 +1,50 @@
+# Round 30 — Fecha o espaço de famílias não-lineares da ALUP4 sob a era de tratamento 28.
+# Última etapa da sequência 28-30, espelhando a varredura 25-27 feita na era anterior.
+round: 30
+hypothesis: >
+  Fechamento do espaço de busca das três combinações da ALUP4 sob a era de tratamento 28, em que
+  os dois trimestres de dado faltante (2010-06-30 e 2011-06-30) passaram a ser imputados por
+  linear_interp. Os Rounds 28 e 29 já varreram, nessa era, as 15 famílias de `models: full` e as
+  3 configurações WIENER, produzindo o painel parcial: resultado_bruto ARMAX(1,0,0) FIT 52.1
+  U₂ 0.755; lucro_consolidado ARIMAX(0,1,1) FIT 27.1 U₂ 0.701; despesas_operacionais
+  WIENER(W2-Piecewise) FIT 2.3 U₂ 0.751. Falta HAMMERSTEIN, que não entra em `models: full` e é a
+  única família varrida na era anterior (Round 27) ainda sem contrapartida na era 28 — sem ela o
+  espaço explorado nas duas eras não é comparável e a eleição de campeão ficaria assimétrica
+  entre eras, exatamente o problema que protocolo metodológico §27 existe para impedir. Na era anterior o
+  HAMMERSTEIN não venceu nenhuma das três combinações (melhores registrados: resultado_bruto
+  45.0/0.867, lucro_consolidado -0.8/0.970, despesas_operacionais -13.6/0.873), de modo que a
+  expectativa a priori é de resultado nulo. Hipótese testável: a correção do dado faltante não
+  altera essa ordenação — a não-linearidade estática na entrada (Hammerstein) continua sem
+  descrever melhor as séries da ALUP4 que os modelos lineares com exógenas do Round 28 ou a
+  não-linearidade na saída (Wiener) do Round 29. Condição de falsificação: se alguma configuração
+  HAMMERSTEIN atingir U₂ < 1 e FIT% acima do melhor resultado já obtido na era 28 para a mesma
+  combinação, ela assume o campeonato e o resultado nulo dos Rounds 18/27 passa a ser atribuído à
+  presença dos zeros e não à inadequação da família. Este round é registrado ainda que se espere
+  resultado nulo, porque o Invariante 7 exige reportar a varredura completa e porque a
+  comparabilidade entre eras depende de o espaço explorado ser o mesmo.
+justification: >
+  protocolo metodológico §23 (Ajuste de Hiperparâmetros dos Modelos Campeões); protocolo metodológico §27 (era de
+  tratamento); Narendra, K.S. & Gallman, P.G. (1966), IEEE Trans. Autom. Control, 11(3), 546-550;
+  Billings, S.A. (1980), International Journal of Control, 31(6), 1013-1037 (modelos de bloco
+  Wiener/Hammerstein); Ljung, L. (1999), System Identification: Theory for the User, 2nd ed.;
+  grid herdado dos Rounds 18-19.
+baseline_json: results/202608300938_v29.json
+combos: [[21490, resultado_bruto], [21490, lucro_consolidado], [21490, despesas_operacionais]]
+models: [HAMMERSTEIN]
+nl_configs: [H1-Sigmoid, H2-Piecewise, H3-BSpline3]
+preproc: search
+exog: none
+hyperparams: {nl_p_max: 4, nl_q_max: 4, als_max_iter: 20, als_tol: 1.0e-5}
+version: 30
+success_criteria:
+  fit_gain_pp: 0.0
+  dm_pvalue_max: 0.10
+  note: >
+    Round de fechamento de espaço de busca. Adoção por combinação exige (i) U₂ < 1 e (ii) FIT%
+    acima do melhor resultado já obtido na era 28 (Rounds 28 e 29). Resultado nulo é o desfecho
+    esperado e é registrado como tal, não como falha.
+next_round: >
+  Encerramento da sequência de correção. Depois deste round: `python plot_best_results.py`
+  (recomputa as 12 e falha em qualquer deriva), `python scripts/round_status.py` e
+  regeneração da tabela de campeões e da tabela ρ₁ × FIT%
+  muda para as 3 combinações da ALUP4), e commit único dos Rounds 28-30.

@@ -1,0 +1,42 @@
+# Round 27 — Braço revertido (spike_revert do Round 25) sob a família HAMMERSTEIN, mesmos 3 combos.
+round: 27
+hypothesis: >
+  Continuação do Round 25 (protocolo metodológico §27). O Round 25 testou a reversão do tratamento de
+  outlier do Round 08 nas 3 combinações com campeão de era anterior usando `models: full`, que
+  não inclui as famílias de bloco não-linear — elas rodam por um orquestrador próprio
+  (`_run_nl_round`), uma família por round, mesmo padrão dos Rounds 18-19. Sem este round o
+  braço revertido ficaria com espaço de modelos menor que o braço de controle, e a comparação
+  entre braços seria enviesada a favor do controle. O caso que torna isto obrigatório é
+  ALUP4×despesas_operacionais, cujo campeão registrado é justamente Wiener-W2-Piecewise (FIT 2.4,
+  U₂ 0.750, era R04) — comparar o braço revertido sem a família Wiener não responderia a pergunta
+  do Round 25 para essa combinação. Hipótese: idêntica à do Round 25 — as datas em disputa
+  (TC 2023-12-31 em TAEE4×res_bruto, AO 2019-03-31 em ALUP4×res_bruto, AO 2022-06-30 em
+  ALUP4×desp_oper) são dinâmica genuína e não artefato aditivo, de modo que retirá-las do
+  tratamento melhora a previsão também nesta família. Grid de hiperparâmetros idêntico ao do
+  braço de controle v18 (results/202608161106_v18.json) (nl_p_max/nl_q_max=4, als_max_iter=20, als_tol=1e-5), para que a única
+  diferença entre braços seja o tratamento dos dados. Condição de falsificação: se nenhuma das 3
+  combinações melhorar sob esta família com a reversão, a família fica registrada como não
+  competitiva também no braço revertido e a decisão do painel para esses combos passa a ser
+  determinada pelo Round 25 isoladamente.
+justification: "protocolo metodológico §27; Ledolter, J. (1989), IJF 5(2), 231-240; Tsay, R.S. (1988), Journal of Forecasting 7(1), 1-20; grid herdado dos Rounds 18-19 (protocolo metodológico §23)"
+baseline_json: results/202608161754_v23.json
+combos: [[20257, resultado_bruto], [21490, resultado_bruto], [21490, despesas_operacionais]]
+models: [HAMMERSTEIN]
+nl_configs: [H1-Sigmoid, H2-Piecewise, H3-BSpline3]
+preproc: search
+exog: none
+hyperparams: {nl_p_max: 4, nl_q_max: 4, als_max_iter: 20, als_tol: 1.0e-5}
+spike_revert:
+  - {empresa: 20257, indicador: resultado_bruto,       dates: ["2023-12-31"]}
+  - {empresa: 21490, indicador: resultado_bruto,       dates: ["2019-03-31"]}
+  - {empresa: 21490, indicador: despesas_operacionais, dates: ["2022-06-30"]}
+version: 27
+success_criteria:
+  fit_gain_pp: 0.0
+  dm_pvalue_max: 0.10
+  note: >
+    Mesma regra do Round 25 (protocolo metodológico §27, "Condição de promoção"): adotado por combinação
+    só com U₂<1, FIT% acima do braço tratado da mesma família (v18 (results/202608161106_v18.json)) e leitura econômica do
+    evento como dinâmica genuína.
+next_round: >
+  Ultimo round do espaco de busca. Consolidar o painel: eleger campeao por combo sob configuracao unica, gerar os 12 graficos, a interpretacao economica por empresa e o mapa de cobertura da busca (Rounds 01-27).

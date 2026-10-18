@@ -1,0 +1,41 @@
+# Round 14 — damped-trend structural state-space model (Gardner & McKenzie 1985),
+# targeting the U₂-gate priority open since Round 08: TAEE4×resultado_bruto.
+round: 14
+hypothesis: >
+  Desde o Round 08, TAEE4×resultado_bruto tem seu candidato de maior FIT% preso fora do gate
+  estrito U₂<1: a tendência linear local não amortecida do SS (`SSWrapper`, Round 12 fix)
+  atinge FIT=51.3% mas U₂=1.041 — falha a regra U₂ < 1 porque a extrapolação
+  linear da inclinação sobre-estima sistematicamente o passo h=1 fora da amostra. O campeão sob
+  o gate estrito segue sendo ARIMA (diff, FIT=44.0%, U₂=0.931) desde o Round 02. ETS(A,Ad,N) —
+  tendência amortecida na forma SSOE (fonte única de erro, Hyndman et al. 2002) — já foi testado
+  para este combo especificamente no Round 12 e não superou o SS em FIT% nem resolveu o gate.
+  Este round introduz `DampedTrendWrapper` (`src/models/dampedtrend_wrapper.py`, novo): o mesmo framework estrutural MSOE do SS (Harvey, 1989; múltiplas fontes de
+  erro), estendido com um coeficiente de amortecimento phi em (0.80, 0.98) na equação de
+  transição da inclinação (Gardner & McKenzie, 1985) — uma combinação que não existe em nenhum
+  dos dois wrappers já testados (`UnobservedComponents` do statsmodels não expõe amortecimento
+  de tendência; `ETSModel` só oferece a forma SSOE). Hipótese testável: o amortecimento MSOE
+  reduz a variância da extrapolação de inclinação o suficiente para trazer U₂ de volta abaixo de
+  1 sem descartar o ganho de FIT% do sinal de tendência, superando o campeão ARIMA sob o gate
+  estrito. Condição de falsificação: se DAMPEDTREND também falhar o gate (U₂≥1) ou empatar
+  essencialmente com o ARIMA atual (ganho de FIT% não significativo via DM), a hipótese de que a
+  tendência amortecida resolve esta prioridade específica é rejeitada, e a prioridade U₂ aberta
+  desde o Round 08 permanece — a próxima frente deixa de ser uma variante de modelo e passa a
+  ser uma reavaliação do próprio Invariante 1 para este combo (ex.: aceitar o SS não-amortecido
+  como "melhor disponível" documentando a falha, ou investigar tratamento de outlier nos picos
+  2020-2022 que amplificam o erro do SS).
+justification: "protocolo metodológico §20 (DampedTrend); §17 (SS/Harvey 1989, para contraste); §18 (ETS/Gardner & McKenzie 1985, já testado); Gardner, E.S. & McKenzie, E. (1985), Management Science, 31(10), 1237-1246; Harvey, A.C. (1989), Forecasting, Structural Time Series Models and the Kalman Filter"
+baseline_json: results/202608151534_v13.json
+combos: [[20257, resultado_bruto]]
+models: full
+preproc: search
+exog: {source: results/exog_selection_v11.json}
+version: 14
+success_criteria: {fit_gain_pp: 0.0, dm_pvalue_max: 0.10}
+next_round: >
+  Se DAMPEDTREND resolver o gate U₂<1 para TAEE4×resultado_bruto e superar o ARIMA campeão,
+  promovê-lo e encerrar a prioridade U₂ aberta desde o Round 08 — próxima frente passa a ser a
+  combinação simples de forecasts (Petropoulos et al. 2022, §2.6) para os combos com FIT%
+  marginal ou modelos discordantes (ex.: ALUP4×despesas_operacionais, ELET6×despesas_operacionais)
+  e a declaração formal de não-preditibilidade para ELET6×resultado_bruto/despesas_operacionais.
+  Se DAMPEDTREND falhar o gate ou não superar significativamente o ARIMA, a prioridade
+  TAEE4×resultado_bruto é reavaliada nos termos descritos na condição de falsificação acima.

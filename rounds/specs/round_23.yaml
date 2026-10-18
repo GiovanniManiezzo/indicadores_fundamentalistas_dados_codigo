@@ -1,0 +1,38 @@
+# Round 23 — Box-Cox/Guerrero como 5º modo de pré-processamento (estabilização de variância).
+round: 23
+hypothesis: >
+  Os quatro modos testados até aqui (raw/log/diff/log+diff) cobrem integração (diff, ordem via
+  consenso ADF/KPSS/PP) e um único caso extremo de estabilização de variância (log, equivalente a
+  Box-Cox com λ=0 fixo). O histórico de spikes tratado em protocolo metodológico §11 (ELET6, ISAE4
+  principalmente) é consistente com indicadores cuja dispersão cresce com o nível —
+  heterocedasticidade condicionada ao nível, distinta das quebras pontuais já cobertas por
+  imputação AO/LS. Este round introduz Box-Cox com λ ótimo via método de Guerrero (1993) —
+  generaliza raw/log como casos particulares (λ=1/λ=0) e busca o λ que melhor estabiliza a
+  variância de cada combinação individualmente, coerente com o princípio do painel de que cada
+  combo é modelado de forma completamente independente (protocolo metodológico §25, novo). λ é calculado
+  uma única vez por combo sobre a série completa pré-split e congelado por todos os folds do
+  walk-forward — mesmo padrão anti-leakage de d/fixed_order (regras de d por consenso e de anti-leakage). Escopo
+  desta rodada: boxcox está implementado apenas na família `models: full` (ARIMA/SARIMA/ARMAX/
+  ARIMAX/OE/BJ/BAYESARIMA/SS/NARX/NARIMAX/ETS/THETA/DAMPEDTREND/COMBINATION-*), não nos wrappers
+  Wiener/Hammerstein/HW/SETAR — extensão para essas famílias fica condicionada a este round
+  mostrar sinal (protocolo metodológico §25, nota de escopo). Condição de falsificação: se nenhum dos 12
+  combos trocar de campeão para boxcox (ou ganhar >2 p.p. de FIT% sob U₂<1 e DM-p<0.10 vs. ARIMA),
+  a hipótese de heterocedasticidade condicionada ao nível como fator limitante do painel fica
+  descartada — os spikes já tratados em §11 seriam suficientes, sem efeito material adicional de
+  uma estabilização de variância mais fina.
+justification: "protocolo metodológico §25 (novo); Box, G.E.P. & Cox, D.R. (1964), JRSS B 26(2), 211-252; Guerrero, V.M. (1993), Journal of Forecasting 12(1), 37-48"
+baseline_json: results/202608161446_v21.json
+combos: all
+models: full
+preproc: search
+exog: {source: results/exog_selection_v11.json}
+version: 23
+success_criteria: {fit_gain_pp: 2.0, dm_pvalue_max: 0.10}
+next_round: >
+  Round 24 — se alguma combinação passar a ter boxcox como campeão sob U₂<1 e DM-p<0.10, registrar
+  o λ de Guerrero usado em protocolo metodológico §25 (tabela de campeões) e avaliar se vale estender a
+  implementação de boxcox_lambda às famílias Wiener/Hammerstein/HW (fora de escopo neste round).
+  Se nenhuma combinação melhorar, encerrar a frente de "estabilização de variância via
+  pré-processamento" para o painel e retomar a declaração de não-preditibilidade para
+  ELET6×resultado_bruto (e ELET6×despesas_operacionais, se também não melhorar aqui) como próximo
+  passo antes de consolidar o painel de 12 combos.

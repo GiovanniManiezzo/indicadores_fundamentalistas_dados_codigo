@@ -1,0 +1,57 @@
+# Round 18 — hiperparâmetros: alarga NL_P_MAX/NL_Q_MAX e ALS (Hammerstein), começando
+# pelo combo de melhor FIT% do painel (ISAE4×resultado_bruto, 52.2%).
+round: 18
+hypothesis: >
+  Rounds 12-17 esgotaram a busca por família de modelo adicional para este painel
+  (protocolo metodológico §§17-22: suavização estrutural, combinação de previsões — veredito nulo — e
+  shrinkage bayesiano pontual — ganho isolado e não-confirmado em 1/12). A partir deste round a
+  estratégia muda de "testar família nova" para "ajustar os hiperparâmetros de estimação da
+  família já campeã, por combo" (protocolo metodológico §23). Começando pelo combo de melhor FIT% do
+  painel — ISAE4×resultado_bruto, HAMMER-H1-Sigmoid, FIT=52.16%, U₂=0.845, único ganho
+  DM-significativo do painel inteiro (p=0.012) — este round testa se `NL_P_MAX=NL_Q_MAX=2`
+  (fixado nos Rounds 05-08, deliberadamente abaixo do `p_max=q_max=4` do ARIMA puro, para
+  compensar os graus de liberdade extra do bloco não-linear em MIN_TRAIN=20) era conservador
+  demais. Alarga para `NL_P_MAX=NL_Q_MAX=4` (mesmo teto do ARIMA sem exógenas — não mais largo
+  que o próprio baseline acadêmico) e dobra a paciência de convergência ALS
+  (`ALS_MAX_ITER=10→20`, `ALS_TOL=1e-4→1e-5`) via o novo campo `hyperparams:` (spec,
+  o formato das specs em rounds/specs/; runner em `main.py`, `_apply_spec_hyperparams`). Roda os 3 configs
+  Hammerstein (H1-Sigmoid/H2-Piecewise/H3-BSpline3) nos 12 combos — não só no combo-alvo — para
+  detectar qualquer efeito colateral do grid mais largo nos demais campeões/candidatos
+  Hammerstein do painel (ALUP4×despesas_operacionais e ELET6×lucro_consolidado são campeões
+  WIENER, não HAMMERSTEIN, e ficam fora do escopo direto deste round; entram no Round 19,
+  `models: [WIENER]`, mesmos hiperparâmetros). Hipótese testável: se ISAE4×resultado_bruto (ou
+  qualquer outro combo) tinha a ordem selecionada numa borda do grid antigo (p=2 ou q=2), o grid
+  mais largo encontra uma ordem melhor por AIC e o FIT%/U₂ melhora mantendo o gate e a
+  significância DM. Condição de falsificação: se a ordem selecionada por AIC permanecer a mesma
+  (nenhuma borda ativa) e nenhum combo melhorar, o grid p_max=q_max=2 já era suficiente para a
+  família Hammerstein neste painel — encerra esta frente para Hammerstein especificamente
+  (não invalida testar o mesmo grid mais largo para Wiener/SARIMAX-família, que têm estruturas
+  de parâmetros diferentes).
+justification: >
+  protocolo metodológico §23 (Ajuste de Hiperparâmetros dos Modelos Campeões); protocolo metodológico §14.2
+  (Hammerstein, Round 06); Narendra, K.S. & Gallman, P.G. (1966), IEEE Trans. Autom. Control,
+  11(3), 546-550; Ljung, L. (1999), System Identification: Theory for the User, 2nd ed. (largura
+  de grid de busca vs. risco de sobreajuste em amostra pequena); Box, G.E.P. et al. (2015), Time
+  Series Analysis: Forecasting and Control, 5th ed.
+baseline_json: results/202608160949_v17.json
+combos: all
+models: [HAMMERSTEIN]
+nl_configs: [H1-Sigmoid, H2-Piecewise, H3-BSpline3]
+preproc: search
+exog: none
+hyperparams: {nl_p_max: 4, nl_q_max: 4, als_max_iter: 20, als_tol: 1.0e-5}
+version: 18
+success_criteria: {fit_gain_pp: 1.0, dm_pvalue_max: 0.10}
+next_round: >
+  Se ISAE4×resultado_bruto (ou outro combo) melhorar com o grid mais largo, promovê-lo e
+  registrar a nova ordem — comparar com a ordem antiga para confirmar que a borda do grid
+  antigo (p=2 ou q=2) era de fato o fator limitante. Seguir com Round 19 (`models: [WIENER]`,
+  mesmos hiperparâmetros `nl_p_max/nl_q_max/als_max_iter/als_tol`, alvo: ALUP4×despesas_
+  operacionais e ELET6×lucro_consolidado, campeões WIENER atuais) e depois Round 20
+  (`models: full`, `hyperparams: {sarimax_family_p_max: 4, sarimax_family_q_max: 4}`, alvo:
+  ALUP4×resultado_bruto, TAEE4×lucro_consolidado, ALUP4×lucro_consolidado,
+  ISAE4×lucro_consolidado, TAEE4×despesas_operacionais — os 5 campeões ARMAX/ARIMAX/BAYESARIMA
+  do painel), continuando a varredura de hiperparâmetros por família em ordem decrescente de
+  FIT% atual. Se nenhum combo melhorar neste round, registrar que p_max=q_max=2 já era
+  suficiente para Hammerstein e pular direto para o Round 20 (família SARIMAX, que toca mais
+  campeões de uma vez) antes de testar Wiener.

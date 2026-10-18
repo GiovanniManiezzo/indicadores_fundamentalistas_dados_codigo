@@ -1,0 +1,42 @@
+# Round 41 — reeleição dos 12 campeões sob o tratamento do manuscrito.
+# Exploratório, só para o manuscrito; protocolo metodológico §32 (escrita antes da execução).
+# Motivação: a revisão do manuscrito (2026-10-17) apontou que a Tabela 3 traz campeões eleitos sob o
+# tratamento da dissertação e apenas re-pontuados no Round 40. Decisões do autor (2026-10-17): busca
+# inteira refeita sob o §31; funil de exógenas refeito sobre a série do manuscrito; combinação sem
+# candidato com U₂ < 1 fica sem campeão; erros de todos os candidatos guardados para o SPA de Hansen.
+round: 41
+hypothesis: >
+  Os campeões do manuscrito, reeleitos pela mesma regra (maior FIT% com U₂ < 1) sobre a busca inteira
+  refeita sob o tratamento do manuscrito (§31) — dezoito famílias mais o ARIMA, cinco modos, funil de
+  exógenas refeito sobre a série tratada, alvos imputados fora da pontuação —, preservam as conclusões
+  do painel. Previsões pré-registradas: (a) nas combinações cujo conjunto de exógenas não muda, o FIT%
+  eleito não fica mais de 0,1 p.p. abaixo do re-pontuado no Round 40 (exceção declarada:
+  ELET6×resultado_bruto, cujo ARIMA vinha da ordem do baseline); (b) TAEE4×resultado_bruto fica sem
+  campeão, 11/12; (c) Pearson(FIT%, ρ₁) ≥ 0,90 e Spearman ≥ 0,80; (d) o excesso médio sobre o AR(1)
+  sobe no máximo 3 p.p. sobre +13,9; (e) no máximo dois preferidos superam o ARIMA de referência depois
+  de Holm; (f) o SPA de Hansen contra o ARIMA de referência rejeita a 10% em no máximo três combinações,
+  coincidentes com as que passam Holm ou BH; (g) pelo menos três combinações trocam de família.
+  Falsificação de (a): queda maior em outra combinação — o campeão congelado não se reproduziria pelo
+  caminho de busca. Se (b) falhar, a TAEE4×resultado_bruto ganha um campeão legítimo sob a regra.
+justification: >
+  protocolo metodológico §31 e §32; Hansen, P.R. (2005), A test for superior predictive ability, JBES 23(4),
+  365-380; White, H. (2000), A reality check for data snooping, Econometrica 68(5), 1097-1126;
+  Politis, D.N. & Romano, J.P. (1994), The stationary bootstrap, JASA 89(428), 1303-1313;
+  Tashman, L.J. (2000), IJF 16(4), 437-450.
+combos: all
+models: MANUSCRIPT_SEARCH
+preproc: search
+exog: none
+version: 41
+success_criteria:
+  fit_drop_max_pp: 0.1
+  dm_pvalue_max: 0.10
+  multiplicity: holm_non_arima
+  spa_alpha: 0.10
+  note: >
+    Relatar as 12, inclusive sem campeão: modelo, modo, exógenas, FIT%, U₂ e alvos excluídos do eleito;
+    campeão do Round 40 e diferença; exógenas antes e depois do funil; número de candidatos avaliados;
+    SPA (Hansen consistente e White) contra o ARIMA de referência. ρ₁, AR(1) e DM/CW com Holm vêm dos
+    scripts das tabelas apontados para os campeões do Round 41.
+next_round: >
+  (preencher na análise)

@@ -1,0 +1,8 @@
+grupo,rotulo,P,K,taxa_observada_pct,nulo_media_pct,nulo_p95_pct,percentil_observado,p_valor,n_permutacoes,passo_deslocamento
+cross,resultado_bruto,4,63,1.587,3.83,9.524,10.6,0.894,5000,4
+cross,lucro_consolidado,4,63,1.587,3.419,9.524,21.3,0.7866,5000,4
+cross,despesas_operacionais,4,63,12.698,5.816,14.286,89.2,0.1084,5000,4
+intra,ALUP4,3,63,6.349,11.912,38.095,43.3,0.5669,5000,4
+intra,ELET6,3,63,14.286,12.159,20.635,64.9,0.3507,5000,4
+intra,ISAE4,3,63,12.698,11.579,19.048,53.5,0.4649,5000,4
+intra,TAEE4,3,63,49.206,14.069,26.984,99.5,0.0048,5000,4

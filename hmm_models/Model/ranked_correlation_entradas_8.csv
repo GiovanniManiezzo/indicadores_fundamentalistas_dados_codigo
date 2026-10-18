@@ -1,0 +1,172 @@
+col1,col2,corr,abs_corr
+Divida/PIB,IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),0.8334069182610551,0.8334069182610551
+Energia ind,Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),-0.7240847196785354,0.7240847196785354
+Energia ind,Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),0.7057820379113163,0.7057820379113163
+CDI,TJLP,0.6374822970571403,0.6374822970571403
+Divida/PIB,Juros EUA,0.6324265677946994,0.6324265677946994
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),Juros EUA,0.6208372963189237,0.6208372963189237
+Divida/PIB,Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),-0.6112253214306442,0.6112253214306442
+Tbonds,Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),-0.6074506973465041,0.6074506973465041
+Energia comer,Juros EUA,0.6053356268111458,0.6053356268111458
+Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),Tbonds,-0.5994014476464454,0.5994014476464454
+Energia comer,IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),0.5848602562851406,0.5848602562851406
+Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),0.5643092232541922,0.5643092232541922
+Divida/PIB,Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),0.5633837998530886,0.5633837998530886
+Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),0.5595022078412321,0.5595022078412321
+Juros EUA,Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),-0.5471658635244264,0.5471658635244264
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),0.5454595704018007,0.5454595704018007
+CDI,Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),-0.5434913712815439,0.5434913712815439
+CDI,Tbonds,0.5253597203227819,0.5253597203227819
+CDI,Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),-0.5246198781300994,0.5246198781300994
+CDI,igpm,-0.5218494996767998,0.5218494996767998
+Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),igpm,0.5186244974987552,0.5186244974987552
+Energia ind,Tbonds,0.511264322321071,0.511264322321071
+Divida/PIB,Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),-0.4976394830775743,0.4976394830775743
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),-0.49267151058072906,0.49267151058072906
+Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),-0.49141701015242545,0.49141701015242545
+Juros EUA,TJLP,0.4907753973722566,0.4907753973722566
+Tbonds,Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),0.49013610724951373,0.49013610724951373
+igpm,Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),0.4816992051406521,0.4816992051406521
+Energia comer,Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),0.46995101841606224,0.46995101841606224
+Divida/PIB,Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),0.46304781620917507,0.46304781620917507
+Divida/PIB,Energia comer,0.4461082639354348,0.4461082639354348
+TJLP,igpm,-0.4436378744932789,0.4436378744932789
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),-0.4406339672798037,0.4406339672798037
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),-0.43135001108258947,0.43135001108258947
+igpm,ipca,0.42234793034704643,0.42234793034704643
+Energia comer,Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),-0.42061650020941116,0.42061650020941116
+igpm,incc,0.41802650998317853,0.41802650998317853
+Juros EUA,Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),0.40819856909209595,0.40819856909209595
+Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),-0.3985505698534119,0.3985505698534119
+CDI,Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),0.39060647655185204,0.39060647655185204
+Juros EUA,igpm,-0.38924613124958285,0.38924613124958285
+Juros EUA,Tbonds,0.3851502113414126,0.3851502113414126
+Tbonds,igpm,-0.38512555104767077,0.38512555104767077
+Energia ind,Juros EUA,0.38234827340674193,0.38234827340674193
+Energia ind,Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),-0.37812552491049123,0.37812552491049123
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),-0.36007750162408164,0.36007750162408164
+Energia ind,IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),0.3575276019547007,0.3575276019547007
+Energia comer,Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),-0.3568683785425003,0.3568683785425003
+TJLP,incc,-0.3415172647648939,0.3415172647648939
+Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),-0.33881165764647664,0.33881165764647664
+Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),0.33673054617725207,0.33673054617725207
+Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),vix,0.32619171078387305,0.32619171078387305
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),-0.3214465720611152,0.3214465720611152
+Tbonds,Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),-0.31568137726933554,0.31568137726933554
+CDI,Divida/PIB,-0.3132777374799153,0.3132777374799153
+TJLP,Tbonds,0.307605698587478,0.307605698587478
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),-0.30383781311307206,0.30383781311307206
+Juros EUA,ipca,-0.3031721221932593,0.3031721221932593
+Juros EUA,incc,-0.30075244231524145,0.30075244231524145
+Energia comer,TJLP,0.2870584291357363,0.2870584291357363
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),-0.28227183779216164,0.28227183779216164
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),0.2779995023213862,0.2779995023213862
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),igpm,0.27595370774411265,0.27595370774411265
+CDI,Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),-0.26860368228521814,0.26860368228521814
+Energia comer,vix,-0.26711372909077635,0.26711372909077635
+TJLP,Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),-0.2640300160708428,0.2640300160708428
+incc,ipca,0.2534447403510015,0.2534447403510015
+TJLP,ipca,-0.25091053133614327,0.25091053133614327
+Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),-0.24614703075995437,0.24614703075995437
+TJLP,Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),-0.23825591769529583,0.23825591769529583
+CDI,Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),0.23043141987495996,0.23043141987495996
+Divida/PIB,TJLP,0.22827385206341486,0.22827385206341486
+Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),incc,0.2278084723649081,0.2278084723649081
+Tbonds,Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),0.22541898683146394,0.22541898683146394
+Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),TJLP,-0.22307758757483828,0.22307758757483828
+igpm,Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),0.21968071483862284,0.21968071483862284
+CDI,incc,-0.2136815190430519,0.2136815190430519
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),0.2125222695667021,0.2125222695667021
+Divida/PIB,Tbonds,-0.20747453390743464,0.20747453390743464
+CDI,Juros EUA,0.20390449575287434,0.20390449575287434
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),Tbonds,0.20338077292460938,0.20338077292460938
+CDI,Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),-0.20316345700143296,0.20316345700143296
+TJLP,vix,-0.2020844530604238,0.2020844530604238
+vix,Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),0.1913078091017057,0.1913078091017057
+Energia comer,Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),-0.18939997435690167,0.18939997435690167
+Energia comer,ipca,0.18232950468361753,0.18232950468361753
+ipca,vix,-0.18112599645428396,0.18112599645428396
+CDI,Energia ind,0.18068023501042652,0.18068023501042652
+Divida/PIB,ipca,-0.17990189337072598,0.17990189337072598
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),TJLP,0.17723404942101817,0.17723404942101817
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),Tbonds,-0.17387752360337697,0.17387752360337697
+Energia comer,incc,-0.16580267417216293,0.16580267417216293
+Energia ind,Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),-0.16567969472221028,0.16567969472221028
+CDI,vix,-0.16482382813256227,0.16482382813256227
+Divida/PIB,Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),-0.16329231537549246,0.16329231537549246
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),TJLP,0.16322939946842435,0.16322939946842435
+Tbonds,vix,-0.16240242922159176,0.16240242922159176
+CDI,Energia comer,0.16210054271356758,0.16210054271356758
+Juros EUA,vix,-0.16157244057404815,0.16157244057404815
+Energia ind,incc,0.16099259102814098,0.16099259102814098
+Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),0.15982203303356723,0.15982203303356723
+incc,Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),-0.15478972175445588,0.15478972175445588
+Energia ind,igpm,-0.15138094108130232,0.15138094108130232
+Juros EUA,Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),-0.15035719035948242,0.15035719035948242
+Energia comer,Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),-0.14925224155636502,0.14925224155636502
+Energia comer,igpm,-0.14234205586449944,0.14234205586449944
+Tbonds,incc,-0.1369790177840539,0.1369790177840539
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),vix,-0.13429073752137427,0.13429073752137427
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),ipca,-0.13378078030036483,0.13378078030036483
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),TJLP,0.13320108857071108,0.13320108857071108
+Energia ind,TJLP,-0.13048220619524703,0.13048220619524703
+Divida/PIB,Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),0.12963872317991204,0.12963872317991204
+igpm,Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),-0.129094785020819,0.129094785020819
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),0.126930643428755,0.126930643428755
+Tbonds,ipca,-0.12483773945991186,0.12483773945991186
+igpm,vix,0.12461032430715428,0.12461032430715428
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),Tbonds,-0.12344242153218747,0.12344242153218747
+ipca,Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),0.12048385136872052,0.12048385136872052
+incc,Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),-0.11341727666161916,0.11341727666161916
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),incc,0.10767810478880405,0.10767810478880405
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),incc,0.10727864846029657,0.10727864846029657
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),igpm,-0.10546909397523233,0.10546909397523233
+Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),ipca,-0.10219799811939521,0.10219799811939521
+vix,Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),0.0974246323621326,0.0974246323621326
+Energia comer,Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),-0.09650368289040348,0.09650368289040348
+Divida/PIB,igpm,0.09242815831593881,0.09242815831593881
+Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),0.08833281003862577,0.08833281003862577
+Juros EUA,Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),-0.08643987656485656,0.08643987656485656
+Divida/PIB,Energia ind,0.08160877107157886,0.08160877107157886
+Indicador de Incerteza da Economia Brasil - Componente Expactativas (Expec IIE-Br)(1463189),Juros EUA,-0.08131334580810613,0.08131334580810613
+Divida/PIB,vix,0.0779164490158212,0.0779164490158212
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),vix,-0.0776446003983737,0.0776446003983737
+ipca,Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),-0.07710302660758422,0.07710302660758422
+vix,Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),-0.0769097565766513,0.0769097565766513
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),Juros EUA,-0.07253548779406702,0.07253548779406702
+Energia comer,Energia ind,0.07109597381627601,0.07109597381627601
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),0.07024244540072735,0.07024244540072735
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),incc,-0.0682390971990091,0.0682390971990091
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),0.06441629687396513,0.06441629687396513
+TJLP,Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),0.05929877212277618,0.05929877212277618
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),vix,0.0583799889798722,0.0583799889798722
+incc,vix,0.05802716992743899,0.05802716992743899
+vix,Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),-0.05551448201608388,0.05551448201608388
+Energia comer,Tbonds,-0.05030536548810873,0.05030536548810873
+incc,Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),0.04961615943570241,0.04961615943570241
+TJLP,Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),0.0488397433085102,0.0488397433085102
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),0.03847178919711264,0.03847178919711264
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),0.03548177255494855,0.03548177255494855
+CDI,Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),-0.0317513331598118,0.0317513331598118
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),0.030136578750318933,0.030136578750318933
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),0.029653968474309813,0.029653968474309813
+Energia comer,Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),-0.02901683877228919,0.02901683877228919
+incc,Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),-0.027853143843930662,0.027853143843930662
+ipca,Índice de volume mensal pela ótica da produção - Valor adicionado a preços básicos - Indústria(1428679),-0.027577469855701475,0.027577469855701475
+CDI,IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),-0.0268253299914399,0.0268253299914399
+Índice da Taxa de Câmbio Real - (Real / Euro (Zona do Euro))(1003595),Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),-0.02412972381852949,0.02412972381852949
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),Juros EUA,-0.021278609301299913,0.021278609301299913
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),ipca,0.01962374245323526,0.01962374245323526
+Energia ind,ipca,0.017824767993957893,0.017824767993957893
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),ipca,-0.017490532603839776,0.017490532603839776
+Divida/PIB,Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),0.016889989742686316,0.016889989742686316
+Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),-0.015967766568931244,0.015967766568931244
+ipca,Índice da Taxa de Câmbio Real - (Real / Iene (Japão))(1003593),-0.015597293124632771,0.015597293124632771
+Energia ind,Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205) (Variação Percentual em Relação ao Período Anterior),-0.01381860151271323,0.01381860151271323
+Energia ind,Indicador Antecedente de Emprego (IA Emp) com ajuste sazonal(1416205),-0.01377147993662358,0.01377147993662358
+CDI,ipca,0.013673914648159008,0.013673914648159008
+Energia ind,vix,-0.012440422363271671,0.012440422363271671
+Divida/PIB,incc,0.010925783951925274,0.010925783951925274
+igpm,Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),-0.009326001618891534,0.009326001618891534
+Energia ind,Índice da Taxa de Câmbio Real - (Real / Peso (Argentina))(1003594),0.007702872840445371,0.007702872840445371
+IPAOG-DI Ipa - todos os itens - Nro. Índice(1477007),igpm,-0.0007779063635407952,0.0007779063635407952

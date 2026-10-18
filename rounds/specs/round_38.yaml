@@ -1,0 +1,57 @@
+# Round 38 — campeões com exógena sob x(t−1) em vez de x(t).
+# Exploratório; protocolo metodológico §29 ("Exógenas defasadas — previsão ex-ante contra condicional").
+# Reabre a frente de exógenas, que estava fechada, por um motivo novo: a revisão
+# do manuscrito apontou que o protocolo vigente prevê y_t com
+# x_t (evaluation.py:73, recursive.py:621), isto é, o painel mede previsão condicional, e não
+# ex-ante. Nenhum round anterior defasou as exógenas; o funil Granger testou as defasagens 1-4.
+round: 38
+hypothesis: >
+  Os cinco campeões com regressor exógeno (ISAE4×lucro_consolidado, TAEE4×lucro_consolidado,
+  TAEE4×despesas_operacionais, ALUP4×resultado_bruto, ALUP4×lucro_consolidado) prevêem y_t com o
+  regressor do mesmo trimestre, x_t, que só é conhecido ao fim do trimestre a prever. O excesso
+  médio de +5,8 p.p. sobre o benchmark AR(1) desses modelos (contra −0,4 nos sete univariados)
+  poderia, então, refletir informação contemporânea, e não precedência. Preços de ação de
+  fechamento já incorporam a expectativa do mercado sobre o resultado do próprio trimestre; índices
+  de preços e a Selic são publicados com defasagem curta e compõem o custo e a receita de contratos
+  indexados de forma mais lenta. Reexecuta-se o mesmo modelo de cada campeão (família, ordem,
+  pré-processamento e conjunto exógeno congelados) com x(t−1) no lugar de x(t). Previsões
+  pré-registradas: (a) o FIT% médio cai pelo menos 2 p.p. e o excesso médio sobre o AR(1) fica
+  abaixo de +5,8; (b) a perda se concentra nas combinações com preço de ação como regressor
+  (ISAE4×lucro_consolidado e TAEE4×despesas_operacionais), e nas três restantes |ΔFIT| < 3 p.p.;
+  (c) pelo menos uma combinação perde o gate U₂ < 1 ou deixa de superar o ARIMA univariado (DM com
+  p de Holm ≥ 0,10). Condição de falsificação da hipótese de informação contemporânea: ΔFIT médio
+  > −2 p.p., nenhuma combinação perde o gate U₂ e nenhum DM defasado×contemporâneo é significativo a
+  10% após a correção de Holm sobre as 5. Nesse caso o excesso do painel sobrevive à previsão
+  ex-ante, e o manuscrito reporta o round como robustez. Como a ordem foi escolhida com x(t), o
+  resultado é um piso do que uma busca refeita sobre x(t−1) atingiria; se (a) ou (c) se
+  confirmarem, a busca completa é uma decisão do autor, não deste round.
+justification: >
+  protocolo metodológico §29; Granger, C.W.J. (1969), Econometrica 37(3), 424-438; Clements, M.P. &
+  Hendry, D.F. (1998), Forecasting Economic Time Series, Cambridge University Press; Hyndman, R.J.
+  & Athanasopoulos, G. (2021), Forecasting: Principles and Practice, 3ª ed., OTexts (previsões
+  ex-ante e ex-post).
+combos:
+  - [18376, lucro_consolidado]
+  - [20257, lucro_consolidado]
+  - [20257, despesas_operacionais]
+  - [21490, resultado_bruto]
+  - [21490, lucro_consolidado]
+models: LAGGED_EXOG
+preproc: search
+exog: none
+lagged_exog:
+  lag: 1
+version: 38
+success_criteria:
+  fit_loss_pp: 2.0
+  dm_pvalue_max: 0.10
+  multiplicity: holm_5
+  note: >
+    Por combinação, "perda" = FIT% defasado − FIT% contemporâneo ≤ −2 p.p., ou U₂ defasado ≥ 1, ou
+    DM defasado×ARIMA com p de Holm ≥ 0,10 onde o contemporâneo já era significativo. Relatar as
+    5, inclusive as que não mudam, o excesso sobre o AR(1) nas duas versões, e confirmar que o
+    lote contemporâneo reproduz o FIT% armazenado do campeão (|diferença| ≤ 0,05 p.p.).
+next_round: >
+  Se a hipótese se confirmar: decisão do autor sobre refazer a busca de exógenas com x(t−1) e
+  reportar o painel ex-ante no manuscrito. Se falsificada: reportar o round como robustez em 4.2/4.3
+  e declarar a defasagem 0 em 3.4.

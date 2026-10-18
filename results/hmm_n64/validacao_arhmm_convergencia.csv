@@ -1,0 +1,17 @@
+codigo_cvm,empresa_config,janela,n_estados,ajuste_unico_converge,reajustes,reajustes_ok,taxa_reajuste_ok,rolling_completo_sem_falha
+2437,ELET6,35,2,True,21,21,1.0,True
+2437,ELET6,35,3,True,21,18,0.857,False
+2437,ELET6,45,2,True,11,11,1.0,True
+2437,ELET6,45,3,True,11,11,1.0,True
+18376,ISAE4,35,2,True,23,23,1.0,True
+18376,ISAE4,35,3,True,23,23,1.0,True
+18376,ISAE4,45,2,True,13,13,1.0,True
+18376,ISAE4,45,3,True,13,13,1.0,True
+20257,TAEE4,35,2,True,23,23,1.0,True
+20257,TAEE4,35,3,True,23,21,0.913,False
+20257,TAEE4,45,2,True,13,13,1.0,True
+20257,TAEE4,45,3,True,13,12,0.923,False
+21490,ALUP4,35,2,False,23,15,0.652,False
+21490,ALUP4,35,3,True,23,15,0.652,False
+21490,ALUP4,45,2,True,13,10,0.769,False
+21490,ALUP4,45,3,False,13,12,0.923,False

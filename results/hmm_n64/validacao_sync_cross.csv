@@ -1,0 +1,10 @@
+variante_dado,n_obs_nivel,indicador,indicator_label,K,coincidencias,taxa_pct,publicado_pct,bate
+bruta,59,resultado_bruto,Net Revenue,56,9,16.071,6.9,False
+bruta,59,lucro_consolidado,Net Income,56,4,7.143,10.345,False
+bruta,59,despesas_operacionais,Operational Expenses,56,8,14.286,13.793,False
+bruta_alup4_interp,59,resultado_bruto,Net Revenue,58,4,6.897,6.9,True
+bruta_alup4_interp,59,lucro_consolidado,Net Income,58,6,10.345,10.345,True
+bruta_alup4_interp,59,despesas_operacionais,Operational Expenses,58,8,13.793,13.793,True
+tratada,59,resultado_bruto,Net Revenue,58,6,10.345,6.9,False
+tratada,59,lucro_consolidado,Net Income,58,6,10.345,10.345,True
+tratada,59,despesas_operacionais,Operational Expenses,58,8,13.793,13.793,True

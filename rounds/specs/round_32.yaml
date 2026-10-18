@@ -1,0 +1,42 @@
+# Round 32 — Era 31, reprodução do Round 20 (grade de ordens até 4) nas 6 combinações.
+# Segundo de quatro (31-34); protocolo metodológico §27, "Era 31".
+round: 32
+hypothesis: >
+  Reinstaura na era 31 a segunda configuração de busca que a era anterior cobriu: o Round 20,
+  `models: full` com a grade de ordens de ARMAX/ARIMAX/BAYESARIMA ampliada até p,q ≤ 4 (padrão:
+  a grade menor dos Rounds 10-17, 21, 23, 25, 28, já reproduzida no Round 31). A grade maior muda a
+  ordem escolhida por AIC na janela inicial MIN_TRAIN = 20, e portanto o resultado, só nas três
+  famílias SARIMAX com exógena; as demais doze famílias de `full` são idênticas às do Round 31.
+  Hipótese testável: com o conjunto de exógenas v31, a grade ampliada não produz campeão melhor que
+  o do Round 31 em nenhuma das seis combinações — no Round 20 original a grade maior não trouxe
+  campeão novo a nenhuma das doze (science_log, Round 20). Previsão pré-registrada: nas três
+  combinações de campeão univariado (ELET6×lucro_consolidado, ELET6×despesas_operacionais,
+  ISAE4×resultado_bruto) o vencedor do round é o mesmo modelo com o mesmo FIT% do Round 31, salvo
+  se um SARIMAX de ordem maior o superar. Condição de falsificação: um modelo fora das três
+  famílias SARIMAX com FIT% diferente do Round 31 indica mudança além da grade — o round é
+  investigado antes do 33. Um campeão novo é adotado se passar U₂ < 1 e superar o do Round 31.
+justification: >
+  protocolo metodológico §23 (ajuste de hiperparâmetros dos campeões, Round 18/20) e §27 (Era 31);
+  Box, G.E.P., Jenkins, G.M., Reinsel, G.C. & Ljung, G.M. (2015), Time Series Analysis, 5th ed.;
+  Akaike, H. (1974), IEEE Trans. Autom. Control 19(6), 716-723.
+baseline_json: outputs/results/202609281913_v31.json
+combos:
+  - [2437, lucro_consolidado]
+  - [2437, despesas_operacionais]
+  - [18376, resultado_bruto]
+  - [20257, despesas_operacionais]
+  - [21490, resultado_bruto]
+  - [21490, despesas_operacionais]
+models: full
+preproc: search
+exog: {source: outputs/results/exog_selection_v31.json}
+hyperparams: {sarimax_family_p_max: 4, sarimax_family_q_max: 4}
+version: 32
+success_criteria:
+  fit_gain_pp: 0.0
+  dm_pvalue_max: 0.10
+  note: >
+    Round de reinstauração do espaço de busca, não de ganho. Resultado nulo (nenhum campeão novo)
+    é o desfecho esperado e é registrado como tal.
+next_round: >
+  Round 33 (WIENER W1-W3, exog none, mesmas seis combinações) — reproduz 19/26/29.

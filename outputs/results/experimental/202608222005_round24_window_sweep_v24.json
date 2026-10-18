@@ -1,0 +1,629 @@
+{
+  "round": 24,
+  "window_values": [
+    20,
+    25,
+    30,
+    35
+  ],
+  "eval_start": 40,
+  "comparable": false,
+  "sweep": {
+    "20": {
+      "2437": {
+        "resultado_bruto": {
+          "modelo_utilizado": "COMBINATION-INVMSE",
+          "descricao_parametros": "COMBINATION-INVMSE[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+          "preprocessing": "raw",
+          "fit_percent_full_range": -2.441271793878075,
+          "theil_u2_full_range": 0.8272298941424113,
+          "fit_percent_eval": 0.8838086848854343,
+          "theil_u2_eval": 0.8668280055659705,
+          "rmse_eval": 1723508288.6681597,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.2877341621954477
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "COMBINATION-INVMSE",
+          "descricao_parametros": "COMBINATION-INVMSE[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 4.667107206581955,
+          "theil_u2_full_range": 0.8880997682883829,
+          "fit_percent_eval": 7.626181247738728,
+          "theil_u2_eval": 0.9266055512027483,
+          "rmse_eval": 2330647827.24087,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.8158571129019893
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "THETA",
+          "descricao_parametros": "Theta",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 4.976905169757229,
+          "theil_u2_full_range": 0.7710258024399823,
+          "fit_percent_eval": -5.529716373704763,
+          "theil_u2_eval": 0.8915700324803096,
+          "rmse_eval": 2549021754.439931,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.5973289461502358
+        }
+      },
+      "18376": {
+        "resultado_bruto": {
+          "modelo_utilizado": "DAMPEDTREND",
+          "descricao_parametros": "DampedTrend",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 53.56030077142619,
+          "theil_u2_full_range": 0.8941396180971041,
+          "fit_percent_eval": 26.12080813314246,
+          "theil_u2_eval": 0.8840289194139231,
+          "rmse_eval": 384532628.47870904,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.6623278211546308
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "ARIMAX",
+          "descricao_parametros": "ARIMAX(0,1,1)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 26.348665066046806,
+          "theil_u2_full_range": 0.8137500444410339,
+          "fit_percent_eval": -7.761343228061457,
+          "theil_u2_eval": 0.7719021832200751,
+          "rmse_eval": 242527781.91296384,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.5446899533179237
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "THETA",
+          "descricao_parametros": "Theta",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 6.527485076008322,
+          "theil_u2_full_range": 0.7488153829411377,
+          "fit_percent_eval": -6.911446687834366,
+          "theil_u2_eval": 0.7875377414385146,
+          "rmse_eval": 64137825.4914433,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.13826438966661644
+        }
+      },
+      "20257": {
+        "resultado_bruto": {
+          "modelo_utilizado": "DAMPEDTREND",
+          "descricao_parametros": "DampedTrend",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 51.967768202016615,
+          "theil_u2_full_range": 1.0272935120458289,
+          "fit_percent_eval": 17.146451056498215,
+          "theil_u2_eval": 1.0800376817275694,
+          "rmse_eval": 173695200.56343865,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.059960288769426245
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "BAYESARIMA",
+          "descricao_parametros": "BAYESARIMA(0,1,2) lambda0=1",
+          "preprocessing": "log",
+          "fit_percent_full_range": 36.49711663021002,
+          "theil_u2_full_range": 0.8135174878738045,
+          "fit_percent_eval": 17.477407145499523,
+          "theil_u2_eval": 0.7806628709685877,
+          "rmse_eval": 113360432.15364274,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.15183945125603895
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "ARMAX",
+          "descricao_parametros": "ARMAX(1,0,0)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 25.372007454460498,
+          "theil_u2_full_range": 0.8480120012170476,
+          "fit_percent_eval": 13.082405340683234,
+          "theil_u2_eval": 0.8513777825520955,
+          "rmse_eval": 63457544.30845338,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.08158893363194288
+        }
+      },
+      "21490": {
+        "resultado_bruto": {
+          "modelo_utilizado": "SS",
+          "descricao_parametros": "SS(local level + slope fixo)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 44.11134500380357,
+          "theil_u2_full_range": 0.9630404274297939,
+          "fit_percent_eval": 12.84278646135486,
+          "theil_u2_eval": 0.9572292577970011,
+          "rmse_eval": 309064407.3681562,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.08383261109894301
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "ARMAX",
+          "descricao_parametros": "ARMAX(2,0,2)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 27.238710564094493,
+          "theil_u2_full_range": 0.7001585399848603,
+          "fit_percent_eval": 20.784916515821628,
+          "theil_u2_eval": 0.6647174222929423,
+          "rmse_eval": 151339975.85076997,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.19397304354726294
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "COMBINATION-MEDIAN",
+          "descricao_parametros": "COMBINATION-MEDIAN[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+          "preprocessing": "raw",
+          "fit_percent_full_range": -0.3347927119413008,
+          "theil_u2_full_range": 0.7965083728213561,
+          "fit_percent_eval": -4.534910187713437,
+          "theil_u2_eval": 0.8553330805171679,
+          "rmse_eval": 40407167.522580884,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.5409299987535421
+        }
+      }
+    },
+    "25": {
+      "2437": {
+        "resultado_bruto": {
+          "modelo_utilizado": "COMBINATION-INVMSE",
+          "descricao_parametros": "COMBINATION-INVMSE[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+          "preprocessing": "raw",
+          "fit_percent_full_range": -2.7815689153062984,
+          "theil_u2_full_range": 0.8259980427467668,
+          "fit_percent_eval": 1.1248433208852382,
+          "theil_u2_eval": 0.8647200192720685,
+          "rmse_eval": 1719316993.7092862,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.24439039479530708
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "COMBINATION-MEDIAN",
+          "descricao_parametros": "COMBINATION-MEDIAN[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+          "preprocessing": "raw",
+          "fit_percent_full_range": -2.3125009508242256,
+          "theil_u2_full_range": 0.8499465140918822,
+          "fit_percent_eval": 8.452810853429938,
+          "theil_u2_eval": 0.9183135958438793,
+          "rmse_eval": 2309791457.7580395,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.7301468935164659
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "THETA",
+          "descricao_parametros": "Theta",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 2.1742602108236198,
+          "theil_u2_full_range": 0.7610672066392302,
+          "fit_percent_eval": -5.529716373704763,
+          "theil_u2_eval": 0.8915700324803096,
+          "rmse_eval": 2549021754.439931,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.5973289461502358
+        }
+      },
+      "18376": {
+        "resultado_bruto": {
+          "modelo_utilizado": "DAMPEDTREND",
+          "descricao_parametros": "DampedTrend",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 48.03132274830669,
+          "theil_u2_full_range": 0.8946587753070091,
+          "fit_percent_eval": 26.12080813314246,
+          "theil_u2_eval": 0.8840289194139231,
+          "rmse_eval": 384532628.47870904,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.5889078761422932
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "ARIMAX",
+          "descricao_parametros": "ARIMAX(0,1,1)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 15.830045636138612,
+          "theil_u2_full_range": 0.8154955902859703,
+          "fit_percent_eval": -7.761343228061457,
+          "theil_u2_eval": 0.7719021832200751,
+          "rmse_eval": 242527781.91296384,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.5446899533179237
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "THETA",
+          "descricao_parametros": "Theta",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 2.5280229055758108,
+          "theil_u2_full_range": 0.7611307566250655,
+          "fit_percent_eval": -6.911446687834366,
+          "theil_u2_eval": 0.7875377414385146,
+          "rmse_eval": 64137825.4914433,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.618959219342644
+        }
+      },
+      "20257": {
+        "resultado_bruto": {
+          "modelo_utilizado": "DAMPEDTREND",
+          "descricao_parametros": "DampedTrend",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 49.93729640975043,
+          "theil_u2_full_range": 1.0312243345462193,
+          "fit_percent_eval": 17.146451056498215,
+          "theil_u2_eval": 1.0800376817275694,
+          "rmse_eval": 173695200.56343865,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.013371334313920218
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "BAYESARIMA",
+          "descricao_parametros": "BAYESARIMA(0,1,2) lambda0=1",
+          "preprocessing": "log",
+          "fit_percent_full_range": 36.96248275761107,
+          "theil_u2_full_range": 0.7943399753806032,
+          "fit_percent_eval": 17.477407145499523,
+          "theil_u2_eval": 0.7806628709685877,
+          "rmse_eval": 113360432.15364274,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.15183945125603895
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "ARMAX",
+          "descricao_parametros": "ARMAX(1,0,0)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 25.118821951160953,
+          "theil_u2_full_range": 0.8369096976095931,
+          "fit_percent_eval": 13.082405340683234,
+          "theil_u2_eval": 0.8513777825520955,
+          "rmse_eval": 63457544.30845338,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.10665302608677378
+        }
+      },
+      "21490": {
+        "resultado_bruto": {
+          "modelo_utilizado": "SS",
+          "descricao_parametros": "SS(local level + slope fixo)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 39.4262603557466,
+          "theil_u2_full_range": 0.9627820693168162,
+          "fit_percent_eval": 12.84278646135486,
+          "theil_u2_eval": 0.9572292577970011,
+          "rmse_eval": 309064407.3681562,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.08383261109894301
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "ARMAX",
+          "descricao_parametros": "ARMAX(0,0,1)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 20.296333165445578,
+          "theil_u2_full_range": 0.717754283673162,
+          "fit_percent_eval": 16.592566835911693,
+          "theil_u2_eval": 0.6998966804595635,
+          "rmse_eval": 159349436.5672038,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.24301602443083212
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "COMBINATION-INVMSE",
+          "descricao_parametros": "COMBINATION-INVMSE[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 0.012188156552661589,
+          "theil_u2_full_range": 0.8004132427436592,
+          "fit_percent_eval": -3.7458382759500086,
+          "theil_u2_eval": 0.848876679417992,
+          "rmse_eval": 40102157.8289892,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.3810673891208606
+        }
+      }
+    },
+    "30": {
+      "2437": {
+        "resultado_bruto": {
+          "modelo_utilizado": "COMBINATION-INVMSE",
+          "descricao_parametros": "COMBINATION-INVMSE[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+          "preprocessing": "raw",
+          "fit_percent_full_range": -2.0334146785012663,
+          "theil_u2_full_range": 0.8234035639575845,
+          "fit_percent_eval": 0.9769911902757777,
+          "theil_u2_eval": 0.8660130710509389,
+          "rmse_eval": 1721887959.8574152,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.2690355354016396
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "COMBINATION-MEDIAN",
+          "descricao_parametros": "COMBINATION-MEDIAN[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 2.7025279669006697,
+          "theil_u2_full_range": 0.87300227597669,
+          "fit_percent_eval": 8.452810853429938,
+          "theil_u2_eval": 0.9183135958438793,
+          "rmse_eval": 2309791457.7580395,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.7301468935164659
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "THETA",
+          "descricao_parametros": "Theta",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 2.1854336932264906,
+          "theil_u2_full_range": 0.8327370251603834,
+          "fit_percent_eval": -5.529716373704763,
+          "theil_u2_eval": 0.8915700324803096,
+          "rmse_eval": 2549021754.439931,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.7177074303125679
+        }
+      },
+      "18376": {
+        "resultado_bruto": {
+          "modelo_utilizado": "DAMPEDTREND",
+          "descricao_parametros": "DampedTrend",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 42.69072234153237,
+          "theil_u2_full_range": 0.8836655772114866,
+          "fit_percent_eval": 26.12080813314246,
+          "theil_u2_eval": 0.8840289194139231,
+          "rmse_eval": 384532628.47870904,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.6783329053790964
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "ARIMAX",
+          "descricao_parametros": "ARIMAX(0,1,1)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 5.588926216501533,
+          "theil_u2_full_range": 0.799837248505475,
+          "fit_percent_eval": -7.761343228061457,
+          "theil_u2_eval": 0.7719021832200751,
+          "rmse_eval": 242527781.91296384,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.04995360125909715
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "THETA",
+          "descricao_parametros": "Theta",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 7.40763253102531,
+          "theil_u2_full_range": 0.7697892645179588,
+          "fit_percent_eval": -6.911446687834366,
+          "theil_u2_eval": 0.7875377414385146,
+          "rmse_eval": 64137825.4914433,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.639461917717328
+        }
+      },
+      "20257": {
+        "resultado_bruto": {
+          "modelo_utilizado": "DAMPEDTREND",
+          "descricao_parametros": "DampedTrend",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 43.96965722377596,
+          "theil_u2_full_range": 1.0343556888239316,
+          "fit_percent_eval": 17.146451056498215,
+          "theil_u2_eval": 1.0800376817275694,
+          "rmse_eval": 173695200.56343865,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.0029076048779644896
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "BAYESARIMA",
+          "descricao_parametros": "BAYESARIMA(0,1,2) lambda0=1",
+          "preprocessing": "log",
+          "fit_percent_full_range": 29.916476860877907,
+          "theil_u2_full_range": 0.7977652354675061,
+          "fit_percent_eval": 17.477407145499523,
+          "theil_u2_eval": 0.7806628709685877,
+          "rmse_eval": 113360432.15364274,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.15183945125603895
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "BAYESARIMA",
+          "descricao_parametros": "BAYESARIMA(1,0,0) lambda0=0.05",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 20.55495622097563,
+          "theil_u2_full_range": 0.8398427817013058,
+          "fit_percent_eval": 13.081572596625657,
+          "theil_u2_eval": 0.851385939471209,
+          "rmse_eval": 63458152.28538991,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.1066402685969058
+        }
+      },
+      "21490": {
+        "resultado_bruto": {
+          "modelo_utilizado": "SS",
+          "descricao_parametros": "SS(local level + slope fixo)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 31.42959163611406,
+          "theil_u2_full_range": 0.9627363924782828,
+          "fit_percent_eval": 12.84278646135486,
+          "theil_u2_eval": 0.9572292577970011,
+          "rmse_eval": 309064407.3681562,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.08383261109894301
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "ARMAX",
+          "descricao_parametros": "ARMAX(0,0,1)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 15.78242867509394,
+          "theil_u2_full_range": 0.7036942661578302,
+          "fit_percent_eval": 16.592566835911693,
+          "theil_u2_eval": 0.6998966804595635,
+          "rmse_eval": 159349436.5672038,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.08918641260931472
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "COMBINATION-MEDIAN",
+          "descricao_parametros": "COMBINATION-MEDIAN[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+          "preprocessing": "raw",
+          "fit_percent_full_range": -1.944258457718706,
+          "theil_u2_full_range": 0.8047481587176394,
+          "fit_percent_eval": -4.5577770397353445,
+          "theil_u2_eval": 0.8555201833227905,
+          "rmse_eval": 40416006.52879138,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.5380265019753372
+        }
+      }
+    },
+    "35": {
+      "2437": {
+        "resultado_bruto": {
+          "modelo_utilizado": "COMBINATION-INVMSE",
+          "descricao_parametros": "COMBINATION-INVMSE[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+          "preprocessing": "raw",
+          "fit_percent_full_range": -2.8872511094786946,
+          "theil_u2_full_range": 0.832642155030076,
+          "fit_percent_eval": 1.305502644986023,
+          "theil_u2_eval": 0.8631400497482264,
+          "rmse_eval": 1716175550.9401329,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.41730593335834776
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "COMBINATION-MEDIAN",
+          "descricao_parametros": "COMBINATION-MEDIAN[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 3.3468199449498304,
+          "theil_u2_full_range": 0.9123589175135353,
+          "fit_percent_eval": 8.452810853429938,
+          "theil_u2_eval": 0.9183135958438793,
+          "rmse_eval": 2309791457.7580395,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.7301468935164659
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "COMBINATION-MEAN",
+          "descricao_parametros": "COMBINATION-MEAN[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+          "preprocessing": "raw",
+          "fit_percent_full_range": -4.163997222388338,
+          "theil_u2_full_range": 0.889174104677248,
+          "fit_percent_eval": -3.9868151878526437,
+          "theil_u2_eval": 0.8785347992999917,
+          "rmse_eval": 2511753686.0433393,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.6579841343416463
+        }
+      },
+      "18376": {
+        "resultado_bruto": {
+          "modelo_utilizado": "DAMPEDTREND",
+          "descricao_parametros": "DampedTrend",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 35.946709181596695,
+          "theil_u2_full_range": 0.8801467642606107,
+          "fit_percent_eval": 26.12080813314246,
+          "theil_u2_eval": 0.8840289194139231,
+          "rmse_eval": 384532628.47870904,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.8026921524810416
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "ARIMAX",
+          "descricao_parametros": "ARIMAX(0,1,1)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": -2.59153532543972,
+          "theil_u2_full_range": 0.7775641221869197,
+          "fit_percent_eval": -7.761343228061457,
+          "theil_u2_eval": 0.7719021832200751,
+          "rmse_eval": 242527781.91296384,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.5446899533179237
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "THETA",
+          "descricao_parametros": "Theta",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 4.332991189650571,
+          "theil_u2_full_range": 0.7622491464136446,
+          "fit_percent_eval": -6.911446687834366,
+          "theil_u2_eval": 0.7875377414385146,
+          "rmse_eval": 64137825.4914433,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.639461917717328
+        }
+      },
+      "20257": {
+        "resultado_bruto": {
+          "modelo_utilizado": "DAMPEDTREND",
+          "descricao_parametros": "DampedTrend",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 31.515002083288536,
+          "theil_u2_full_range": 1.0353158608870285,
+          "fit_percent_eval": 17.146451056498215,
+          "theil_u2_eval": 1.0800376817275694,
+          "rmse_eval": 173695200.56343865,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.08924356821991491
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "BAYESARIMA",
+          "descricao_parametros": "BAYESARIMA(0,0,1) lambda0=0.05",
+          "preprocessing": "log+diff",
+          "fit_percent_full_range": 14.969276866221515,
+          "theil_u2_full_range": 0.8766206988560463,
+          "fit_percent_eval": 13.839677845680566,
+          "theil_u2_eval": 0.8150757523477545,
+          "rmse_eval": 118357543.26250625,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.18723418522655416
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "BAYESARIMA",
+          "descricao_parametros": "BAYESARIMA(1,0,0) lambda0=0.05",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 17.368295194161863,
+          "theil_u2_full_range": 0.841719316381101,
+          "fit_percent_eval": 13.081572596625657,
+          "theil_u2_eval": 0.851385939471209,
+          "rmse_eval": 63458152.28538991,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.13548402579394997
+        }
+      },
+      "21490": {
+        "resultado_bruto": {
+          "modelo_utilizado": "SS",
+          "descricao_parametros": "SS(local level + slope fixo)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 18.198379847982473,
+          "theil_u2_full_range": 0.9624107446754249,
+          "fit_percent_eval": 12.84278646135486,
+          "theil_u2_eval": 0.9572292577970011,
+          "rmse_eval": 309064407.3681562,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.08383261109894301
+        },
+        "lucro_consolidado": {
+          "modelo_utilizado": "ARMAX",
+          "descricao_parametros": "ARMAX(0,0,1)",
+          "preprocessing": "raw",
+          "fit_percent_full_range": 9.51329338571002,
+          "theil_u2_full_range": 0.7020506749736785,
+          "fit_percent_eval": 16.592566835911693,
+          "theil_u2_eval": 0.6998966804595635,
+          "rmse_eval": 159349436.5672038,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.24301602443083212
+        },
+        "despesas_operacionais": {
+          "modelo_utilizado": "COMBINATION-MEDIAN",
+          "descricao_parametros": "COMBINATION-MEDIAN[ARIMA+ETS+THETA+SS+DAMPEDTREND]",
+          "preprocessing": "raw",
+          "fit_percent_full_range": -3.173268946578922,
+          "theil_u2_full_range": 0.8051490249635902,
+          "fit_percent_eval": -4.5577770397353445,
+          "theil_u2_eval": 0.8555201833227905,
+          "rmse_eval": 40416006.52879138,
+          "n_eval_folds": 24,
+          "dm_p_eval": 0.5380265019753372
+        }
+      }
+    }
+  }
+}

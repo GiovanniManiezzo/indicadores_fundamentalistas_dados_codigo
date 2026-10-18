@@ -1,0 +1,56 @@
+# Round 28 — Correção de dado faltante codificado como zero nas 3 combinações da ALUP4.
+# Família `full`. Ver Rounds 29 (WIENER) e 30 (HAMMERSTEIN) para fechar o espaço de famílias.
+round: 28
+hypothesis: >
+  As três séries da ALUP4 (21490) contêm 0.0 em 2010-06-30 e 2011-06-30 — simultaneamente em
+  resultado_bruto, lucro_consolidado e despesas_operacionais. A simultaneidade nos três
+  indicadores, em dois trimestres isolados de uma concessionária com receita anual permitida
+  contratada, exclui leitura contábil: nenhum evento produz receita bruta, lucro e despesa
+  operacional todos exatamente nulos e todos recuperados no trimestre seguinte. A origem foi
+  rastreada até o pipeline de extração que gerou os CSVs (`criar_dataframe_indicador`, notebook
+  Model/2_Models.ipynb do repositório hmm_models): a função pivota por CD_CVM com `join(how="outer")`
+  e aplica `fillna(0, inplace=True)`, de modo que trimestre ausente para uma empresa vira zero
+  contábil. Uma segunda execução do mesmo notebook, com a interpolação da célula 14
+  (`interpolate(method="linear", limit_direction="both")`) ativa, produziu para as mesmas células
+  114111000.0 e 124590500.0 — exatamente (t-1 + t+1)/2, isto é, o próprio SPIKE_IMPUTE_METHOD
+  vigente. Portanto não se trata de metodologia nova: é o tratamento já documentado do painel,
+  aplicado a dois pontos que escaparam. Escaparam porque `SPIKE_KNOWN` nunca listou essas datas e
+  a detecção automática não as alcança — um zero numa série de ordem 2e8 produz z ≈ -1, muito
+  aquém de SPIKE_Z_THRESH = 5.0, que é calibrado para picos e não para colapsos a zero.
+  Hipótese testável: as duas observações são missing data e não dinâmica genuína; imputá-las pelo
+  linear_interp corrige a etapa de identificação dos 3 campeões da ALUP4 sem degradar o
+  desempenho out-of-sample. O mecanismo é preciso e limitado: ambas as datas caem nas posições 2
+  e 6 de 64, isto é, dentro da janela inicial MIN_TRAIN = 20, onde ordem e coeficientes são
+  selecionados e congelados (`fixed_order`, Invariante 4) — logo elas jamais entram no conjunto
+  de avaliação, e o efeito esperado é sobre a identificação do modelo, não sobre as métricas por
+  contaminação direta. Dois colapsos espúrios de 100% dentro da janela de identificação inflam a
+  variância amostral e deprimem a estrutura autorregressiva estimada, viés que a correção remove.
+  Pré-registro anti-data-snooping: as datas são pré-especificadas e derivadas de auditoria de
+  dado (as duas únicas células iguais a 0.0 em todo o painel de 12 séries × 64 trimestres), não
+  de varredura de desempenho; a decisão é binária e idêntica nas três combinações, sem grid; e a
+  correção é adotada independentemente do resultado, por ser questão de correção de dado e não
+  de otimização — se o desempenho piorar, a piora é reportada como regressão (Invariante 7) e o
+  dado corrigido permanece. Verificação colateral já executada: a correlação FIT% × ρ₁ que
+  organiza o painel é 0.953 com os zeros e 0.952 com eles
+  imputados, de modo que o achado central da dissertação não depende desta decisão.
+justification: "protocolo metodológico §11 e §27; Little, R.J.A. & Rubin, D.B. (2019), Statistical Analysis with Missing Data, 3rd ed., Wiley (cap. 1: missing data vs. valor observado); Honaker, J. & King, G. (2010), American Journal of Political Science 54(2), 561-581 (imputação em séries temporais cross-section); Chen, C. & Liu, L.M. (1993), JASA 88(421), 284-297 (tipologia AO/LS/TC — distinção entre outlier e dado ausente)"
+baseline_json: results/202608231556_v27.json
+combos: [[21490, resultado_bruto], [21490, lucro_consolidado], [21490, despesas_operacionais]]
+models: full
+preproc: search
+exog: {source: results/exog_selection_v11.json}
+version: 28
+success_criteria:
+  fit_gain_pp: 0.0
+  dm_pvalue_max: 0.10
+  note: >
+    Round de correção de dado, não de busca. O critério de aceitação é a manutenção do gate U₂<1
+    nas 3 combinações sob a série corrigida — não um ganho de FIT%. `fit_gain_pp: 0.0` registra
+    que nenhum ganho é exigido nem prometido. Se alguma combinação perder o gate, ela passa a
+    falha declarada e isso é reportado, mas a correção do dado permanece: um zero de missing data
+    não volta ao painel por conveniência de métrica.
+next_round: >
+  Round 29 (`models: [WIENER]`, mesmos 3 combos) — necessário porque o campeão vigente de
+  ALUP4×despesas_operacionais é WIENER-W3-BSpline3 e a família não entra em `models: full`;
+  sob TREATMENT_ERA = 28 esse campeão precisa ser reeleito na era nova. Depois Round 30
+  (`models: [HAMMERSTEIN]`), fechando o mesmo espaço de famílias varrido nos Rounds 25-27.

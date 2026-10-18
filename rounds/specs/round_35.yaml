@@ -1,0 +1,42 @@
+# Round 35 — campeão de cada combinação sob estimação recursiva (RPEM com esquecimento).
+# Exploratório; protocolo metodológico §28. Não promove campeão (outputs/results/experimental/).
+round: 35
+hypothesis: >
+  Reabre um eixo que a busca dos Rounds 00-34 nunca variou: o estimador. Em todos os rounds os
+  coeficientes foram reestimados em lote a cada origem do walk-forward; família, pré-processamento,
+  exógenas, hiperparâmetros e janela foram varridos, o estimador não.
+  Hipótese econômica: os parâmetros que ligam os indicadores contábeis das transmissoras à sua
+  própria história não são constantes em 2010-2025. Mudam com a renovação antecipada das
+  concessões (MP 579/2012, Lei 12.783/2013), que reprecificou a RAP da Eletrobras; com a adoção
+  do CPC 47/ICPC 01 em 2018, que passou a reconhecer a receita de transmissão como ativo de
+  contrato; e com as revisões tarifárias periódicas da ANEEL. Um estimador recursivo com
+  esquecimento (RPEM, λ=0,98, memória efetiva de 50 trimestres) desconta o passado e acompanha
+  essa deriva; o lote pondera igualmente toda a amostra. Previsão pré-registrada: (i) validade
+  da implementação — a 1ª previsão fora da amostra coincide com a do lote em todas as famílias
+  (§28); (ii) |ΔFIT| ≤ 2 p.p. na maioria das combinações, porque com t ≤ 64 e λ=0,98
+  o peso mínimo de uma observação ainda é 0,98^44 ≈ 0,41; (iii) ganho concentrado nas combinações
+  da ELET6, a empresa mais exposta à MP 579. Condição de falsificação da hipótese: nenhuma
+  combinação com ΔFIT ≥ +2 p.p., U₂ < 1 e DM (recursivo × lote) p < 0,10 — nesse caso o lote
+  fica como protocolo e o resultado entra no artigo como robustez ao estimador.
+justification: >
+  protocolo metodológico §28; Ljung, L. & Söderström, T. (1983), Theory and Practice of Recursive
+  Identification, MIT Press; Ljung, L. (1999), System Identification, 2nd ed., §11.2-11.7.
+combos: all
+models: RECURSIVE
+preproc: search
+exog: none
+version: 35
+success_criteria:
+  fit_gain_pp: 2.0
+  dm_pvalue_max: 0.10
+  note: >
+    Por combinação, "ganho" = ΔFIT ≥ +2 p.p. com U₂ < 1 e DM recursivo×lote p < 0,10. Relatar as
+    12, inclusive regressões. Checagem de implementação: diferença absoluta da 1ª previsão OOS
+    nula (≤ 1e-6 relativo) em todas as famílias.
+  amendment: >
+    Emenda antes da execução oficial: a exceção do Wiener na checagem de implementação foi
+    retirada depois que os testes de fumaça mostraram que o preditor com um único g mudava o
+    modelo (ver §28); hipótese, previsões (ii)-(iii) e critério de ganho ficaram inalterados.
+next_round: >
+  Decisão do autor sobre o papel da estimação recursiva (substituir o lote ou relatar como
+  robustez), à luz das 12 combinações.
